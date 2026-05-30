@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partner With Us - KAKA Humanitarian Foundation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-900 text-slate-200">
+
+    <header class="bg-slate-800 shadow-lg">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-blue-400">KAKA Humanitarian Foundation</a>
+            <a href="index.html#contact"
+                class="px-4 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-blue-400 hover:bg-slate-700 transition">Back
+                to Main Site</a>
+        </nav>
+    </header>
+
+    <section id="partner-form" class="py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-blue-400 mb-4">Become a Partner</h2>
+                <div class="w-24 h-1 bg-emerald-500 mx-auto"></div>
+                <p class="text-xl mt-6 max-w-3xl mx-auto text-slate-300">
+                    Join us in our mission to serve humanity. Fill out the form below to start a conversation about how
+                    we can work together.
+                </p>
+            </div>
+
+            <div class="bg-slate-800 p-8 rounded-lg shadow-lg">
+                <form id="partner-form-element" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="OrganizationName"
+                                class="block text-sm font-medium text-slate-300 mb-2">Organization/Company Name</label>
+                            <input type="text" name="OrganizationName" id="OrganizationName" required
+                                class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                        </div>
+                        <div>
+                            <label for="OrganizationType"
+                                class="block text-sm font-medium text-slate-300 mb-2">Organization Type</label>
+                            <select name="OrganizationType" id="OrganizationType" required
+                                class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                                <option value="" disabled selected>Please select...</option>
+                                <option value="NGO">NGO / Non-Profit</option>
+                                <option value="Business">Business / Corporate</option>
+                                <option value="Government">Government Agency</option>
+                                <option value="Media">Media Organization</option>
+                                <option value="Religious Org">Religious Organization</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="ContactName" class="block text-sm font-medium text-slate-300 mb-2">Contact
+                                Person’s Full Name</label>
+                            <input type="text" name="ContactName" id="ContactName" required
+                                class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                        </div>
+                        <div>
+                            <label for="Position" class="block text-sm font-medium text-slate-300 mb-2">Position /
+                                Title</label>
+                            <input type="text" name="Position" id="Position" required
+                                class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="Email" class="block text-sm font-medium text-slate-300 mb-2">Email
+                                Address</label>
+                            <input type="email" name="Email" id="Email" required
+                                class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                        </div>
+                        <div>
+                            <label for="Phone" class="block text-sm font-medium text-slate-300 mb-2">Phone Number
+                                (WhatsApp)</label>
+                            <input type="tel" name="Phone" id="Phone" required
+                                class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="Website" class="block text-sm font-medium text-slate-300 mb-2">Website / Social
+                            Media Link</label>
+                        <input type="url" name="Website" id="Website" placeholder="https://..." required
+                            class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                    </div>
+
+                    <div>
+                        <label for="PartnershipNature" class="block text-sm font-medium text-slate-300 mb-2">Nature of
+                            Partnership Offered</label>
+                        <select name="PartnershipNature" id="PartnershipNature" required
+                            class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                            <option value="" disabled selected>Please select...</option>
+                            <option value="Financial support">Financial support</option>
+                            <option value="Product donation">Product donation</option>
+                            <option value="Joint programs">Joint programs / Events</option>
+                            <option value="Promotion">Promotion / Awareness campaigns</option>
+                            <option value="Other">Other (Please specify below)</option>
+                        </select>
+                    </div>
+                    <div id="other-details-wrapper" class="hidden">
+                        <label for="OtherPartnershipDetails" class="block text-sm font-medium text-slate-300 mb-2">If
+                            other, please specify</label>
+                        <textarea name="OtherPartnershipDetails" id="OtherPartnershipDetails" rows="3"
+                            class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"></textarea>
+                    </div>
+
+                    <div class="text-center pt-4">
+                        <button type="submit" id="submit-button"
+                            class="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-12 rounded-lg transition duration-300 transform hover:scale-105">
+                            Submit Partnership Request
+                        </button>
+                    </div>
+                </form>
+                <div id="form-message" class="mt-6 text-center text-lg font-medium"></div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // --- THIS SCRIPT HANDLES THE FORM SUBMISSION ---
+        const form = document.getElementById('partner-form-element');
+        const submitButton = document.getElementById('submit-button');
+        const formMessage = document.getElementById('form-message');
+        const webAppUrl = 'https://script.google.com/macros/s/AKfycbzHFdoyKrxpkzzm-Vba_p4_oFkoPT4BpFmLGL4Jwsgfkl8G_pIsg5HSUQ9bcL8VmcIttw/exec'; // <-- IMPORTANT: PASTE YOUR URL
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            submitButton.disabled = true;
+            submitButton.textContent = 'Submitting...';
+
+            fetch(webAppUrl, { method: 'POST', body: new FormData(form) })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.result === 'success') {
+                        formMessage.textContent = 'Thank you! Your partnership request has been received. We will be in touch soon.';
+                        formMessage.style.color = '#10B981'; // Success green
+                        form.reset();
+                        document.getElementById('other-details-wrapper').classList.add('hidden');
+                    } else {
+                        throw new Error(data.error || 'An unknown error occurred.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error submitting form:', error);
+                    formMessage.textContent = 'An error occurred. Please try again later.';
+                    formMessage.style.color = '#EF4444'; // Error red
+                })
+                .finally(() => {
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Submit Partnership Request';
+                });
+        });
+
+        // --- THIS SCRIPT SHOWS THE 'OTHER' TEXT BOX WHEN NEEDED ---
+        const partnershipNatureSelect = document.getElementById('PartnershipNature');
+        const otherDetailsWrapper = document.getElementById('other-details-wrapper');
+
+        partnershipNatureSelect.addEventListener('change', function () {
+            if (this.value === 'Other') {
+                otherDetailsWrapper.classList.remove('hidden');
+            } else {
+                otherDetailsWrapper.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+
+</html>
