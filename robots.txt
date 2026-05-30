@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://kakafoundation.netlify.app/sitemap.xml
