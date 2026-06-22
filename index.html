@@ -20,9 +20,22 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+        /* Reset and base styles */
+        * {
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        html {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
             scroll-behavior: smooth;
+            overflow-x: hidden;
+            width: 100%;
         }
 
         .hero-section {
@@ -38,6 +51,7 @@
 
         .testimonial-card {
             min-width: 100%;
+            flex-shrink: 0;
         }
 
         @media (min-width: 768px) {
@@ -54,20 +68,112 @@
 
         /* Logo styling */
         .logo-text {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: 700;
             color: #FBBF24;
         }
 
         @media (min-width: 640px) {
             .logo-text {
-                font-size: 1.8rem;
+                font-size: 1.5rem;
             }
         }
 
         @media (min-width: 1024px) {
             .logo-text {
-                font-size: 2rem;
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Make images responsive */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Fix containers for mobile */
+        .max-w-7xl, .max-w-3xl, .max-w-2xl {
+            max-width: 100%;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        /* Hide scrollbar for carousel */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Mobile menu button touch-friendly */
+        #mobile-menu-button {
+            min-width: 44px;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+        }
+
+        /* Mobile text adjustments */
+        @media (max-width: 640px) {
+            .hero-section h1 {
+                font-size: 2rem !important;
+            }
+            .hero-section p {
+                font-size: 1rem !important;
+            }
+            h2 {
+                font-size: 1.5rem !important;
+            }
+            h3 {
+                font-size: 1.2rem !important;
+            }
+            .logo-text {
+                font-size: 0.9rem !important;
+            }
+            .card-hover p {
+                font-size: 0.9rem !important;
+            }
+            .gap-8 {
+                gap: 1rem !important;
+            }
+            .grid-cols-1.sm\:grid-cols-2 {
+                grid-template-columns: 1fr !important;
+            }
+            .p-8 {
+                padding: 1.25rem !important;
+            }
+            .px-8 {
+                padding-left: 1.25rem !important;
+                padding-right: 1.25rem !important;
+            }
+            .py-20 {
+                padding-top: 3rem !important;
+                padding-bottom: 3rem !important;
+            }
+            .gap-12 {
+                gap: 1.5rem !important;
+            }
+            .space-x-4 {
+                space-x: 0.5rem !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-text {
+                font-size: 0.75rem !important;
+            }
+            .hero-section h1 {
+                font-size: 1.6rem !important;
+            }
+            .h-10 {
+                height: 2rem !important;
+            }
+            .h-16 {
+                height: 3.5rem !important;
             }
         }
     </style>
@@ -76,19 +182,19 @@
 <body class="bg-slate-900 text-slate-200">
     <nav class="fixed w-full bg-slate-900/90 backdrop-blur-md z-50 shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex items-center">
+            <div class="flex items-center justify-between h-16 md:h-16 h-14">
+                <div class="flex items-center flex-1 min-w-0">
                     <div class="flex-shrink-0">
-                        <a href="#" class="flex items-center gap-3">
+                        <a href="#" class="flex items-center gap-2 sm:gap-3">
                             <!-- Logo Image -->
-                            <img src="images/KAKA_logo.png" alt="KAKA Humanitarian Foundation Logo" 
-                                 class="h-10 w-auto md:h-12 lg:h-14 object-contain">
+                            <img src="/images/KAKA_logo.png" alt="KAKA Humanitarian Foundation Logo" 
+                                 class="h-8 w-auto md:h-10 lg:h-12 object-contain">
                             <!-- Logo Text -->
-                            <span class="logo-text hidden sm:inline">KAKA Humanitarian Foundation</span>
+                            <span class="logo-text hidden xs:inline truncate max-w-[120px] sm:max-w-[200px] md:max-w-none">KAKA Humanitarian Foundation</span>
                         </a>
                     </div>
                 </div>
-                <div class="hidden md:block">
+                <div class="hidden md:flex items-center">
                     <div class="ml-10 flex items-baseline space-x-4">
                         <a href="#home"
                             class="px-3 py-2 rounded-md text-sm font-medium text-blue-400 hover:bg-slate-800 transition">Home</a>
@@ -102,9 +208,9 @@
                             class="px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-blue-400 hover:bg-slate-800 transition">Contact</a>
                     </div>
                 </div>
-                <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-slate-300 hover:text-white focus:outline-none">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div class="md:hidden flex-shrink-0">
+                    <button id="mobile-menu-button" class="text-slate-300 hover:text-white focus:outline-none" aria-label="Toggle menu">
+                        <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
@@ -112,229 +218,225 @@
                 </div>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-slate-800">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-blue-400">Home</a>
-                <a href="#about"
-                    class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-blue-400">About</a>
-                <a href="#programs"
-                    class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-blue-400">Programs</a>
-                <a href="#donate"
-                    class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-blue-400">Donate</a>
-                <a href="#contact"
-                    class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-blue-400">Contact</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-800 w-full">
+            <div class="px-4 pt-2 pb-4 space-y-1">
+                <a href="#home" class="block px-4 py-3 rounded-md text-base font-medium text-blue-400 hover:bg-slate-700 transition">Home</a>
+                <a href="#about" class="block px-4 py-3 rounded-md text-base font-medium text-slate-300 hover:text-blue-400 hover:bg-slate-700 transition">About</a>
+                <a href="#programs" class="block px-4 py-3 rounded-md text-base font-medium text-slate-300 hover:text-blue-400 hover:bg-slate-700 transition">Programs</a>
+                <a href="#donate" class="block px-4 py-3 rounded-md text-base font-medium text-slate-300 hover:text-blue-400 hover:bg-slate-700 transition">Donate</a>
+                <a href="#contact" class="block px-4 py-3 rounded-md text-base font-medium text-slate-300 hover:text-blue-400 hover:bg-slate-700 transition">Contact</a>
             </div>
         </div>
     </nav>
 
     <section id="home" class="hero-section min-h-screen flex items-center justify-center pt-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6 text-white">Serving Humanity with Love and Compassion</h1>
-            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-slate-200">KAKA Humanitarian Foundation is a registered 
+            <h1 class="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 md:mb-6 text-white">Serving Humanity with Love and Compassion</h1>
+            <p class="text-base sm:text-xl md:text-2xl mb-6 md:mb-8 max-w-3xl mx-auto text-slate-200">KAKA Humanitarian Foundation is a registered 
                 non-profit organization (RC: 9533849) based in Nigeria, dedicated to serving vulnerable populations through 
                 essential life sustaining support.</p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
                 <a href="#donate"
-                    class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105">Donate
+                    class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 sm:px-8 rounded-lg transition duration-300 transform hover:scale-105 text-sm sm:text-base">Donate
                     Now</a>
                 <a href="volunteer/"
-                    class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105">Volunteer</a>
+                    class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-6 sm:px-8 rounded-lg transition duration-300 transform hover:scale-105 text-sm sm:text-base">Volunteer</a>
                 <a href="Partner/index.html"
-                    class="bg-slate-500 hover:bg-slate-600 text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105">Partner</a>
+                    class="bg-slate-500 hover:bg-slate-600 text-white font-bold py-3 px-6 sm:px-8 rounded-lg transition duration-300 transform hover:scale-105 text-sm sm:text-base">Partner</a>
             </div>
         </div>
     </section>
 
-    <section id="about" class="py-20 bg-slate-800">
+    <section id="about" class="py-12 md:py-20 bg-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-blue-400 mb-4">About Kaka Humanitarian Foundation</h2>
+            <div class="text-center mb-10 md:mb-16">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-400 mb-4">About KAKA Humanitarian Foundation</h2>
                 <div class="w-24 h-1 bg-emerald-500 mx-auto"></div>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="grid md:grid-cols-2 gap-6 md:gap-12 items-center">
                 <div>
                     <img src="images/pexels-kwakugriffn-14554003.jpg" alt="Team working together"
                         class="rounded-lg shadow-xl w-full h-auto">
                 </div>
                 <div>
-                    <div class="mb-8">
-                        <h3 class="text-2xl font-bold text-blue-400 mb-3">Our Mission</h3>
-                        <p class="text-slate-300">To restore dignity and transform lives by providing essential 
+                    <div class="mb-6 md:mb-8">
+                        <h3 class="text-xl md:text-2xl font-bold text-blue-400 mb-3">Our Mission</h3>
+                        <p class="text-slate-300 text-sm md:text-base">To restore dignity and transform lives by providing essential 
                             life sustaining support which including food, water, shelter, education, and healthcare, 
                             that means fostering empowerment within our community which break the cycle of poverty</p>
                     </div>
-                    <div class="mb-8">
-                        <h3 class="text-2xl font-bold text-blue-400 mb-3">Our Vision</h3>
-                        <p class="text-slate-300">A world where no one goes hungry, every child 
+                    <div class="mb-6 md:mb-8">
+                        <h3 class="text-xl md:text-2xl font-bold text-blue-400 mb-3">Our Vision</h3>
+                        <p class="text-slate-300 text-sm md:text-base">A world where no one goes hungry, every child 
                             receives a quality education, the sick and imprisoned are visited with hope, 
                             and the vulnerable are empowered to live meaningful, dignified lives</p>
                     </div>
                 </div>
             </div>
 
-            <div class="mt-16">
-                <h3 class="text-2xl font-bold text-center text-blue-400 mb-8">Our Core Values</h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+            <div class="mt-12 md:mt-16">
+                <h3 class="text-xl md:text-2xl font-bold text-center text-blue-400 mb-6 md:mb-8">Our Core Values</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
                     <div
-                        class="bg-slate-700 p-6 rounded-lg shadow-md hover:bg-slate-600 transition duration-300 card-hover">
-                        <div class="text-4xl text-red-500 mb-4">❤️</div>
-                        <h4 class="text-xl font-bold mb-2 text-white">Compassion</h4>
-                        <p class="text-slate-300">We serve with love and kindness.</p>
+                        class="bg-slate-700 p-4 md:p-6 rounded-lg shadow-md hover:bg-slate-600 transition duration-300 card-hover">
+                        <div class="text-3xl md:text-4xl text-red-500 mb-3 md:mb-4">❤️</div>
+                        <h4 class="text-lg md:text-xl font-bold mb-2 text-white">Compassion</h4>
+                        <p class="text-slate-300 text-sm">We serve with love and kindness.</p>
                     </div>
                     <div
-                        class="bg-slate-700 p-6 rounded-lg shadow-md hover:bg-slate-600 transition duration-300 card-hover">
-                        <div class="text-4xl text-yellow-500 mb-4">🤝</div>
-                        <h4 class="text-xl font-bold mb-2 text-white">Dignity</h4>
-                        <p class="text-slate-300">Every human deserves respect and care.</p>
+                        class="bg-slate-700 p-4 md:p-6 rounded-lg shadow-md hover:bg-slate-600 transition duration-300 card-hover">
+                        <div class="text-3xl md:text-4xl text-yellow-500 mb-3 md:mb-4">🤝</div>
+                        <h4 class="text-lg md:text-xl font-bold mb-2 text-white">Dignity</h4>
+                        <p class="text-slate-300 text-sm">Every human deserves respect and care.</p>
                     </div>
                     <div
-                        class="bg-slate-700 p-6 rounded-lg shadow-md hover:bg-slate-600 transition duration-300 card-hover">
-                        <div class="text-4xl text-green-500 mb-4">🌍</div>
-                        <h4 class="text-xl font-bold mb-2 text-white">Community</h4>
-                        <p class="text-slate-300">Together, we can create lasting change.</p>
+                        class="bg-slate-700 p-4 md:p-6 rounded-lg shadow-md hover:bg-slate-600 transition duration-300 card-hover">
+                        <div class="text-3xl md:text-4xl text-green-500 mb-3 md:mb-4">🌍</div>
+                        <h4 class="text-lg md:text-xl font-bold mb-2 text-white">Community</h4>
+                        <p class="text-slate-300 text-sm">Together, we can create lasting change.</p>
                     </div>
                     <div
-                        class="bg-slate-700 p-6 rounded-lg shadow-md hover:bg-slate-600 transition duration-300 card-hover">
-                        <div class="text-4xl text-blue-500 mb-4">🛠</div>
-                        <h4 class="text-xl font-bold mb-2 text-white">Empowerment</h4>
-                        <p class="text-slate-300">We provide opportunities, not just aid.</p>
+                        class="bg-slate-700 p-4 md:p-6 rounded-lg shadow-md hover:bg-slate-600 transition duration-300 card-hover">
+                        <div class="text-3xl md:text-4xl text-blue-500 mb-3 md:mb-4">🛠</div>
+                        <h4 class="text-lg md:text-xl font-bold mb-2 text-white">Empowerment</h4>
+                        <p class="text-slate-300 text-sm">We provide opportunities, not just aid.</p>
                     </div>
                     <div
-                        class="bg-slate-700 p-6 rounded-lg shadow-md hover:bg-slate-600 transition duration-300 card-hover">
-                        <div class="text-4xl text-purple-500 mb-4">🔍</div>
-                        <h4 class="text-xl font-bold mb-2 text-white">Integrity</h4>
-                        <p class="text-slate-300">We are transparent and accountable in all we do.</p>
+                        class="bg-slate-700 p-4 md:p-6 rounded-lg shadow-md hover:bg-slate-600 transition duration-300 card-hover">
+                        <div class="text-3xl md:text-4xl text-purple-500 mb-3 md:mb-4">🔍</div>
+                        <h4 class="text-lg md:text-xl font-bold mb-2 text-white">Integrity</h4>
+                        <p class="text-slate-300 text-sm">We are transparent and accountable in all we do.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="programs" class="py-20 bg-slate-900">
+    <section id="programs" class="py-12 md:py-20 bg-slate-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-blue-400 mb-4">What We Do</h2>
+            <div class="text-center mb-10 md:mb-16">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-400 mb-4">What We Do</h2>
                 <div class="w-24 h-1 bg-emerald-500 mx-auto"></div>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="bg-slate-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 card-hover">
-                    <div class="text-blue-400 text-4xl mb-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
+                <div class="bg-slate-800 p-4 md:p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 card-hover">
+                    <div class="text-blue-400 text-3xl md:text-4xl mb-3 md:mb-4">
                         <i class="fas fa-utensils"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Feeding the Hungry (SDG 2: Zero Hunger)</h3>
-                    <p class="text-slate-300">Providing nutritious meals to individuals and families experiencing food insecurity to ensure no one in our community goes to bed hungry.</p>
+                    <h3 class="text-base md:text-xl font-bold mb-2 md:mb-3 text-white">Feeding the Hungry (SDG 2: Zero Hunger)</h3>
+                    <p class="text-slate-300 text-sm">Providing nutritious meals to individuals and families experiencing food insecurity to ensure no one in our community goes to bed hungry.</p>
                 </div>
-                <div class="bg-slate-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 card-hover">
-                    <div class="text-blue-400 text-4xl mb-4">
+                <div class="bg-slate-800 p-4 md:p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 card-hover">
+                    <div class="text-blue-400 text-3xl md:text-4xl mb-3 md:mb-4">
                         <i class="fas fa-graduation-cap"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Empowerment Through Education (SDG 4: Quality Education)</h3>
-                    <p class="text-slate-300">Promoting education as a primary means to empower individuals and break the cycle of poverty, ensuring inclusive and equitable learning opportunities for all.</p>
+                    <h3 class="text-base md:text-xl font-bold mb-2 md:mb-3 text-white">Empowerment Through Education (SDG 4: Quality Education)</h3>
+                    <p class="text-slate-300 text-sm">Promoting education as a primary means to empower individuals and break the cycle of poverty, ensuring inclusive and equitable learning opportunities for all.</p>
                 </div>
-                <div class="bg-slate-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 card-hover">
-                    <div class="text-blue-400 text-4xl mb-4">
+                <div class="bg-slate-800 p-4 md:p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 card-hover">
+                    <div class="text-blue-400 text-3xl md:text-4xl mb-3 md:mb-4">
                         <i class="fas fa-tint"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Clean Water Access (SDG 6: Clean Water and Sanitation)</h3>
-                    <p class="text-slate-300">Giving drink to the thirsty by ensuring reliable access to clean and safe drinking water for vulnerable populations.</p>
+                    <h3 class="text-base md:text-xl font-bold mb-2 md:mb-3 text-white">Clean Water Access (SDG 6: Clean Water and Sanitation)</h3>
+                    <p class="text-slate-300 text-sm">Giving drink to the thirsty by ensuring reliable access to clean and safe drinking water for vulnerable populations.</p>
                 </div>
-                <div class="bg-slate-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 card-hover">
-                    <div class="text-blue-400 text-4xl mb-4">
+                <div class="bg-slate-800 p-4 md:p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 card-hover">
+                    <div class="text-blue-400 text-3xl md:text-4xl mb-3 md:mb-4">
                         <i class="fas fa-heartbeat"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Healthcare Support & Comfort (SDG 3: Good Health and Well-being)</h3>
-                    <p class="text-slate-300">Visiting and caring for the sick by providing essential healthcare support, medical aid, and offering comfort to those in pain.</p>
+                    <h3 class="text-base md:text-xl font-bold mb-2 md:mb-3 text-white">Healthcare Support & Comfort (SDG 3: Good Health and Well-being)</h3>
+                    <p class="text-slate-300 text-sm">Visiting and caring for the sick by providing essential healthcare support, medical aid, and offering comfort to those in pain.</p>
                 </div>
-                <div class="bg-slate-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 card-hover">
-                    <div class="text-blue-400 text-4xl mb-4">
+                <div class="bg-slate-800 p-4 md:p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 card-hover">
+                    <div class="text-blue-400 text-3xl md:text-4xl mb-3 md:mb-4">
                         <i class="fas fa-hand-holding-heart"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Restoring Dignity & Transforming Lives (SDG 1: No Poverty)</h3>
-                    <p class="text-slate-300">Providing essential life-sustaining support to the vulnerable and less privileged to restore their dignity and foster long-term empowerment.</p>
+                    <h3 class="text-base md:text-xl font-bold mb-2 md:mb-3 text-white">Restoring Dignity & Transforming Lives (SDG 1: No Poverty)</h3>
+                    <p class="text-slate-300 text-sm">Providing essential life-sustaining support to the vulnerable and less privileged to restore their dignity and foster long-term empowerment.</p>
                 </div>
-                <div class="bg-slate-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 card-hover">
-                    <div class="text-blue-400 text-4xl mb-4">
+                <div class="bg-slate-800 p-4 md:p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 card-hover">
+                    <div class="text-blue-400 text-3xl md:text-4xl mb-3 md:mb-4">
                         <i class="fas fa-home"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Shelter for the Homeless (SDG 11: Sustainable Cities and Communities)</h3>
-                    <p class="text-slate-300">Creating safe spaces and supporting transitional housing initiatives to ensure that the homeless have a secure place to stay.</p>
+                    <h3 class="text-base md:text-xl font-bold mb-2 md:mb-3 text-white">Shelter for the Homeless (SDG 11: Sustainable Cities and Communities)</h3>
+                    <p class="text-slate-300 text-sm">Creating safe spaces and supporting transitional housing initiatives to ensure that the homeless have a secure place to stay.</p>
                 </div>
-                <div class="bg-slate-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 card-hover">
-                    <div class="text-blue-400 text-4xl mb-4">
+                <div class="bg-slate-800 p-4 md:p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 card-hover">
+                    <div class="text-blue-400 text-3xl md:text-4xl mb-3 md:mb-4">
                         <i class="fas fa-gavel"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Justice and Advocacy (SDG 16: Peace, Justice, and Strong Institutions)</h3>
-                    <p class="text-slate-300">Advocating for a more just and compassionate society where the less privileged are not forgotten, and visiting the imprisoned to offer support and hope.</p>
+                    <h3 class="text-base md:text-xl font-bold mb-2 md:mb-3 text-white">Justice and Advocacy (SDG 16: Peace, Justice, and Strong Institutions)</h3>
+                    <p class="text-slate-300 text-sm">Advocating for a more just and compassionate society where the less privileged are not forgotten, and visiting the imprisoned to offer support and hope.</p>
                 </div>
-                <div class="bg-slate-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 card-hover">
-                    <div class="text-blue-400 text-4xl mb-4">
+                <div class="bg-slate-800 p-4 md:p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 card-hover">
+                    <div class="text-blue-400 text-3xl md:text-4xl mb-3 md:mb-4">
                         <i class="fas fa-tshirt"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Clothing the Needy (SDG 12: Responsible Consumption and Production)</h3>
-                    <p class="text-slate-300">Distributing clothing and other essential items to those in need, ensuring resources reach the most vulnerable.</p>
+                    <h3 class="text-base md:text-xl font-bold mb-2 md:mb-3 text-white">Clothing the Needy (SDG 12: Responsible Consumption and Production)</h3>
+                    <p class="text-slate-300 text-sm">Distributing clothing and other essential items to those in need, ensuring resources reach the most vulnerable.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!--
-    <section class="py-20 bg-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-blue-400 mb-4">Stories of Impact</h2>
+    <!-- Testimonials Section - Uncommented for mobile -->
+    <section class="py-12 md:py-20 bg-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-hidden">
+            <div class="text-center mb-10 md:mb-16">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-400 mb-4">Stories of Impact</h2>
                 <div class="w-24 h-1 bg-emerald-500 mx-auto"></div>
             </div>
 
-            <div class="flex overflow-x-auto pb-8 scrollbar-hide" id="testimonial-carousel">
-                <div class="testimonial-card flex-shrink-0 px-4">
-                    <div class="bg-slate-700 p-8 rounded-lg shadow-lg h-full">
+            <div class="flex overflow-x-auto pb-8 scrollbar-hide snap-x snap-mandatory" id="testimonial-carousel">
+                <div class="testimonial-card flex-shrink-0 px-2 md:px-4">
+                    <div class="bg-slate-700 p-6 md:p-8 rounded-lg shadow-lg h-full">
                         <div class="flex items-center mb-4">
                             <div class="text-yellow-400 text-2xl mr-2">★★★★★</div>
                         </div>
-                        <p class="text-slate-300 italic mb-6">"The Kaka Humanitarian Foundation provided food for my family when we
+                        <p class="text-slate-300 italic mb-6 text-sm md:text-base">"The KAKA Humanitarian Foundation provided food for my family when we
                             had nothing. Their kindness gave us hope during our darkest days."</p>
                         <div class="flex items-center">
                             <img src="images/WhatsApp Image 2025-07-05 at 00.53.06_0fb7a8cf.jpg" alt="Sarah J."
-                                class="w-12 h-12 rounded-full mr-4">
+                                class="w-10 h-10 md:w-12 md:h-12 rounded-full mr-4">
                             <div>
-                                <h4 class="font-bold text-white">Sarah J.</h4>
-                                <p class="text-slate-400 text-sm">Beneficiary</p>
+                                <h4 class="font-bold text-white text-sm md:text-base">Sarah J.</h4>
+                                <p class="text-slate-400 text-xs md:text-sm">Beneficiary</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="testimonial-card flex-shrink-0 px-4">
-                    <div class="bg-slate-700 p-8 rounded-lg shadow-lg h-full">
+                <div class="testimonial-card flex-shrink-0 px-2 md:px-4">
+                    <div class="bg-slate-700 p-6 md:p-8 rounded-lg shadow-lg h-full">
                         <div class="flex items-center mb-4">
                             <div class="text-yellow-400 text-2xl mr-2">★★★★★</div>
                         </div>
-                        <p class="text-slate-300 italic mb-6">"As a volunteer, I've seen firsthand how the foundation
+                        <p class="text-slate-300 italic mb-6 text-sm md:text-base">"As a volunteer, I've seen firsthand how the foundation
                             transforms lives. Their commitment to dignity and compassion is inspiring."</p>
                         <div class="flex items-center">
                             <img src="images/WhatsApp Image 2025-07-05 at 00.53.01_997c17e9.jpg" alt="Michael T."
-                                class="w-12 h-12 rounded-full mr-4">
+                                class="w-10 h-10 md:w-12 md:h-12 rounded-full mr-4">
                             <div>
-                                <h4 class="font-bold text-white">Michael T.</h4>
-                                <p class="text-slate-400 text-sm">Volunteer</p>
+                                <h4 class="font-bold text-white text-sm md:text-base">Michael T.</h4>
+                                <p class="text-slate-400 text-xs md:text-sm">Volunteer</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="testimonial-card flex-shrink-0 px-4">
-                    <div class="bg-slate-700 p-8 rounded-lg shadow-lg h-full">
+                <div class="testimonial-card flex-shrink-0 px-2 md:px-4">
+                    <div class="bg-slate-700 p-6 md:p-8 rounded-lg shadow-lg h-full">
                         <div class="flex items-center mb-4">
                             <div class="text-yellow-400 text-2xl mr-2">★★★★★</div>
                         </div>
-                        <p class="text-slate-300 italic mb-6">"Partnering with Kaka Humanitarian Foundation has been rewarding. Their
+                        <p class="text-slate-300 italic mb-6 text-sm md:text-base">"Partnering with KAKA Humanitarian Foundation has been rewarding. Their
                             transparency and impact make them a trustworthy organization."</p>
                         <div class="flex items-center">
                             <img src="images/WhatsApp Image 2025-07-05 at 00.53.02_4a548956.jpg" alt="Amina K."
-                                class="w-12 h-12 rounded-full mr-4">
+                                class="w-10 h-10 md:w-12 md:h-12 rounded-full mr-4">
                             <div>
-                                <h4 class="font-bold text-white">Amina K.</h4>
-                                <p class="text-slate-400 text-sm">Corporate Partner</p>
+                                <h4 class="font-bold text-white text-sm md:text-base">Amina K.</h4>
+                                <p class="text-slate-400 text-xs md:text-sm">Corporate Partner</p>
                             </div>
                         </div>
                     </div>
@@ -342,147 +444,146 @@
             </div>
         </div>
     </section>
-    -->
 
-    <section id="donate" class="py-20 bg-slate-900">
+    <section id="donate" class="py-12 md:py-20 bg-slate-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-blue-400 mb-4">How You Can Make a Difference</h2>
+            <div class="text-center mb-10 md:mb-16">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-400 mb-4">How You Can Make a Difference</h2>
                 <div class="w-24 h-1 bg-emerald-500 mx-auto"></div>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-3 gap-4 md:gap-8">
                 <div
-                    class="bg-slate-800 p-8 rounded-lg shadow-lg border-l-4 border-blue-500 hover:border-emerald-500 transition duration-300 card-hover">
-                    <div class="text-blue-400 text-4xl mb-6">
+                    class="bg-slate-800 p-6 md:p-8 rounded-lg shadow-lg border-l-4 border-blue-500 hover:border-emerald-500 transition duration-300 card-hover">
+                    <div class="text-blue-400 text-3xl md:text-4xl mb-4 md:mb-6">
                         <i class="fas fa-hand-holding-usd"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4 text-white">Donate</h3>
-                    <p class="text-slate-300 mb-4">Your generosity enables us to touch more lives and expand our impact.
+                    <h3 class="text-lg md:text-xl font-bold mb-4 text-white">Donate</h3>
+                    <p class="text-slate-300 text-sm md:text-base mb-4">Your generosity enables us to touch more lives and expand our impact.
                     </p>
                     <div class="bg-slate-700 p-4 rounded-lg mb-4">
-                        <p class="text-sm font-medium text-slate-300">Bank Details:</p>
-                        <p class="text-white font-bold">Kaka Hunanitarian Foundation</p>
-                        <p class="text-white">2048858759</p>
-                        <p class="text-white">First Bank Of Nigeria</p>
+                        <p class="text-xs md:text-sm font-medium text-slate-300">Bank Details:</p>
+                        <p class="text-white font-bold text-sm md:text-base">KAKA Humanitarian Foundation</p>
+                        <p class="text-white text-sm md:text-base">2048858759</p>
+                        <p class="text-white text-sm md:text-base">First Bank Of Nigeria</p>
                     </div>
                     <a href="#contact"
-                        class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-6 rounded-lg transition duration-300">Donate
+                        class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 md:px-6 rounded-lg transition duration-300 text-sm md:text-base">Donate
                         Now</a>
                 </div>
                 <div
-                    class="bg-slate-800 p-8 rounded-lg shadow-lg border-l-4 border-blue-500 hover:border-emerald-500 transition duration-300 card-hover">
-                    <div class="text-blue-400 text-4xl mb-6">
+                    class="bg-slate-800 p-6 md:p-8 rounded-lg shadow-lg border-l-4 border-blue-500 hover:border-emerald-500 transition duration-300 card-hover">
+                    <div class="text-blue-400 text-3xl md:text-4xl mb-4 md:mb-6">
                         <i class="fas fa-hands-helping"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4 text-white">Volunteer</h3>
-                    <p class="text-slate-300 mb-4">Join our team of compassionate volunteers making a direct impact in
+                    <h3 class="text-lg md:text-xl font-bold mb-4 text-white">Volunteer</h3>
+                    <p class="text-slate-300 text-sm md:text-base mb-4">Join our team of compassionate volunteers making a direct impact in
                         communities. Your time and skills can change lives.</p>
                     <a href="volunteer/"
-                        class="inline-block bg-emerald-500 hover:bg-emerald-600 text-white font-medium py-2 px-6 rounded-lg transition duration-300">Become
+                        class="inline-block bg-emerald-500 hover:bg-emerald-600 text-white font-medium py-2 px-4 md:px-6 rounded-lg transition duration-300 text-sm md:text-base">Become
                         a Volunteer</a>
                 </div>
                 <div
-                    class="bg-slate-800 p-8 rounded-lg shadow-lg border-l-4 border-blue-500 hover:border-emerald-500 transition duration-300 card-hover">
-                    <div class="text-blue-400 text-4xl mb-6">
+                    class="bg-slate-800 p-6 md:p-8 rounded-lg shadow-lg border-l-4 border-blue-500 hover:border-emerald-500 transition duration-300 card-hover">
+                    <div class="text-blue-400 text-3xl md:text-4xl mb-4 md:mb-6">
                         <i class="fas fa-handshake"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4 text-white">Partner With Us</h3>
-                    <p class="text-slate-300 mb-4">Businesses and organizations can collaborate with us to create
+                    <h3 class="text-lg md:text-xl font-bold mb-4 text-white">Partner With Us</h3>
+                    <p class="text-slate-300 text-sm md:text-base mb-4">Businesses and organizations can collaborate with us to create
                         lasting social impact.</p>
-                    <ul class="space-y-3 mb-6">
-                        <li class="flex items-start">
+                    <ul class="space-y-2 md:space-y-3 mb-4 md:mb-6">
+                        <li class="flex items-start text-sm md:text-base">
                             <span class="text-emerald-400 mr-2">✓</span>
                             <span class="text-slate-300">Corporate sponsorships</span>
                         </li>
-                        <li class="flex items-start">
+                        <li class="flex items-start text-sm md:text-base">
                             <span class="text-emerald-400 mr-2">✓</span>
                             <span class="text-slate-300">Employee volunteer programs</span>
                         </li>
-                        <li class="flex items-start">
+                        <li class="flex items-start text-sm md:text-base">
                             <span class="text-emerald-400 mr-2">✓</span>
                             <span class="text-slate-300">In-kind donations</span>
                         </li>
-                        <li class="flex items-start">
+                        <li class="flex items-start text-sm md:text-base">
                             <span class="text-emerald-400 mr-2">✓</span>
                             <span class="text-slate-300">Cause marketing campaigns</span>
                         </li>
                     </ul>
                     <a href="Partner/index.html"
-                        class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-6 rounded-lg transition duration-300">Partner
+                        class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 md:px-6 rounded-lg transition duration-300 text-sm md:text-base">Partner
                         Now</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-20 bg-slate-800">
+    <section id="contact" class="py-12 md:py-20 bg-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-blue-400 mb-4">Contact Us</h2>
+            <div class="text-center mb-10 md:mb-16">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-400 mb-4">Contact Us</h2>
                 <div class="w-24 h-1 bg-emerald-500 mx-auto"></div>
-                <p class="text-xl mt-6 max-w-2xl mx-auto text-slate-300">Together, we can bring hope, dignity, and love
+                <p class="text-base md:text-xl mt-4 md:mt-6 max-w-2xl mx-auto text-slate-300">Together, we can bring hope, dignity, and love
                     to those in need. Join us today!</p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-12">
+            <div class="grid md:grid-cols-2 gap-6 md:gap-12">
                 <div>
-                    <div class="bg-slate-700 p-8 rounded-lg shadow-lg">
-                        <h3 class="text-2xl font-bold mb-6 text-white">Get In Touch</h3>
-                        <div class="space-y-6">
+                    <div class="bg-slate-700 p-6 md:p-8 rounded-lg shadow-lg">
+                        <h3 class="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-white">Get In Touch</h3>
+                        <div class="space-y-4 md:space-y-6">
                             <div class="flex items-start">
-                                <div class="text-blue-400 text-xl mr-4 mt-1">
+                                <div class="text-blue-400 text-lg md:text-xl mr-4 mt-1">
                                     <i class="fas fa-envelope"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-white mb-1">Email</h4>
+                                    <h4 class="font-bold text-white mb-1 text-sm md:text-base">Email</h4>
                                     <a href="mailto:kakahumanitarianfoundation@gmail.com"
-                                        class="text-slate-300 hover:text-blue-400 transition">kakahumanitarianfoundation@gmail.com</a>
+                                        class="text-slate-300 hover:text-blue-400 transition text-sm md:text-base break-all">kakahumanitarianfoundation@gmail.com</a>
                                 </div>
                             </div>
                             <div class="flex items-start">
-                                <div class="text-blue-400 text-xl mr-4 mt-1">
+                                <div class="text-blue-400 text-lg md:text-xl mr-4 mt-1">
                                     <i class="fab fa-whatsapp"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-white mb-1">WhatsApp</h4>
+                                    <h4 class="font-bold text-white mb-1 text-sm md:text-base">WhatsApp</h4>
                                     <a href="https://wa.me/2348160952082"
-                                        class="text-slate-300 hover:text-blue-400 transition">+234 816 095 2082</a>
+                                        class="text-slate-300 hover:text-blue-400 transition text-sm md:text-base">+234 816 095 2082</a>
                                 </div>
                             </div>
                             <div class="flex items-start">
-                                <div class="text-blue-400 text-xl mr-4 mt-1">
+                                <div class="text-blue-400 text-lg md:text-xl mr-4 mt-1">
                                     <i class="fas fa-map-marker-alt"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-white mb-1">Location</h4>
-                                    <p class="text-slate-300">Nigeria</p>
+                                    <h4 class="font-bold text-white mb-1 text-sm md:text-base">Location</h4>
+                                    <p class="text-slate-300 text-sm md:text-base">Nigeria</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div>
-                    <div class="bg-slate-700 p-8 rounded-lg shadow-lg">
-                        <h3 class="text-2xl font-bold mb-6 text-white">Send Us a Message</h3>
-                        <form id="contact-form" class="space-y-4">
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="bg-slate-700 p-6 md:p-8 rounded-lg shadow-lg">
+                        <h3 class="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-white">Send Us a Message</h3>
+                        <form id="contact-form" class="space-y-3 md:space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
                                 <div>
                                     <input type="text" placeholder="Your Name"
-                                        class="w-full px-4 py-2 rounded-lg bg-slate-600 border border-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                        class="w-full px-4 py-2 rounded-lg bg-slate-600 border border-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base">
                                 </div>
                                 <div>
                                     <input type="email" placeholder="Your Email"
-                                        class="w-full px-4 py-2 rounded-lg bg-slate-600 border border-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                        class="w-full px-4 py-2 rounded-lg bg-slate-600 border border-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base">
                                 </div>
                             </div>
                             <input type="text" placeholder="Subject"
-                                class="w-full px-4 py-2 rounded-lg bg-slate-600 border border-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                class="w-full px-4 py-2 rounded-lg bg-slate-600 border border-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base">
                             <textarea placeholder="Your Message"
-                                class="w-full px-4 py-2 rounded-lg bg-slate-600 border border-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                class="w-full px-4 py-2 rounded-lg bg-slate-600 border border-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base"
                                 rows="5"></textarea>
                             <button type="submit"
-                                class="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-lg transition duration-300">Send
+                                class="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-lg transition duration-300 text-sm md:text-base">Send
                                 Message</button>
                         </form>
                     </div>
@@ -491,72 +592,60 @@
         </div>
     </section>
 
-    <footer class="bg-slate-900 py-12">
+    <footer class="bg-slate-900 py-8 md:py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
                 <div>
                     <!-- Footer Logo -->
                     <div class="flex items-center gap-3 mb-4">
-                        <img src="images/KAKA_logo.png" alt="KAKA Humanitarian Foundation Logo" 
-                             class="h-12 w-auto md:h-14 object-contain">
-                        <h3 class="text-xl font-bold text-yellow-400">KAKA Humanitarian Foundation</h3>
+                        <img src="/images/KAKA_logo.png" alt="KAKA Humanitarian Foundation Logo" 
+                             class="h-10 w-auto md:h-14 object-contain">
+                        <h3 class="text-base md:text-xl font-bold text-yellow-400">KAKA</h3>
                     </div>
-                    <p class="text-slate-400">Serving humanity with love and compassion, restoring dignity and
+                    <p class="text-slate-400 text-sm">Serving humanity with love and compassion, restoring dignity and
                         transforming lives.</p>
                 </div>
                 <div>
-                    <h4 class="text-lg font-bold text-white mb-4">Quick Links</h4>
+                    <h4 class="text-base md:text-lg font-bold text-white mb-4">Quick Links</h4>
                     <ul class="space-y-2">
-                        <li><a href="#home" class="text-slate-400 hover:text-blue-400 transition">Home</a></li>
-                        <li><a href="#about" class="text-slate-400 hover:text-blue-400 transition">About Us</a></li>
-                        <li><a href="#programs" class="text-slate-400 hover:text-blue-400 transition">Programs</a></li>
-                        <li><a href="#donate" class="text-slate-400 hover:text-blue-400 transition">Donate</a></li>
-                        <li><a href="#contact" class="text-slate-400 hover:text-blue-400 transition">Contact</a></li>
+                        <li><a href="#home" class="text-slate-400 hover:text-blue-400 transition text-sm">Home</a></li>
+                        <li><a href="#about" class="text-slate-400 hover:text-blue-400 transition text-sm">About Us</a></li>
+                        <li><a href="#programs" class="text-slate-400 hover:text-blue-400 transition text-sm">Programs</a></li>
+                        <li><a href="#donate" class="text-slate-400 hover:text-blue-400 transition text-sm">Donate</a></li>
+                        <li><a href="#contact" class="text-slate-400 hover:text-blue-400 transition text-sm">Contact</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-lg font-bold text-white mb-4">Programs</h4>
+                    <h4 class="text-base md:text-lg font-bold text-white mb-4">Programs</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-slate-400 hover:text-blue-400 transition">Food Distribution</a></li>
-                        <li><a href="#" class="text-slate-400 hover:text-blue-400 transition">Shelter Support</a></li>
-                        <li><a href="#" class="text-slate-400 hover:text-blue-400 transition">Healthcare Initiatives</a>
+                        <li><a href="#" class="text-slate-400 hover:text-blue-400 transition text-sm">Food Distribution</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-blue-400 transition text-sm">Shelter Support</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-blue-400 transition text-sm">Healthcare Initiatives</a>
                         </li>
-                        <li><a href="#" class="text-slate-400 hover:text-blue-400 transition">Prison Outreach</a></li>
-                        <li><a href="#" class="text-slate-400 hover:text-blue-400 transition">Education Support</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-blue-400 transition text-sm">Prison Outreach</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-blue-400 transition text-sm">Education Support</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-lg font-bold text-white mb-4">Connect With Us</h4>
-                    <div class="flex space-x-4 mb-4">
-                        <a href="https://www.facebook.com/share/1ESJMNacrd/" class="text-slate-400 hover:text-blue-400 text-xl transition"><i
+                    <h4 class="text-base md:text-lg font-bold text-white mb-4">Connect With Us</h4>
+                    <div class="flex space-x-3 md:space-x-4 mb-4">
+                        <a href="https://www.facebook.com/share/1ESJMNacrd/" class="text-slate-400 hover:text-blue-400 text-lg md:text-xl transition"><i
                                 class="fab fa-facebook"></i></a>
-                        <!--
-                                <a href="#" class="text-slate-400 hover:text-blue-400 text-xl transition"><i
-                                class="fab fa-twitter"></i></a>
-                                -->
-                        <a href="https://www.instagram.com/kakahumanitarianfoundation?igsh=MW5oeHB1cnpnbjduNw==" class="text-slate-400 hover:text-blue-400 text-xl transition"><i
+                        <a href="https://www.instagram.com/kakahumanitarianfoundation?igsh=MW5oeHB1cnpnbjduNw==" class="text-slate-400 hover:text-blue-400 text-lg md:text-xl transition"><i
                                 class="fab fa-instagram"></i></a>
-                        <!--
-                                <a href="#" class="text-slate-400 hover:text-blue-400 text-xl transition"><i
-                                class="fab fa-linkedin"></i></a>
-                                -->
-                        <!--
-                                <a href="#" class="text-slate-400 hover:text-blue-400 text-xl transition"><i
-                                class="fab fa-youtube"></i></a>
-                                -->
                     </div>
-                    <p class="text-slate-400">Subscribe to our newsletter</p>
+                    <p class="text-slate-400 text-sm">Subscribe to our newsletter</p>
                     <div class="flex mt-2">
                         <input type="email" placeholder="Your Email"
-                            class="px-4 py-2 rounded-l-lg bg-slate-700 border border-slate-600 focus:outline-none focus:ring-1 focus:ring-blue-500 w-full">
+                            class="px-3 md:px-4 py-2 rounded-l-lg bg-slate-700 border border-slate-600 focus:outline-none focus:ring-1 focus:ring-blue-500 w-full text-sm">
                         <button
-                            class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-r-lg transition duration-300"><i
+                            class="bg-blue-500 hover:bg-blue-600 text-white px-3 md:px-4 py-2 rounded-r-lg transition duration-300"><i
                                 class="fas fa-paper-plane"></i></button>
                     </div>
                 </div>
             </div>
-            <div class="border-t border-slate-700 mt-12 pt-8 text-center text-slate-500">
-                <p>Copyright © <span id="current-year"></span> Kaka Hunanitarian Foundation. All rights reserved.</p>
+            <div class="border-t border-slate-700 mt-8 md:mt-12 pt-6 md:pt-8 text-center text-slate-500 text-sm">
+                <p>Copyright © <span id="current-year"></span> KAKA Humanitarian Foundation. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -565,6 +654,13 @@
         // Mobile menu toggle
         document.getElementById('mobile-menu-button').addEventListener('click', function () {
             document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
         });
 
         // Set current year in footer
@@ -583,19 +679,23 @@
         const carousel = document.getElementById('testimonial-carousel');
 
         function showTestimonial(index) {
-            const scrollPosition = index * testimonials[0].offsetWidth;
-            carousel.scrollTo({
-                left: scrollPosition,
-                behavior: 'smooth'
-            });
-            currentTestimonial = index;
+            if (testimonials.length > 0 && carousel) {
+                const scrollPosition = index * testimonials[0].offsetWidth;
+                carousel.scrollTo({
+                    left: scrollPosition,
+                    behavior: 'smooth'
+                });
+                currentTestimonial = index;
+            }
         }
 
         // Auto-rotate testimonials
-        setInterval(() => {
-            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-            showTestimonial(currentTestimonial);
-        }, 5000);
+        if (testimonials.length > 0) {
+            setInterval(() => {
+                currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+                showTestimonial(currentTestimonial);
+            }, 5000);
+        }
     </script>
 </body>
 
