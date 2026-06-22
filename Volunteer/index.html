@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Volunteer - Kaka Humanitarian Foundation</title>
+    <title>Volunteer - KAKA Humanitarian Foundation</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -16,14 +16,41 @@
         body {
             font-family: 'Poppins', sans-serif;
         }
+
+        /* Logo styling */
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #FBBF24;
+        }
+
+        @media (min-width: 640px) {
+            .logo-text {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .logo-text {
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
 
 <body class="bg-slate-900 text-slate-200">
 
     <header class="bg-slate-800 shadow-lg">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <h1 class="text-2xl font-bold text-blue-400">Kaka Humanitarian Foundation</h1>
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Logo Section with Image -->
+            <a href="../index.html" class="flex items-center gap-3">
+                <img src="../images/KAKA_logo.png" alt="KAKA Humanitarian Foundation Logo" 
+                     class="h-10 w-auto md:h-12 object-contain">
+                <span class="logo-text hidden sm:inline">KAKA Humanitarian Foundation</span>
+            </a>
+            <a href="../index.html#home"
+                class="px-4 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-blue-400 hover:bg-slate-700 transition">Back
+                to Main Site</a>
         </nav>
     </header>
 
@@ -33,7 +60,7 @@
                 <h2 class="text-3xl md:text-4xl font-bold text-blue-400 mb-4">Join Our Team</h2>
                 <div class="w-24 h-1 bg-emerald-500 mx-auto"></div>
                 <p class="text-xl mt-6 max-w-3xl mx-auto text-slate-300">
-                    Become a part of the Kaka Humanitarian Foundation family. By volunteering, you help us bring hope and essential
+                    Become a part of the KAKA Humanitarian Foundation family. By volunteering, you help us bring hope and essential
                     services to those in need. Fill out the form below to get started.
                 </p>
             </div>

@@ -26,7 +26,7 @@
         }
 
         .hero-section {
-            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('images\pexels-dick-scholten-420532-1096783.jpg');
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('images/pexels-dick-scholten-420532-1096783.jpg');
             background-size: cover;
             background-position: center;
         }
@@ -51,6 +51,25 @@
                 min-width: 33.333%;
             }
         }
+
+        /* Logo styling */
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #FBBF24;
+        }
+
+        @media (min-width: 640px) {
+            .logo-text {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .logo-text {
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
 
@@ -60,7 +79,13 @@
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center">
                     <div class="flex-shrink-0">
-                        <a href="#" class="text-2xl font-bold text-blue-400">KAKA Humanitarian Foundation</a>
+                        <a href="#" class="flex items-center gap-3">
+                            <!-- Logo Image -->
+                            <img src="images/KAKA_logo.png" alt="KAKA Humanitarian Foundation Logo" 
+                                 class="h-10 w-auto md:h-12 lg:h-14 object-contain">
+                            <!-- Logo Text -->
+                            <span class="logo-text hidden sm:inline">KAKA Humanitarian Foundation</span>
+                        </a>
                     </div>
                 </div>
                 <div class="hidden md:block">
@@ -129,7 +154,7 @@
 
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
-                    <img src="images\pexels-kwakugriffn-14554003.jpg" alt="Team working together"
+                    <img src="images/pexels-kwakugriffn-14554003.jpg" alt="Team working together"
                         class="rounded-lg shadow-xl w-full h-auto">
                 </div>
                 <div>
@@ -254,6 +279,7 @@
         </div>
     </section>
 
+    <!--
     <section class="py-20 bg-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -270,7 +296,7 @@
                         <p class="text-slate-300 italic mb-6">"The Kaka Humanitarian Foundation provided food for my family when we
                             had nothing. Their kindness gave us hope during our darkest days."</p>
                         <div class="flex items-center">
-                            <img src="images\WhatsApp Image 2025-07-05 at 00.53.06_0fb7a8cf.jpg" alt="Sarah J."
+                            <img src="images/WhatsApp Image 2025-07-05 at 00.53.06_0fb7a8cf.jpg" alt="Sarah J."
                                 class="w-12 h-12 rounded-full mr-4">
                             <div>
                                 <h4 class="font-bold text-white">Sarah J.</h4>
@@ -287,7 +313,7 @@
                         <p class="text-slate-300 italic mb-6">"As a volunteer, I've seen firsthand how the foundation
                             transforms lives. Their commitment to dignity and compassion is inspiring."</p>
                         <div class="flex items-center">
-                            <img src="images\WhatsApp Image 2025-07-05 at 00.53.01_997c17e9.jpg" alt="Michael T."
+                            <img src="images/WhatsApp Image 2025-07-05 at 00.53.01_997c17e9.jpg" alt="Michael T."
                                 class="w-12 h-12 rounded-full mr-4">
                             <div>
                                 <h4 class="font-bold text-white">Michael T.</h4>
@@ -304,7 +330,7 @@
                         <p class="text-slate-300 italic mb-6">"Partnering with Kaka Humanitarian Foundation has been rewarding. Their
                             transparency and impact make them a trustworthy organization."</p>
                         <div class="flex items-center">
-                            <img src="images\WhatsApp Image 2025-07-05 at 00.53.02_4a548956.jpg" alt="Amina K."
+                            <img src="images/WhatsApp Image 2025-07-05 at 00.53.02_4a548956.jpg" alt="Amina K."
                                 class="w-12 h-12 rounded-full mr-4">
                             <div>
                                 <h4 class="font-bold text-white">Amina K.</h4>
@@ -316,6 +342,7 @@
             </div>
         </div>
     </section>
+    -->
 
     <section id="donate" class="py-20 bg-slate-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -468,7 +495,12 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
-                    <h3 class="text-xl font-bold text-blue-400 mb-4">Kaka Humanitarian Foundation</h3>
+                    <!-- Footer Logo -->
+                    <div class="flex items-center gap-3 mb-4">
+                        <img src="images/KAKA_logo.png" alt="KAKA Humanitarian Foundation Logo" 
+                             class="h-12 w-auto md:h-14 object-contain">
+                        <h3 class="text-xl font-bold text-yellow-400">KAKA Humanitarian Foundation</h3>
+                    </div>
                     <p class="text-slate-400">Serving humanity with love and compassion, restoring dignity and
                         transforming lives.</p>
                 </div>
@@ -496,16 +528,22 @@
                 <div>
                     <h4 class="text-lg font-bold text-white mb-4">Connect With Us</h4>
                     <div class="flex space-x-4 mb-4">
-                        <a href="#" class="text-slate-400 hover:text-blue-400 text-xl transition"><i
+                        <a href="https://www.facebook.com/share/1ESJMNacrd/" class="text-slate-400 hover:text-blue-400 text-xl transition"><i
                                 class="fab fa-facebook"></i></a>
-                        <a href="#" class="text-slate-400 hover:text-blue-400 text-xl transition"><i
+                        <!--
+                                <a href="#" class="text-slate-400 hover:text-blue-400 text-xl transition"><i
                                 class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-slate-400 hover:text-blue-400 text-xl transition"><i
+                                -->
+                        <a href="https://www.instagram.com/kakahumanitarianfoundation?igsh=MW5oeHB1cnpnbjduNw==" class="text-slate-400 hover:text-blue-400 text-xl transition"><i
                                 class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-slate-400 hover:text-blue-400 text-xl transition"><i
+                        <!--
+                                <a href="#" class="text-slate-400 hover:text-blue-400 text-xl transition"><i
                                 class="fab fa-linkedin"></i></a>
-                        <a href="#" class="text-slate-400 hover:text-blue-400 text-xl transition"><i
+                                -->
+                        <!--
+                                <a href="#" class="text-slate-400 hover:text-blue-400 text-xl transition"><i
                                 class="fab fa-youtube"></i></a>
+                                -->
                     </div>
                     <p class="text-slate-400">Subscribe to our newsletter</p>
                     <div class="flex mt-2">
