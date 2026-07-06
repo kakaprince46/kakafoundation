@@ -4,757 +4,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KAKA Humanitarian Foundation - Serving Humanity with Love</title>
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="KAKA Humanitarian Foundation is a registered non-profit organization (RC: 9533849) based in Nigeria, dedicated to serving vulnerable populations through essential life sustaining support.">
-    <meta name="keywords" content="humanitarian, charity, Nigeria, non-profit, food, education, healthcare">
-    <meta name="author" content="KAKA Humanitarian Foundation">
-    <meta property="og:title" content="KAKA Humanitarian Foundation - Serving Humanity with Love">
-    <meta property="og:description" content="Join us in our mission to restore dignity and transform lives.">
-    <meta property="og:type" content="website">
-    <meta name="robots" content="index, follow">
+    <title>Volunteer - KAKA Humanitarian Foundation</title>
 
-    <!-- Open Graph Meta Tags for Social Sharing -->
-<meta property="og:title" content="KAKA Humanitarian Foundation - Serving Humanity with Love" />
-<meta property="og:description" content="KAKA Humanitarian Foundation is a registered non-profit organization (RC: 9533849) based in Nigeria, dedicated to serving vulnerable populations." />
-<meta property="og:image" content="https://kakafoundation.netlify.app/images/KAKA_logo.png" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:url" content="https://kakafoundation.netlify.app/" />
-<meta property="og:type" content="website" />
-<meta name="twitter:card" content="summary_large_image" />
-    
     <script src="https://cdn.tailwindcss.com"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-        /* Reset and base styles */
-        * {
-            max-width: 100%;
-            box-sizing: border-box;
-        }
-
-        html {
-            overflow-x: hidden;
-            width: 100%;
-        }
-
         body {
             font-family: 'Poppins', sans-serif;
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-            width: 100%;
-        }
-
-        .hero-section {
-            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('images/pexels-dick-scholten-420532-1096783.jpg');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-
-        .testimonial-card {
-            min-width: 100%;
-            flex-shrink: 0;
-        }
-
-        @media (min-width: 768px) {
-            .testimonial-card {
-                min-width: 50%;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .testimonial-card {
-                min-width: 33.333%;
-            }
         }
 
         /* Logo styling */
         .logo-text {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: #FBBF24;
         }
 
         @media (min-width: 640px) {
             .logo-text {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
             }
         }
 
         @media (min-width: 1024px) {
             .logo-text {
-                font-size: 1.8rem;
-            }
-        }
-
-        /* Make images responsive */
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        /* Fix containers for mobile */
-        .max-w-7xl, .max-w-3xl, .max-w-2xl {
-            max-width: 100%;
-            padding-left: 1rem;
-            padding-right: 1rem;
-        }
-
-        /* Hide scrollbar for carousel */
-        .scrollbar-hide::-webkit-scrollbar {
-            display: none;
-        }
-        .scrollbar-hide {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-
-        /* Mobile menu button touch-friendly */
-        #mobile-menu-button {
-            min-width: 44px;
-            min-height: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 8px;
-        }
-
-        /* Mobile text adjustments */
-        @media (max-width: 640px) {
-            .hero-section h1 {
-                font-size: 2rem !important;
-            }
-            .hero-section p {
-                font-size: 1rem !important;
-            }
-            h2 {
-                font-size: 1.5rem !important;
-            }
-            h3 {
-                font-size: 1.2rem !important;
-            }
-            .logo-text {
-                font-size: 0.9rem !important;
-            }
-            .card-hover p {
-                font-size: 0.9rem !important;
-            }
-            .gap-8 {
-                gap: 1rem !important;
-            }
-            .grid-cols-1.sm\:grid-cols-2 {
-                grid-template-columns: 1fr !important;
-            }
-            .p-8 {
-                padding: 1.25rem !important;
-            }
-            .px-8 {
-                padding-left: 1.25rem !important;
-                padding-right: 1.25rem !important;
-            }
-            .py-20 {
-                padding-top: 3rem !important;
-                padding-bottom: 3rem !important;
-            }
-            .gap-12 {
-                gap: 1.5rem !important;
-            }
-            .space-x-4 {
-                space-x: 0.5rem !important;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo-text {
-                font-size: 0.75rem !important;
-            }
-            .hero-section h1 {
-                font-size: 1.6rem !important;
-            }
-            .h-10 {
-                height: 2rem !important;
-            }
-            .h-16 {
-                height: 3.5rem !important;
+                font-size: 2rem;
             }
         }
     </style>
 </head>
 
 <body class="bg-slate-900 text-slate-200">
-    <nav class="fixed w-full bg-slate-900/90 backdrop-blur-md z-50 shadow-lg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16 md:h-16 h-14">
-                <div class="flex items-center flex-1 min-w-0">
-                    <div class="flex-shrink-0">
-                        <a href="#" class="flex items-center gap-2 sm:gap-3">
-                            <!-- Logo Image -->
-                            <img src="/images/KAKA_logo.png" alt="KAKA Humanitarian Foundation Logo" 
-                                 class="h-8 w-auto md:h-10 lg:h-12 object-contain">
-                            <!-- Logo Text - Now always visible -->
-                            <span class="logo-text truncate max-w-[120px] sm:max-w-[200px] md:max-w-none">KAKA Humanitarian Foundation</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="hidden md:flex items-center">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#home"
-                            class="px-3 py-2 rounded-md text-sm font-medium text-blue-400 hover:bg-slate-800 transition">Home</a>
-                        <a href="#about"
-                            class="px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-blue-400 hover:bg-slate-800 transition">About</a>
-                        <a href="#programs"
-                            class="px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-blue-400 hover:bg-slate-800 transition">Programs</a>
-                        <a href="#donate"
-                            class="px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-blue-400 hover:bg-slate-800 transition">Donate</a>
-                        <a href="#contact"
-                            class="px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-blue-400 hover:bg-slate-800 transition">Contact</a>
-                    </div>
-                </div>
-                <div class="md:hidden flex-shrink-0">
-                    <button id="mobile-menu-button" class="text-slate-300 hover:text-white focus:outline-none" aria-label="Toggle menu">
-                        <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-slate-800 w-full">
-            <div class="px-4 pt-2 pb-4 space-y-1">
-                <a href="#home" class="block px-4 py-3 rounded-md text-base font-medium text-blue-400 hover:bg-slate-700 transition">Home</a>
-                <a href="#about" class="block px-4 py-3 rounded-md text-base font-medium text-slate-300 hover:text-blue-400 hover:bg-slate-700 transition">About</a>
-                <a href="#programs" class="block px-4 py-3 rounded-md text-base font-medium text-slate-300 hover:text-blue-400 hover:bg-slate-700 transition">Programs</a>
-                <a href="#donate" class="block px-4 py-3 rounded-md text-base font-medium text-slate-300 hover:text-blue-400 hover:bg-slate-700 transition">Donate</a>
-                <a href="#contact" class="block px-4 py-3 rounded-md text-base font-medium text-slate-300 hover:text-blue-400 hover:bg-slate-700 transition">Contact</a>
-            </div>
-        </div>
-    </nav>
 
-    <section id="home" class="hero-section min-h-screen flex items-center justify-center pt-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 md:mb-6 text-white">Serving Humanity with Love and Compassion</h1>
-            <p class="text-base sm:text-xl md:text-2xl mb-6 md:mb-8 max-w-3xl mx-auto text-slate-200">KAKA Humanitarian Foundation is a registered 
-                non-profit organization (RC: 9533849) based in Nigeria, dedicated to serving vulnerable populations through 
-                essential life sustaining support.</p>
-            <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
-                <a href="#donate"
-                    class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 sm:px-8 rounded-lg transition duration-300 transform hover:scale-105 text-sm sm:text-base">Donate
-                    Now</a>
-                <a href="volunteer/"
-                    class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-6 sm:px-8 rounded-lg transition duration-300 transform hover:scale-105 text-sm sm:text-base">Volunteer</a>
-                <a href="Partner/index.html"
-                    class="bg-slate-500 hover:bg-slate-600 text-white font-bold py-3 px-6 sm:px-8 rounded-lg transition duration-300 transform hover:scale-105 text-sm sm:text-base">Partner</a>
-            </div>
-        </div>
-    </section>
+    <header class="bg-slate-800 shadow-lg">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Logo Section with Image -->
+            <a href="../index.html" class="flex items-center gap-3">
+                <img src="../images/KAKA_logo.png" alt="KAKA Humanitarian Foundation Logo" 
+                     class="h-10 w-auto md:h-12 object-contain">
+                <span class="logo-text hidden sm:inline">KAKA Humanitarian Foundation</span>
+            </a>
+            <a href="../index.html#home"
+                class="px-4 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-blue-400 hover:bg-slate-700 transition">Back
+                to Main Site</a>
+        </nav>
+    </header>
 
-    <section id="about" class="py-12 md:py-20 bg-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-10 md:mb-16">
-                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-400 mb-4">About KAKA Humanitarian Foundation</h2>
+    <section id="volunteer" class="py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-blue-400 mb-4">Join Our Team</h2>
                 <div class="w-24 h-1 bg-emerald-500 mx-auto"></div>
+                <p class="text-xl mt-6 max-w-3xl mx-auto text-slate-300">
+                    Become a part of the KAKA Humanitarian Foundation family. By volunteering, you help us bring hope and essential
+                    services to those in need. Fill out the form below to get started.
+                </p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-6 md:gap-12 items-center">
-                <div>
-                    <img src="images/pexels-kwakugriffn-14554003.jpg" alt="Team working together"
-                        class="rounded-lg shadow-xl w-full h-auto">
-                </div>
-                <div>
-                    <div class="mb-6 md:mb-8">
-                        <h3 class="text-xl md:text-2xl font-bold text-blue-400 mb-3">Our Mission</h3>
-                        <p class="text-slate-300 text-sm md:text-base">To restore dignity and transform lives by providing essential 
-                            life sustaining support which including food, water, shelter, education, and healthcare, 
-                            that means fostering empowerment within our community which break the cycle of poverty</p>
-                    </div>
-                    <div class="mb-6 md:mb-8">
-                        <h3 class="text-xl md:text-2xl font-bold text-blue-400 mb-3">Our Vision</h3>
-                        <p class="text-slate-300 text-sm md:text-base">A world where no one goes hungry, every child 
-                            receives a quality education, the sick and imprisoned are visited with hope, 
-                            and the vulnerable are empowered to live meaningful, dignified lives</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mt-12 md:mt-16">
-                <h3 class="text-xl md:text-2xl font-bold text-center text-blue-400 mb-6 md:mb-8">Our Core Values</h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
-                    <div
-                        class="bg-slate-700 p-4 md:p-6 rounded-lg shadow-md hover:bg-slate-600 transition duration-300 card-hover">
-                        <div class="text-3xl md:text-4xl text-red-500 mb-3 md:mb-4">❤️</div>
-                        <h4 class="text-lg md:text-xl font-bold mb-2 text-white">Compassion</h4>
-                        <p class="text-slate-300 text-sm">We serve with love and kindness.</p>
-                    </div>
-                    <div
-                        class="bg-slate-700 p-4 md:p-6 rounded-lg shadow-md hover:bg-slate-600 transition duration-300 card-hover">
-                        <div class="text-3xl md:text-4xl text-yellow-500 mb-3 md:mb-4">🤝</div>
-                        <h4 class="text-lg md:text-xl font-bold mb-2 text-white">Dignity</h4>
-                        <p class="text-slate-300 text-sm">Every human deserves respect and care.</p>
-                    </div>
-                    <div
-                        class="bg-slate-700 p-4 md:p-6 rounded-lg shadow-md hover:bg-slate-600 transition duration-300 card-hover">
-                        <div class="text-3xl md:text-4xl text-green-500 mb-3 md:mb-4">🌍</div>
-                        <h4 class="text-lg md:text-xl font-bold mb-2 text-white">Community</h4>
-                        <p class="text-slate-300 text-sm">Together, we can create lasting change.</p>
-                    </div>
-                    <div
-                        class="bg-slate-700 p-4 md:p-6 rounded-lg shadow-md hover:bg-slate-600 transition duration-300 card-hover">
-                        <div class="text-3xl md:text-4xl text-blue-500 mb-3 md:mb-4">🛠</div>
-                        <h4 class="text-lg md:text-xl font-bold mb-2 text-white">Empowerment</h4>
-                        <p class="text-slate-300 text-sm">We provide opportunities, not just aid.</p>
-                    </div>
-                    <div
-                        class="bg-slate-700 p-4 md:p-6 rounded-lg shadow-md hover:bg-slate-600 transition duration-300 card-hover">
-                        <div class="text-3xl md:text-4xl text-purple-500 mb-3 md:mb-4">🔍</div>
-                        <h4 class="text-lg md:text-xl font-bold mb-2 text-white">Integrity</h4>
-                        <p class="text-slate-300 text-sm">We are transparent and accountable in all we do.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="programs" class="py-12 md:py-20 bg-slate-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-10 md:mb-16">
-                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-400 mb-4">What We Do</h2>
-                <div class="w-24 h-1 bg-emerald-500 mx-auto"></div>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
-                <div class="bg-slate-800 p-4 md:p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 card-hover">
-                    <div class="text-blue-400 text-3xl md:text-4xl mb-3 md:mb-4">
-                        <i class="fas fa-utensils"></i>
-                    </div>
-                    <h3 class="text-base md:text-xl font-bold mb-2 md:mb-3 text-white">Feeding the Hungry (SDG 2: Zero Hunger)</h3>
-                    <p class="text-slate-300 text-sm">Providing nutritious meals to individuals and families experiencing food insecurity to ensure no one in our community goes to bed hungry.</p>
-                </div>
-                <div class="bg-slate-800 p-4 md:p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 card-hover">
-                    <div class="text-blue-400 text-3xl md:text-4xl mb-3 md:mb-4">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3 class="text-base md:text-xl font-bold mb-2 md:mb-3 text-white">Empowerment Through Education (SDG 4: Quality Education)</h3>
-                    <p class="text-slate-300 text-sm">Promoting education as a primary means to empower individuals and break the cycle of poverty, ensuring inclusive and equitable learning opportunities for all.</p>
-                </div>
-                <div class="bg-slate-800 p-4 md:p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 card-hover">
-                    <div class="text-blue-400 text-3xl md:text-4xl mb-3 md:mb-4">
-                        <i class="fas fa-tint"></i>
-                    </div>
-                    <h3 class="text-base md:text-xl font-bold mb-2 md:mb-3 text-white">Clean Water Access (SDG 6: Clean Water and Sanitation)</h3>
-                    <p class="text-slate-300 text-sm">Giving drink to the thirsty by ensuring reliable access to clean and safe drinking water for vulnerable populations.</p>
-                </div>
-                <div class="bg-slate-800 p-4 md:p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 card-hover">
-                    <div class="text-blue-400 text-3xl md:text-4xl mb-3 md:mb-4">
-                        <i class="fas fa-heartbeat"></i>
-                    </div>
-                    <h3 class="text-base md:text-xl font-bold mb-2 md:mb-3 text-white">Healthcare Support & Comfort (SDG 3: Good Health and Well-being)</h3>
-                    <p class="text-slate-300 text-sm">Visiting and caring for the sick by providing essential healthcare support, medical aid, and offering comfort to those in pain.</p>
-                </div>
-                <div class="bg-slate-800 p-4 md:p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 card-hover">
-                    <div class="text-blue-400 text-3xl md:text-4xl mb-3 md:mb-4">
-                        <i class="fas fa-hand-holding-heart"></i>
-                    </div>
-                    <h3 class="text-base md:text-xl font-bold mb-2 md:mb-3 text-white">Restoring Dignity & Transforming Lives (SDG 1: No Poverty)</h3>
-                    <p class="text-slate-300 text-sm">Providing essential life-sustaining support to the vulnerable and less privileged to restore their dignity and foster long-term empowerment.</p>
-                </div>
-                <div class="bg-slate-800 p-4 md:p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 card-hover">
-                    <div class="text-blue-400 text-3xl md:text-4xl mb-3 md:mb-4">
-                        <i class="fas fa-home"></i>
-                    </div>
-                    <h3 class="text-base md:text-xl font-bold mb-2 md:mb-3 text-white">Shelter for the Homeless (SDG 11: Sustainable Cities and Communities)</h3>
-                    <p class="text-slate-300 text-sm">Creating safe spaces and supporting transitional housing initiatives to ensure that the homeless have a secure place to stay.</p>
-                </div>
-                <div class="bg-slate-800 p-4 md:p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 card-hover">
-                    <div class="text-blue-400 text-3xl md:text-4xl mb-3 md:mb-4">
-                        <i class="fas fa-gavel"></i>
-                    </div>
-                    <h3 class="text-base md:text-xl font-bold mb-2 md:mb-3 text-white">Justice and Advocacy (SDG 16: Peace, Justice, and Strong Institutions)</h3>
-                    <p class="text-slate-300 text-sm">Advocating for a more just and compassionate society where the less privileged are not forgotten, and visiting the imprisoned to offer support and hope.</p>
-                </div>
-                <div class="bg-slate-800 p-4 md:p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 card-hover">
-                    <div class="text-blue-400 text-3xl md:text-4xl mb-3 md:mb-4">
-                        <i class="fas fa-tshirt"></i>
-                    </div>
-                    <h3 class="text-base md:text-xl font-bold mb-2 md:mb-3 text-white">Clothing the Needy (SDG 12: Responsible Consumption and Production)</h3>
-                    <p class="text-slate-300 text-sm">Distributing clothing and other essential items to those in need, ensuring resources reach the most vulnerable.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOUNDER SECTION - ADDED -->
-    <section class="py-12 md:py-20 bg-slate-800" id="founder">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-10 md:mb-16">
-                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-400 mb-4">Founder & Chairman</h2>
-                <div class="w-24 h-1 bg-emerald-500 mx-auto"></div>
-            </div>
-            <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
-                <div class="flex flex-col items-center md:items-start">
-                    <img src="images/Kakaprince.png" alt="Kaka Prince Chiemezuo - Founder" 
-                         class="rounded-2xl shadow-2xl w-64 h-auto md:w-80 lg:w-96 object-cover border-4 border-blue-400/30">
-                    <div class="mt-6 text-center md:text-left">
-                        <h3 class="text-2xl md:text-3xl font-bold text-white">Kaka Prince Chiemezuo</h3>
-                        <p class="text-blue-400 font-medium text-base md:text-lg">Founder & Chairman, Board of Trustees</p>
-                    </div>
-                </div>
-                <div class="space-y-6">
+            <div class="bg-slate-700 p-8 rounded-lg shadow-lg">
+                <form id="volunteer-form" name="volunteer-form" class="space-y-6">
                     <div>
-                        <h4 class="text-xl md:text-2xl font-bold text-emerald-400 mb-3">About the Founder</h4>
-                        <p class="text-slate-300 text-sm md:text-base leading-relaxed">
-                            Kaka Prince Chiemezuo is a humanitarian leader, social entrepreneur, and technology enthusiast dedicated to creating sustainable impact in communities across Nigeria. As the Founder and Chairman of the Board of Trustees of Kaka Humanitarian Foundation, he leads initiatives focused on youth empowerment, education advocacy, poverty alleviation, environmental sustainability, and community development.
-                        </p>
-                        <p class="text-slate-300 text-sm md:text-base leading-relaxed mt-4">
-                            With a Bachelor's Degree in Agriculture from Nnamdi Azikiwe University and years of leadership experience in youth organizations, humanitarian projects, and social impact programs, Kaka Prince is passionate about empowering individuals with the knowledge, skills, and opportunities needed to thrive. His commitment to service, innovation, and sustainable development continues to inspire positive change and transform lives across communities.
-                        </p>
+                        <label for="full-name" class="block text-sm font-medium text-slate-300 mb-2">Full Name</label>
+                        <input type="text" id="full-name" name="Full Name" required
+                            class="w-full px-4 py-3 rounded-lg bg-slate-600 border border-slate-500 text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
                     </div>
-                    <div class="bg-slate-700/60 p-6 rounded-xl border-l-4 border-blue-400">
-                        <h4 class="text-lg md:text-xl font-bold text-white mb-3">Message from the Founder</h4>
-                        <p class="text-slate-300 text-sm md:text-base italic leading-relaxed">
-                            "Welcome to the Kaka Humanitarian Foundation. I believe that every individual, regardless of their background or circumstances, deserves an opportunity to live with dignity, access quality education, and reach their full potential. This belief inspired the establishment of the Kaka Humanitarian Foundation, a platform dedicated to serving humanity through compassion, empowerment, and sustainable community development.
-                        </p>
-                        <p class="text-slate-300 text-sm md:text-base italic leading-relaxed mt-4">
-                            Our mission goes beyond providing temporary relief. We are committed to creating lasting solutions that address poverty, promote education, empower young people, support vulnerable communities, and encourage responsible citizenship. Through strategic partnerships, volunteerism, and community driven initiatives, we strive to make a meaningful difference in the lives of those we serve.
-                        </p>
-                        <p class="text-slate-300 text-sm md:text-base italic leading-relaxed mt-4">
-                            As we continue this journey, I invite individuals, organizations, and stakeholders who share our vision to join us in building a society where hope is restored, opportunities are accessible, and no one is left behind. Together, we can transform lives, strengthen communities, and create a brighter future for generations to come. Thank you for believing in our mission and supporting our efforts to make humanity better."
-                        </p>
-                        <div class="mt-4 text-right">
-                            <p class="text-white font-medium">Kaka Prince Chiemezuo</p>
-                            <p class="text-slate-400 text-sm">Founder & Chairman, Board of Trustees</p>
-                            <p class="text-slate-400 text-sm">Kaka Humanitarian Foundation</p>
-                        </div>
+
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-slate-300 mb-2">Email Address</label>
+                        <input type="email" id="email" name="Email Address" required
+                            class="w-full px-4 py-3 rounded-lg bg-slate-600 border border-slate-500 text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
                     </div>
-                </div>
+
+                    <div>
+                        <label for="phone-number" class="block text-sm font-medium text-slate-300 mb-2">Phone
+                            Number</label>
+                        <input type="tel" id="phone-number" name="Phone Number" required
+                            class="w-full px-4 py-3 rounded-lg bg-slate-600 border border-slate-500 text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                    </div>
+
+                    <div>
+                        <label for="location" class="block text-sm font-medium text-slate-300 mb-2">Location
+                            (City/State)</label>
+                        <input type="text" id="location" name="Location" required
+                            class="w-full px-4 py-3 rounded-lg bg-slate-600 border border-slate-500 text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                    </div>
+
+                    <div>
+                        <label for="age-range" class="block text-sm font-medium text-slate-300 mb-2">Age Range</label>
+                        <select id="age-range" name="Age Range" required
+                            class="w-full px-4 py-3 rounded-lg bg-slate-600 border border-slate-500 text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                            <option value="" disabled selected>Please select an option</option>
+                            <option value="18-23">18-23</option>
+                            <option value="24-30">24-30</option>
+                            <option value="31-50">31-50</option>
+                        </select>
+                    </div>
+
+                    <div class="text-center pt-4">
+                        <button type="submit" id="submit-button"
+                            class="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-12 rounded-lg transition duration-300 transform hover:scale-105">
+                            Submit Application
+                        </button>
+                    </div>
+                </form>
+                <div id="form-message" class="mt-6 text-center text-lg font-medium"></div>
             </div>
         </div>
     </section>
-
-    <!-- Testimonials Section - Uncommented for mobile -->
-    <!--
-    <section class="py-12 md:py-20 bg-slate-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-hidden">
-            <div class="text-center mb-10 md:mb-16">
-                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-400 mb-4">Stories of Impact</h2>
-                <div class="w-24 h-1 bg-emerald-500 mx-auto"></div>
-            </div>
-
-            <div class="flex overflow-x-auto pb-8 scrollbar-hide snap-x snap-mandatory" id="testimonial-carousel">
-                <div class="testimonial-card flex-shrink-0 px-2 md:px-4">
-                    <div class="bg-slate-700 p-6 md:p-8 rounded-lg shadow-lg h-full">
-                        <div class="flex items-center mb-4">
-                            <div class="text-yellow-400 text-2xl mr-2">★★★★★</div>
-                        </div>
-                        <p class="text-slate-300 italic mb-6 text-sm md:text-base">"The KAKA Humanitarian Foundation provided food for my family when we
-                            had nothing. Their kindness gave us hope during our darkest days."</p>
-                        <div class="flex items-center">
-                            <img src="images/WhatsApp Image 2025-07-05 at 00.53.06_0fb7a8cf.jpg" alt="Sarah J."
-                                class="w-10 h-10 md:w-12 md:h-12 rounded-full mr-4">
-                            <div>
-                                <h4 class="font-bold text-white text-sm md:text-base">Sarah J.</h4>
-                                <p class="text-slate-400 text-xs md:text-sm">Beneficiary</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card flex-shrink-0 px-2 md:px-4">
-                    <div class="bg-slate-700 p-6 md:p-8 rounded-lg shadow-lg h-full">
-                        <div class="flex items-center mb-4">
-                            <div class="text-yellow-400 text-2xl mr-2">★★★★★</div>
-                        </div>
-                        <p class="text-slate-300 italic mb-6 text-sm md:text-base">"As a volunteer, I've seen firsthand how the foundation
-                            transforms lives. Their commitment to dignity and compassion is inspiring."</p>
-                        <div class="flex items-center">
-                            <img src="images/WhatsApp Image 2025-07-05 at 00.53.01_997c17e9.jpg" alt="Michael T."
-                                class="w-10 h-10 md:w-12 md:h-12 rounded-full mr-4">
-                            <div>
-                                <h4 class="font-bold text-white text-sm md:text-base">Michael T.</h4>
-                                <p class="text-slate-400 text-xs md:text-sm">Volunteer</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card flex-shrink-0 px-2 md:px-4">
-                    <div class="bg-slate-700 p-6 md:p-8 rounded-lg shadow-lg h-full">
-                        <div class="flex items-center mb-4">
-                            <div class="text-yellow-400 text-2xl mr-2">★★★★★</div>
-                        </div>
-                        <p class="text-slate-300 italic mb-6 text-sm md:text-base">"Partnering with KAKA Humanitarian Foundation has been rewarding. Their
-                            transparency and impact make them a trustworthy organization."</p>
-                        <div class="flex items-center">
-                            <img src="images/WhatsApp Image 2025-07-05 at 00.53.02_4a548956.jpg" alt="Amina K."
-                                class="w-10 h-10 md:w-12 md:h-12 rounded-full mr-4">
-                            <div>
-                                <h4 class="font-bold text-white text-sm md:text-base">Amina K.</h4>
-                                <p class="text-slate-400 text-xs md:text-sm">Corporate Partner</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
-    <section id="donate" class="py-12 md:py-20 bg-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-10 md:mb-16">
-                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-400 mb-4">How You Can Make a Difference</h2>
-                <div class="w-24 h-1 bg-emerald-500 mx-auto"></div>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-4 md:gap-8">
-                <div
-                    class="bg-slate-700 p-6 md:p-8 rounded-lg shadow-lg border-l-4 border-blue-500 hover:border-emerald-500 transition duration-300 card-hover">
-                    <div class="text-blue-400 text-3xl md:text-4xl mb-4 md:mb-6">
-                        <i class="fas fa-hand-holding-usd"></i>
-                    </div>
-                    <h3 class="text-lg md:text-xl font-bold mb-4 text-white">Donate</h3>
-                    <p class="text-slate-300 text-sm md:text-base mb-4">Your generosity enables us to touch more lives and expand our impact.
-                    </p>
-                    <div class="bg-slate-600 p-4 rounded-lg mb-4">
-                        <p class="text-xs md:text-sm font-medium text-slate-300">Bank Details:</p>
-                        <p class="text-white font-bold text-sm md:text-base">KAKA Humanitarian Foundation</p>
-                        <p class="text-white text-sm md:text-base">2048858759</p>
-                        <p class="text-white text-sm md:text-base">First Bank Of Nigeria</p>
-                    </div>
-                    <a href="#"
-                        class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 md:px-6 rounded-lg transition duration-300 text-sm md:text-base">Donate
-                        Now</a>
-                </div>
-                <div
-                    class="bg-slate-700 p-6 md:p-8 rounded-lg shadow-lg border-l-4 border-blue-500 hover:border-emerald-500 transition duration-300 card-hover">
-                    <div class="text-blue-400 text-3xl md:text-4xl mb-4 md:mb-6">
-                        <i class="fas fa-hands-helping"></i>
-                    </div>
-                    <h3 class="text-lg md:text-xl font-bold mb-4 text-white">Volunteer</h3>
-                    <p class="text-slate-300 text-sm md:text-base mb-4">Join our team of compassionate volunteers making a direct impact in
-                        communities. Your time and skills can change lives.</p>
-                    <a href="volunteer/"
-                        class="inline-block bg-emerald-500 hover:bg-emerald-600 text-white font-medium py-2 px-4 md:px-6 rounded-lg transition duration-300 text-sm md:text-base">Become
-                        a Volunteer</a>
-                </div>
-                <div
-                    class="bg-slate-700 p-6 md:p-8 rounded-lg shadow-lg border-l-4 border-blue-500 hover:border-emerald-500 transition duration-300 card-hover">
-                    <div class="text-blue-400 text-3xl md:text-4xl mb-4 md:mb-6">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3 class="text-lg md:text-xl font-bold mb-4 text-white">Partner With Us</h3>
-                    <p class="text-slate-300 text-sm md:text-base mb-4">Businesses and organizations can collaborate with us to create
-                        lasting social impact.</p>
-                    <ul class="space-y-2 md:space-y-3 mb-4 md:mb-6">
-                        <li class="flex items-start text-sm md:text-base">
-                            <span class="text-emerald-400 mr-2">✓</span>
-                            <span class="text-slate-300">Corporate sponsorships</span>
-                        </li>
-                        <li class="flex items-start text-sm md:text-base">
-                            <span class="text-emerald-400 mr-2">✓</span>
-                            <span class="text-slate-300">Employee volunteer programs</span>
-                        </li>
-                        <li class="flex items-start text-sm md:text-base">
-                            <span class="text-emerald-400 mr-2">✓</span>
-                            <span class="text-slate-300">In-kind donations</span>
-                        </li>
-                        <li class="flex items-start text-sm md:text-base">
-                            <span class="text-emerald-400 mr-2">✓</span>
-                            <span class="text-slate-300">Cause marketing campaigns</span>
-                        </li>
-                    </ul>
-                    <a href="Partner/index.html"
-                        class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 md:px-6 rounded-lg transition duration-300 text-sm md:text-base">Partner
-                        Now</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-12 md:py-20 bg-slate-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-10 md:mb-16">
-                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-400 mb-4">Contact Us</h2>
-                <div class="w-24 h-1 bg-emerald-500 mx-auto"></div>
-                <p class="text-base md:text-xl mt-4 md:mt-6 max-w-2xl mx-auto text-slate-300">Together, we can bring hope, dignity, and love
-                    to those in need. Join us today!</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-6 md:gap-12">
-                <div>
-                    <div class="bg-slate-800 p-6 md:p-8 rounded-lg shadow-lg">
-                        <h3 class="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-white">Get In Touch</h3>
-                        <div class="space-y-4 md:space-y-6">
-                            <div class="flex items-start">
-                                <div class="text-blue-400 text-lg md:text-xl mr-4 mt-1">
-                                    <i class="fas fa-envelope"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-white mb-1 text-sm md:text-base">Email</h4>
-                                    <a href="mailto:kakahumanitarianfoundation@gmail.com"
-                                        class="text-slate-300 hover:text-blue-400 transition text-sm md:text-base break-all">kakahumanitarianfoundation@gmail.com</a>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <div class="text-blue-400 text-lg md:text-xl mr-4 mt-1">
-                                    <i class="fab fa-whatsapp"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-white mb-1 text-sm md:text-base">WhatsApp</h4>
-                                    <a href="https://wa.me/2348160952082"
-                                        class="text-slate-300 hover:text-blue-400 transition text-sm md:text-base">+234 816 095 2082</a>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <div class="text-blue-400 text-lg md:text-xl mr-4 mt-1">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-white mb-1 text-sm md:text-base">Location</h4>
-                                    <p class="text-slate-300 text-sm md:text-base">Nigeria</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="bg-slate-800 p-6 md:p-8 rounded-lg shadow-lg">
-                        <h3 class="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-white">Send Us a Message</h3>
-                        <form id="contact-form" class="space-y-3 md:space-y-4">
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
-                                <div>
-                                    <input type="text" placeholder="Your Name"
-                                        class="w-full px-4 py-2 rounded-lg bg-slate-700 border border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base">
-                                </div>
-                                <div>
-                                    <input type="email" placeholder="Your Email"
-                                        class="w-full px-4 py-2 rounded-lg bg-slate-700 border border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base">
-                                </div>
-                            </div>
-                            <input type="text" placeholder="Subject"
-                                class="w-full px-4 py-2 rounded-lg bg-slate-700 border border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base">
-                            <textarea placeholder="Your Message"
-                                class="w-full px-4 py-2 rounded-lg bg-slate-700 border border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base"
-                                rows="5"></textarea>
-                            <button type="submit"
-                                class="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-6 rounded-lg transition duration-300 text-sm md:text-base">Send
-                                Message</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-slate-900 py-8 md:py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-                <div>
-                    <!-- Footer Logo -->
-                    <div class="flex items-center gap-3 mb-4">
-                        <img src="/images/KAKA_logo.png" alt="KAKA Humanitarian Foundation Logo" 
-                             class="h-10 w-auto md:h-14 object-contain">
-                        <h3 class="text-base md:text-xl font-bold text-yellow-400">KAKA</h3>
-                    </div>
-                    <p class="text-slate-400 text-sm">Serving humanity with love and compassion, restoring dignity and
-                        transforming lives.</p>
-                </div>
-                <div>
-                    <h4 class="text-base md:text-lg font-bold text-white mb-4">Quick Links</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#home" class="text-slate-400 hover:text-blue-400 transition text-sm">Home</a></li>
-                        <li><a href="#about" class="text-slate-400 hover:text-blue-400 transition text-sm">About Us</a></li>
-                        <li><a href="#programs" class="text-slate-400 hover:text-blue-400 transition text-sm">Programs</a></li>
-                        <li><a href="#donate" class="text-slate-400 hover:text-blue-400 transition text-sm">Donate</a></li>
-                        <li><a href="#contact" class="text-slate-400 hover:text-blue-400 transition text-sm">Contact</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-base md:text-lg font-bold text-white mb-4">Programs</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-slate-400 hover:text-blue-400 transition text-sm">Food Distribution</a></li>
-                        <li><a href="#" class="text-slate-400 hover:text-blue-400 transition text-sm">Shelter Support</a></li>
-                        <li><a href="#" class="text-slate-400 hover:text-blue-400 transition text-sm">Healthcare Initiatives</a>
-                        </li>
-                        <li><a href="#" class="text-slate-400 hover:text-blue-400 transition text-sm">Prison Outreach</a></li>
-                        <li><a href="#" class="text-slate-400 hover:text-blue-400 transition text-sm">Education Support</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-base md:text-lg font-bold text-white mb-4">Connect With Us</h4>
-                    <div class="flex space-x-3 md:space-x-4 mb-4">
-                        <a href="https://www.facebook.com/share/1ESJMNacrd/" class="text-slate-400 hover:text-blue-400 text-lg md:text-xl transition"><i
-                                class="fab fa-facebook"></i></a>
-                        <a href="https://www.instagram.com/kakahumanitarianfoundation?igsh=MW5oeHB1cnpnbjduNw==" class="text-slate-400 hover:text-blue-400 text-lg md:text-xl transition"><i
-                                class="fab fa-instagram"></i></a>
-                    </div>
-                    <p class="text-slate-400 text-sm">Subscribe to our newsletter</p>
-                    <div class="flex mt-2">
-                        <input type="email" placeholder="Your Email"
-                            class="px-3 md:px-4 py-2 rounded-l-lg bg-slate-700 border border-slate-600 focus:outline-none focus:ring-1 focus:ring-blue-500 w-full text-sm">
-                        <button
-                            class="bg-blue-500 hover:bg-blue-600 text-white px-3 md:px-4 py-2 rounded-r-lg transition duration-300"><i
-                                class="fas fa-paper-plane"></i></button>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-slate-700 mt-8 md:mt-12 pt-6 md:pt-8 text-center text-slate-500 text-sm">
-                <p>Copyright © <span id="current-year"></span> KAKA Humanitarian Foundation. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
 
     <script>
-        // Mobile menu toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function () {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
+        const volunteerForm = document.getElementById('volunteer-form');
+        const submitButton = document.getElementById('submit-button');
+        const formMessage = document.getElementById('form-message');
 
-        // Close mobile menu when a link is clicked
-        document.querySelectorAll('#mobile-menu a').forEach(function(link) {
-            link.addEventListener('click', function() {
-                document.getElementById('mobile-menu').classList.add('hidden');
-            });
-        });
+        const webAppUrl = 'https://script.google.com/macros/s/AKfycbw-tfrPRF_FskmZIexG4qHqcee7hUKTS76Q1pwEyGS5jf9fC7Tu3kEb_V5qd9vMjkyA/exec';
 
-        // Set current year in footer
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-
-        // Simple form handling for contact form
-        document.getElementById('contact-form').addEventListener('submit', function (e) {
+        volunteerForm.addEventListener('submit', function (e) {
             e.preventDefault();
-            alert('Thank you for your message! We will get back to you soon.');
-            this.reset();
-        });
+            submitButton.disabled = true;
+            submitButton.textContent = 'Submitting...';
 
-        // Simple carousel functionality
-        let currentTestimonial = 0;
-        const testimonials = document.querySelectorAll('.testimonial-card');
-        const carousel = document.getElementById('testimonial-carousel');
-
-        function showTestimonial(index) {
-            if (testimonials.length > 0 && carousel) {
-                const scrollPosition = index * testimonials[0].offsetWidth;
-                carousel.scrollTo({
-                    left: scrollPosition,
-                    behavior: 'smooth'
+            fetch(webAppUrl, { method: 'POST', body: new FormData(volunteerForm) })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.result === 'success') {
+                        formMessage.textContent = 'Thank you! Your application has been received.';
+                        formMessage.style.color = '#10B981'; // Success green
+                        volunteerForm.reset();
+                    } else {
+                        throw new Error(data.error || 'An unknown error occurred.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error submitting form:', error);
+                    formMessage.textContent = 'An error occurred. Please try again later.';
+                    formMessage.style.color = '#EF4444'; // Error red
+                })
+                .finally(() => {
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Submit Application';
                 });
-                currentTestimonial = index;
-            }
-        }
-
-        // Auto-rotate testimonials
-        if (testimonials.length > 0) {
-            setInterval(() => {
-                currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-                showTestimonial(currentTestimonial);
-            }, 5000);
-        }
+        });
     </script>
 </body>
 
