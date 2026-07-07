@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://kakafoundation.netlify.app/</loc>
+        <loc>https://kakafoundation.com.ng/</loc>
         <priority>1.00</priority>
     </url>
+
     <url>
-        <loc>https://kakafoundation.netlify.app/Partner/</loc>
+        <loc>https://kakafoundation.com.ng/Partner/</loc>
         <priority>0.80</priority>
     </url>
+
     <url>
-        <loc>https://kakafoundation.netlify.app/Volunteer/</loc>
+        <loc>https://kakafoundation.com.ng/Volunteer/</loc>
         <priority>0.80</priority>
     </url>
 </urlset>

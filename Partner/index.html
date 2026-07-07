@@ -5,20 +5,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Partner With Us - KAKA Humanitarian Foundation</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Partner With Us - KAKA Humanitarian Foundation">
+    <meta property="og:description" content="Partner with KAKA Humanitarian Foundation to create sustainable impact across communities in Nigeria.">
+    <meta property="og:image" content="https://kakafoundation.com.ng/images/pexels-kwakugriffn-14554003.jpg">
+    <meta property="og:url" content="https://kakafoundation.com.ng/Partner/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://kakafoundation.com.ng/images/pexels-kwakugriffn-14554003.jpg">
+
+    <!-- CDN Dependencies -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        /* ===== RESET & BASE ===== */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
         body {
             font-family: 'Poppins', sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+            line-height: 1.6;
+            min-height: 100vh;
         }
 
-        /* Logo styling */
+        /* ===== UTILITY CLASSES ===== */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        @media (min-width: 640px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 2rem;
+            }
+        }
+
+        /* ===== LOGO ===== */
         .logo-text {
             font-size: 1.5rem;
             font-weight: 700;
-            color: #FBBF24;
+            color: #fbbf24;
         }
 
         @media (min-width: 640px) {
@@ -32,51 +82,279 @@
                 font-size: 2rem;
             }
         }
+
+        /* ===== FORM ELEMENTS ===== */
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            background-color: #1e293b;
+            border: 1px solid #475569;
+            color: #e2e8f0;
+            transition: all 0.2s ease;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+        }
+
+        .form-input::placeholder {
+            color: #94a3b8;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #cbd5e1;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-select option {
+            background-color: #1e293b;
+            color: #e2e8f0;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn-primary {
+            display: inline-block;
+            padding: 0.75rem 3rem;
+            font-weight: 700;
+            color: #ffffff;
+            background-color: #10b981;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            background-color: #059669;
+            transform: scale(1.05);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        @media (min-width: 640px) {
+            .btn-primary {
+                width: auto;
+            }
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            background-color: #1e293b;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+            padding: 1rem 0;
+        }
+
+        .header-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .header-logo img {
+            height: 2.5rem;
+            width: auto;
+            object-fit: contain;
+        }
+
+        @media (min-width: 768px) {
+            .header-logo img {
+                height: 3rem;
+            }
+        }
+
+        .header-back-link {
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .header-back-link:hover {
+            color: #60a5fa;
+            background-color: #334155;
+        }
+
+        /* ===== SECTION ===== */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #60a5fa;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        .section-divider {
+            width: 6rem;
+            height: 0.25rem;
+            background-color: #10b981;
+            margin: 0 auto 1.5rem;
+            border-radius: 9999px;
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            text-align: center;
+            color: #cbd5e1;
+            max-width: 48rem;
+            margin: 0 auto 2rem;
+        }
+
+        /* ===== FORM CARD ===== */
+        .form-card {
+            background-color: #1e293b;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+            max-width: 56rem;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .form-card {
+                padding: 2.5rem;
+            }
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .form-grid-full {
+            grid-column: 1 / -1;
+        }
+
+        /* ===== FORM MESSAGE ===== */
+        .form-message {
+            margin-top: 1.5rem;
+            text-align: center;
+            font-size: 1.125rem;
+            font-weight: 500;
+            min-height: 2rem;
+        }
+
+        .form-message.success {
+            color: #10b981;
+        }
+
+        .form-message.error {
+            color: #ef4444;
+        }
+
+        /* ===== HIDDEN UTILITY ===== */
+        .hidden {
+            display: none !important;
+        }
     </style>
 </head>
 
-<body class="bg-slate-900 text-slate-200">
+<body>
 
-    <header class="bg-slate-800 shadow-lg">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <!-- Logo Section - FIXED PATH with ../ -->
-            <a href="../index.html" class="flex items-center gap-3">
-                <img src="../images/KAKA_logo.png" alt="KAKA Humanitarian Foundation Logo" 
-                     class="h-10 w-auto md:h-12 object-contain">
+    <!-- ============================================================
+    HEADER
+    ============================================================ -->
+    <header class="header">
+        <nav class="container header-nav">
+            <!-- Logo -->
+            <a href="../index.html" class="header-logo">
+                <img src="../images/KAKA_logo.png" alt="KAKA Humanitarian Foundation Logo">
                 <span class="logo-text hidden sm:inline">KAKA Humanitarian Foundation</span>
             </a>
-            <a href="../index.html#home"
-                class="px-4 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-blue-400 hover:bg-slate-700 transition">Back
-                to Main Site</a>
+
+            <!-- Back Link -->
+            <a href="../index.html#home" class="header-back-link">
+                <i class="fas fa-arrow-left mr-2"></i> Back to Main Site
+            </a>
         </nav>
     </header>
 
-    <section id="partner-form" class="py-20">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-blue-400 mb-4">Become a Partner</h2>
-                <div class="w-24 h-1 bg-emerald-500 mx-auto"></div>
-                <p class="text-xl mt-6 max-w-3xl mx-auto text-slate-300">
-                    Join us in our mission to serve humanity. Fill out the form below to start a conversation about how
-                    we can work together.
+    <!-- ============================================================
+    PARTNER FORM SECTION
+    ============================================================ -->
+    <section class="section">
+        <div class="container">
+
+            <!-- Section Header -->
+            <div class="text-center">
+                <h1 class="section-title">Become a Partner</h1>
+                <div class="section-divider"></div>
+                <p class="section-subtitle">
+                    Join us in our mission to serve humanity. Fill out the form below to start a conversation
+                    about how we can work together.
                 </p>
             </div>
 
-            <div class="bg-slate-800 p-8 rounded-lg shadow-lg">
-                <form id="partner-form-element" class="space-y-6">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Form Card -->
+            <div class="form-card">
+                <form id="partnerForm" novalidate>
+
+                    <!-- Row 1: Organization Name + Type -->
+                    <div class="form-grid">
                         <div>
-                            <label for="OrganizationName"
-                                class="block text-sm font-medium text-slate-300 mb-2">Organization/Company Name</label>
-                            <input type="text" name="OrganizationName" id="OrganizationName" required
-                                class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                            <label for="OrganizationName" class="form-label">
+                                Organization / Company Name <span class="text-red-400">*</span>
+                            </label>
+                            <input
+                            type="text"
+                            id="OrganizationName"
+                            name="OrganizationName"
+                            class="form-input"
+                            placeholder="e.g., ABC Foundation"
+                            required
+                            >
                         </div>
                         <div>
-                            <label for="OrganizationType"
-                                class="block text-sm font-medium text-slate-300 mb-2">Organization Type</label>
-                            <select name="OrganizationType" id="OrganizationType" required
-                                class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
-                                <option value="" disabled selected>Please select...</option>
+                            <label for="OrganizationType" class="form-label">
+                                Organization Type <span class="text-red-400">*</span>
+                            </label>
+                            <select id="OrganizationType" name="OrganizationType" class="form-select" required>
+                                <option value="" disabled selected>— Please select —</option>
                                 <option value="NGO">NGO / Non-Profit</option>
                                 <option value="Business">Business / Corporate</option>
                                 <option value="Government">Government Agency</option>
@@ -87,120 +365,209 @@
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Row 2: Contact Name + Position -->
+                    <div class="form-grid">
                         <div>
-                            <label for="ContactName" class="block text-sm font-medium text-slate-300 mb-2">Contact
-                                Person's Full Name</label>
-                            <input type="text" name="ContactName" id="ContactName" required
-                                class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                            <label for="ContactName" class="form-label">
+                                Contact Person's Full Name <span class="text-red-400">*</span>
+                            </label>
+                            <input
+                            type="text"
+                            id="ContactName"
+                            name="ContactName"
+                            class="form-input"
+                            placeholder="e.g., John Doe"
+                            required
+                            >
                         </div>
                         <div>
-                            <label for="Position" class="block text-sm font-medium text-slate-300 mb-2">Position /
-                                Title</label>
-                            <input type="text" name="Position" id="Position" required
-                                class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                            <label for="Position" class="form-label">
+                                Position / Title <span class="text-red-400">*</span>
+                            </label>
+                            <input
+                            type="text"
+                            id="Position"
+                            name="Position"
+                            class="form-input"
+                            placeholder="e.g., Executive Director"
+                            required
+                            >
                         </div>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label for="Email" class="block text-sm font-medium text-slate-300 mb-2">Email
-                                Address</label>
-                            <input type="email" name="Email" id="Email" required
-                                class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
-                        </div>
-                        <div>
-                            <label for="Phone" class="block text-sm font-medium text-slate-300 mb-2">Phone Number
-                                (WhatsApp)</label>
-                            <input type="tel" name="Phone" id="Phone" required
-                                class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
-                        </div>
-                    </div>
-                    <div>
-                        <label for="Website" class="block text-sm font-medium text-slate-300 mb-2">Website / Social
-                            Media Link</label>
-                        <input type="url" name="Website" id="Website" placeholder="https://..." required
-                            class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
                     </div>
 
+                    <!-- Row 3: Email + Phone -->
+                    <div class="form-grid">
+                        <div>
+                            <label for="Email" class="form-label">
+                                Email Address <span class="text-red-400">*</span>
+                            </label>
+                            <input
+                            type="email"
+                            id="Email"
+                            name="Email"
+                            class="form-input"
+                            placeholder="you@example.com"
+                            required
+                            >
+                        </div>
+                        <div>
+                            <label for="Phone" class="form-label">
+                                Phone Number (WhatsApp) <span class="text-red-400">*</span>
+                            </label>
+                            <input
+                            type="tel"
+                            id="Phone"
+                            name="Phone"
+                            class="form-input"
+                            placeholder="+234 800 000 0000"
+                            required
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Row 4: Website (full width) -->
                     <div>
-                        <label for="PartnershipNature" class="block text-sm font-medium text-slate-300 mb-2">Nature of
-                            Partnership Offered</label>
-                        <select name="PartnershipNature" id="PartnershipNature" required
-                            class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
-                            <option value="" disabled selected>Please select...</option>
-                            <option value="Financial support">Financial support</option>
-                            <option value="Product donation">Product donation</option>
-                            <option value="Joint programs">Joint programs / Events</option>
-                            <option value="Promotion">Promotion / Awareness campaigns</option>
+                        <label for="Website" class="form-label">
+                            Website / Social Media Link <span class="text-red-400">*</span>
+                        </label>
+                        <input
+                        type="url"
+                        id="Website"
+                        name="Website"
+                        class="form-input"
+                        placeholder="https://example.com"
+                        required
+                        >
+                    </div>
+
+                    <!-- Row 5: Partnership Nature -->
+                    <div>
+                        <label for="PartnershipNature" class="form-label">
+                            Nature of Partnership Offered <span class="text-red-400">*</span>
+                        </label>
+                        <select id="PartnershipNature" name="PartnershipNature" class="form-select" required>
+                            <option value="" disabled selected>— Please select —</option>
+                            <option value="Financial support">Financial Support</option>
+                            <option value="Product donation">Product Donation</option>
+                            <option value="Joint programs">Joint Programs / Events</option>
+                            <option value="Promotion">Promotion / Awareness Campaigns</option>
                             <option value="Other">Other (Please specify below)</option>
                         </select>
                     </div>
-                    <div id="other-details-wrapper" class="hidden">
-                        <label for="OtherPartnershipDetails" class="block text-sm font-medium text-slate-300 mb-2">If
-                            other, please specify</label>
-                        <textarea name="OtherPartnershipDetails" id="OtherPartnershipDetails" rows="3"
-                            class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"></textarea>
-                    </div>
 
-                    <div class="text-center pt-4">
-                        <button type="submit" id="submit-button"
-                            class="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-12 rounded-lg transition duration-300 transform hover:scale-105">
-                            Submit Partnership Request
-                        </button>
-                    </div>
-                </form>
-                <div id="form-message" class="mt-6 text-center text-lg font-medium"></div>
-            </div>
+                    <!-- Row 6: Other Details (hidden by default) -->
+                    <div id="otherDetailsWrapper" class="hidden">
+                        <label for="OtherPartnershipDetails" class="form-label">
+                            If other, please specify
+                        </label>
+                        <textarea
+                        id="OtherPartnershipDetails"
+                        name="OtherPartnershipDetails"
+                        class="form-textarea"
+                        rows="3"
+                        placeholder="Please describe the nature of your partnership offer..."
+                    ></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="text-center pt-4">
+                    <button type="submit" id="submitBtn" class="btn-primary">
+                        <i class="fas fa-handshake mr-2"></i> Submit Partnership Request
+                    </button>
+                </div>
+
+            </form>
+
+            <!-- Form Message -->
+            <div id="formMessage" class="form-message" role="alert" aria-live="polite"></div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <script>
-        // --- THIS SCRIPT HANDLES THE FORM SUBMISSION ---
-        const form = document.getElementById('partner-form-element');
-        const submitButton = document.getElementById('submit-button');
-        const formMessage = document.getElementById('form-message');
-        const webAppUrl = 'https://script.google.com/macros/s/AKfycbzHFdoyKrxpkzzm-Vba_p4_oFkoPT4BpFmLGL4Jwsgfkl8G_pIsg5HSUQ9bcL8VmcIttw/exec';
+<!-- ============================================================
+JAVASCRIPT
+============================================================ -->
+<script>
+    (function() {
+        'use strict';
 
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
-            submitButton.disabled = true;
-            submitButton.textContent = 'Submitting...';
+        // ============================================================
+        // DOM REFERENCES
+        // ============================================================
+        const form = document.getElementById('partnerForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const formMessage = document.getElementById('formMessage');
+        const partnershipSelect = document.getElementById('PartnershipNature');
+        const otherWrapper = document.getElementById('otherDetailsWrapper');
 
-            fetch(webAppUrl, { method: 'POST', body: new FormData(form) })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.result === 'success') {
-                        formMessage.textContent = 'Thank you! Your partnership request has been received. We will be in touch soon.';
-                        formMessage.style.color = '#10B981';
-                        form.reset();
-                        document.getElementById('other-details-wrapper').classList.add('hidden');
-                    } else {
-                        throw new Error(data.error || 'An unknown error occurred.');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error submitting form:', error);
-                    formMessage.textContent = 'An error occurred. Please try again later.';
-                    formMessage.style.color = '#EF4444';
-                })
-                .finally(() => {
-                    submitButton.disabled = false;
-                    submitButton.textContent = 'Submit Partnership Request';
-                });
-        });
+        // Google Apps Script Web App URL
+        const WEB_APP_URL =
+            'https://script.google.com/macros/s/AKfycbzHFdoyKrxpkzzm-Vba_p4_oFkoPT4BpFmLGL4Jwsgfkl8G_pIsg5HSUQ9bcL8VmcIttw/exec';
 
-        // --- THIS SCRIPT SHOWS THE 'OTHER' TEXT BOX WHEN NEEDED ---
-        const partnershipNatureSelect = document.getElementById('PartnershipNature');
-        const otherDetailsWrapper = document.getElementById('other-details-wrapper');
-
-        partnershipNatureSelect.addEventListener('change', function () {
+        // ============================================================
+        // TOGGLE "OTHER" DETAILS FIELD
+        // ============================================================
+        partnershipSelect.addEventListener('change', function() {
             if (this.value === 'Other') {
-                otherDetailsWrapper.classList.remove('hidden');
+                otherWrapper.classList.remove('hidden');
             } else {
-                otherDetailsWrapper.classList.add('hidden');
+                otherWrapper.classList.add('hidden');
             }
         });
-    </script>
+
+        // ============================================================
+        // FORM SUBMISSION HANDLER
+        // ============================================================
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            // --- UI: Disable button & show loading state ---
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Submitting...';
+            formMessage.textContent = '';
+            formMessage.className = 'form-message';
+
+            try {
+                // --- Prepare form data ---
+                const formData = new FormData(form);
+
+                // --- Send to Google Apps Script ---
+                const response = await fetch(WEB_APP_URL, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                // --- Parse response ---
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+
+                const data = await response.json();
+
+                // --- Handle success / error ---
+                if (data.result === 'success') {
+                    formMessage.textContent = '✅ Thank you! Your partnership request has been received. We will be in touch soon.';
+                    formMessage.className = 'form-message success';
+                    form.reset();
+                    otherWrapper.classList.add('hidden');
+                } else {
+                    throw new Error(data.error || 'An unknown error occurred.');
+                }
+
+            } catch (error) {
+                console.error('Form submission error:', error);
+                formMessage.textContent = '❌ An error occurred. Please try again later.';
+                formMessage.className = 'form-message error';
+            } finally {
+                // --- UI: Re-enable button ---
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-handshake mr-2"></i> Submit Partnership Request';
+            }
+        });
+
+    })();
+</script>
+
 </body>
 
 </html>
