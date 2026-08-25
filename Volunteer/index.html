@@ -134,33 +134,48 @@
         const submitButton = document.getElementById('submit-button');
         const formMessage = document.getElementById('form-message');
 
-        const webAppUrl = 'https://script.google.com/macros/s/AKfycbw-tfrPRF_FskmZIexG4qHqcee7hUKTS76Q1pwEyGS5jf9fC7Tu3kEb_V5qd9vMjkyA/exec';
+        // IMPORTANT: Paste your Centralized Apps Script URL here
+        const webAppUrl = 'https://script.google.com/macros/s/AKfycbzjW5wALsGshaUSixGzIJf_1Am_lf7riXg66gadGNZWjt1elAq61rPWXdoP6uoy2rozXg/exec';
 
         volunteerForm.addEventListener('submit', function (e) {
             e.preventDefault();
             submitButton.disabled = true;
             submitButton.textContent = 'Submitting...';
 
-            fetch(webAppUrl, { method: 'POST', body: new FormData(volunteerForm) })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.result === 'success') {
-                        formMessage.textContent = 'Thank you! Your application has been received.';
-                        formMessage.style.color = '#10B981'; // Success green
-                        volunteerForm.reset();
-                    } else {
-                        throw new Error(data.error || 'An unknown error occurred.');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error submitting form:', error);
-                    formMessage.textContent = 'An error occurred. Please try again later.';
-                    formMessage.style.color = '#EF4444'; // Error red
-                })
-                .finally(() => {
-                    submitButton.disabled = false;
-                    submitButton.textContent = 'Submit Application';
-                });
+            // Package the data as JSON, including the formType identifier
+            const formData = {
+                formType: 'volunteer',
+                fullName: document.getElementById('full-name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone-number').value,
+                location: document.getElementById('location').value,
+                ageRange: document.getElementById('age-range').value
+            };
+
+            fetch(webAppUrl, { 
+                method: 'POST', 
+                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                body: JSON.stringify(formData) 
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.result === 'success') {
+                    formMessage.textContent = 'Thank you! Your application has been received.';
+                    formMessage.style.color = '#10B981'; // Success green
+                    volunteerForm.reset();
+                } else {
+                    throw new Error(data.error || 'An unknown error occurred.');
+                }
+            })
+            .catch(error => {
+                console.error('Error submitting form:', error);
+                formMessage.textContent = 'An error occurred. Please check your connection and try again.';
+                formMessage.style.color = '#EF4444'; // Error red
+            })
+            .finally(() => {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Submit Application';
+            });
         });
     </script>
 </body>

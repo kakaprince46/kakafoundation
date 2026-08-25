@@ -485,7 +485,7 @@
 </section>
 
 <!-- ============================================================
-JAVASCRIPT
+JAVASCRIPT - UPDATED VERSION
 ============================================================ -->
 <script>
     (function() {
@@ -500,9 +500,9 @@ JAVASCRIPT
         const partnershipSelect = document.getElementById('PartnershipNature');
         const otherWrapper = document.getElementById('otherDetailsWrapper');
 
-        // Google Apps Script Web App URL
-        const WEB_APP_URL =
-            'https://script.google.com/macros/s/AKfycbzHFdoyKrxpkzzm-Vba_p4_oFkoPT4BpFmLGL4Jwsgfkl8G_pIsg5HSUQ9bcL8VmcIttw/exec';
+        // IMPORTANT: Replace this with your Centralized Google Apps Script URL
+        // This is the same URL used for Apply and Volunteer forms
+        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzjW5wALsGshaUSixGzIJf_1Am_lf7riXg66gadGNZWjt1elAq61rPWXdoP6uoy2rozXg/exec';
 
         // ============================================================
         // TOGGLE "OTHER" DETAILS FIELD
@@ -516,7 +516,7 @@ JAVASCRIPT
         });
 
         // ============================================================
-        // FORM SUBMISSION HANDLER
+        // FORM SUBMISSION HANDLER - UPDATED WITH JSON PAYLOAD
         // ============================================================
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -528,13 +528,25 @@ JAVASCRIPT
             formMessage.className = 'form-message';
 
             try {
-                // --- Prepare form data ---
-                const formData = new FormData(form);
+                // --- Package the data as JSON, including formType identifier ---
+                const payload = {
+                    formType: 'partner',
+                    OrganizationName: document.getElementById('OrganizationName').value,
+                    OrganizationType: document.getElementById('OrganizationType').value,
+                    ContactName: document.getElementById('ContactName').value,
+                    Position: document.getElementById('Position').value,
+                    Email: document.getElementById('Email').value,
+                    Phone: document.getElementById('Phone').value,
+                    Website: document.getElementById('Website').value,
+                    PartnershipNature: document.getElementById('PartnershipNature').value,
+                    OtherPartnershipDetails: document.getElementById('OtherPartnershipDetails').value
+                };
 
-                // --- Send to Google Apps Script ---
+                // --- Send JSON payload to Google Apps Script ---
                 const response = await fetch(WEB_APP_URL, {
                     method: 'POST',
-                    body: formData
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    body: JSON.stringify(payload)
                 });
 
                 // --- Parse response ---

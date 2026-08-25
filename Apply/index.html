@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for Help - KAKA Humanitarian Foundation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Poppins', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-200">
+
+    <!-- Form Section -->
+    <section class="py-12 md:py-20 min-h-screen flex items-center justify-center pt-24">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 w-full">
+            
+            <div class="text-center mb-10">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-400 mb-4">Request Assistance</h2>
+                <div class="w-24 h-1 bg-emerald-500 mx-auto mb-4"></div>
+                <p class="text-slate-300">If you or someone you know needs humanitarian assistance, please complete this form. Our team will review and reach out where necessary.</p>
+            </div>
+
+            <div class="bg-slate-800 p-6 md:p-10 rounded-xl shadow-2xl border border-slate-700">
+                
+                <!-- The Form -->
+                <form id="assistanceForm" class="space-y-6">
+                    
+                    <!-- Honeypot Field (Hidden from real users, catches bots) -->
+                    <div class="hidden">
+                        <label for="botField">Leave this field blank</label>
+                        <input type="text" id="botField" name="botField">
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-300 mb-2">Full Name *</label>
+                            <input type="text" id="name" required class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 focus:ring-2 focus:ring-blue-500 text-white outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-300 mb-2">Phone Number *</label>
+                            <input type="tel" id="phone" required class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 focus:ring-2 focus:ring-blue-500 text-white outline-none">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-300 mb-2">Email Address (Optional)</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 focus:ring-2 focus:ring-blue-500 text-white outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-300 mb-2">Are you applying for yourself? *</label>
+                            <select id="applyingFor" required class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 focus:ring-2 focus:ring-blue-500 text-white outline-none">
+                                <option value="Self">Yes, for myself</option>
+                                <option value="Someone Else">No, for someone else</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-300 mb-2">State *</label>
+                            <input type="text" id="state" required class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 focus:ring-2 focus:ring-blue-500 text-white outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-300 mb-2">LGA *</label>
+                            <input type="text" id="lga" required class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 focus:ring-2 focus:ring-blue-500 text-white outline-none">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-300 mb-2">Type of Assistance *</label>
+                            <select id="assistance" required class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 focus:ring-2 focus:ring-blue-500 text-white outline-none">
+                                <option value="" disabled selected>Select an option...</option>
+                                <option value="Food">Food / Zero Hunger</option>
+                                <option value="Education">Education</option>
+                                <option value="Water">Clean Water</option>
+                                <option value="Healthcare">Healthcare / Medical</option>
+                                <option value="Shelter">Shelter</option>
+                                <option value="Clothing">Clothing</option>
+                                <option value="Justice">Justice & Advocacy</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-300 mb-2">Urgency *</label>
+                            <select id="urgency" required class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 focus:ring-2 focus:ring-blue-500 text-white outline-none">
+                                <option value="Normal">Normal</option>
+                                <option value="Urgent">Urgent</option>
+                                <option value="Emergency">Emergency</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300 mb-2">Describe the Situation *</label>
+                        <textarea id="description" rows="4" required class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 focus:ring-2 focus:ring-blue-500 text-white outline-none"></textarea>
+                    </div>
+
+                    <div class="flex items-start">
+                        <input type="checkbox" id="consent" required class="mt-1 mr-3 h-4 w-4 rounded border-slate-600 text-blue-500 focus:ring-blue-500 bg-slate-700">
+                        <label for="consent" class="text-sm text-slate-400">I confirm that the information provided is accurate and may be used by Kaka Humanitarian Foundation to assess my request.</label>
+                    </div>
+
+                    <button type="submit" id="submitBtn" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 px-8 rounded-lg transition duration-300 flex justify-center items-center">
+                        <span id="btnText">Submit Request</span>
+                        <i id="btnSpinner" class="fas fa-spinner fa-spin ml-2 hidden"></i>
+                    </button>
+                </form>
+
+                <!-- Success Message Container (Hidden by default) -->
+                <div id="successMessage" class="hidden text-center py-10">
+                    <div class="text-emerald-500 text-5xl mb-4"><i class="fas fa-check-circle"></i></div>
+                    <h3 class="text-2xl font-bold text-white mb-2">Application Submitted ❤️</h3>
+                    <p class="text-slate-300 mb-6">Your request has been received by Kaka Humanitarian Foundation.</p>
+                    
+                    <div class="bg-slate-900 p-6 rounded-lg border border-slate-700 inline-block mb-6">
+                        <p class="text-sm text-slate-400 mb-1">Your Application ID</p>
+                        <p id="displayAppId" class="text-2xl md:text-3xl font-bold text-blue-400 tracking-wider">KHF-0000-00000000</p>
+                    </div>
+                    
+                    <p class="text-emerald-400 text-sm">Please save this Application ID to check the status of your request later.</p>
+                    
+                    <button onclick="window.location.reload()" class="mt-8 text-slate-400 hover:text-white underline text-sm transition">Submit another request</button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('assistanceForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // UI Loading State
+            const btnText = document.getElementById('btnText');
+            const btnSpinner = document.getElementById('btnSpinner');
+            const submitBtn = document.getElementById('submitBtn');
+            
+            btnText.innerText = 'Submitting...';
+            btnSpinner.classList.remove('hidden');
+            submitBtn.disabled = true;
+            submitBtn.classList.add('opacity-70');
+
+            // Collect Data
+            const formData = {
+                botField: document.getElementById('botField').value,
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value,
+                applyingFor: document.getElementById('applyingFor').value,
+                state: document.getElementById('state').value,
+                lga: document.getElementById('lga').value,
+                assistance: document.getElementById('assistance').value,
+                urgency: document.getElementById('urgency').value,
+                description: document.getElementById('description').value
+            };
+
+            // INSERT YOUR WEB APP URL HERE
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbzjW5wALsGshaUSixGzIJf_1Am_lf7riXg66gadGNZWjt1elAq61rPWXdoP6uoy2rozXg/exec';
+
+            // Send to Google Sheets via Apps Script
+            fetch(scriptURL, {
+                method: 'POST',
+                // Using text/plain avoids CORS preflight issues while passing JSON data
+                headers: { 'Content-Type': 'text/plain;charset=utf-8' }, 
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.status === 'success') {
+                    // Hide Form, Show Success
+                    document.getElementById('assistanceForm').classList.add('hidden');
+                    document.getElementById('successMessage').classList.remove('hidden');
+                    
+                    // Display the generated ID
+                    if(data.appId) {
+                        document.getElementById('displayAppId').innerText = data.appId;
+                    }
+                } else {
+                    alert('There was an error submitting your request. Please try again.');
+                    resetButton();
+                }
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                alert('Connection error. Please try again.');
+                resetButton();
+            });
+
+            function resetButton() {
+                btnText.innerText = 'Submit Request';
+                btnSpinner.classList.add('hidden');
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('opacity-70');
+            }
+        });
+    </script>
+</body>
+</html>

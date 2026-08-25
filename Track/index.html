@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Application - KAKA Humanitarian Foundation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Poppins', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-200">
+
+    <section class="py-12 md:py-20 min-h-screen flex items-center justify-center pt-24">
+        <div class="max-w-xl mx-auto px-4 sm:px-6 w-full">
+            
+            <div class="text-center mb-10">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-400 mb-4">Track Application</h2>
+                <div class="w-24 h-1 bg-emerald-500 mx-auto mb-4"></div>
+                <p class="text-slate-300">Enter your Application ID below to check the current status of your request.</p>
+            </div>
+
+            <div class="bg-slate-800 p-6 md:p-10 rounded-xl shadow-2xl border border-slate-700">
+                
+                <!-- Search Form -->
+                <form id="trackForm" class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300 mb-2">Application ID</label>
+                        <input type="text" id="appIdInput" placeholder="e.g., KHF-2026-12345678" required class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 focus:ring-2 focus:ring-blue-500 text-white outline-none font-mono placeholder-slate-500 tracking-wider">
+                    </div>
+
+                    <button type="submit" id="trackBtn" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-lg transition duration-300 flex justify-center items-center">
+                        <span id="btnText">Check Status</span>
+                        <i id="btnSpinner" class="fas fa-spinner fa-spin ml-2 hidden"></i>
+                    </button>
+                </form>
+
+                <!-- Error Message -->
+                <div id="errorMessage" class="hidden mt-6 bg-red-900/50 border border-red-500 text-red-200 p-4 rounded-lg text-center text-sm">
+                    Application ID not found. Please check the number and try again.
+                </div>
+
+                <!-- Result Card -->
+                <div id="resultCard" class="hidden mt-8 border-t border-slate-700 pt-8">
+                    <h3 class="text-lg font-bold text-white mb-4">Application Details</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center border-b border-slate-700 pb-3">
+                            <span class="text-slate-400 text-sm">Application ID</span>
+                            <span id="resAppId" class="text-white font-mono font-medium"></span>
+                        </div>
+                        <div class="flex justify-between items-center border-b border-slate-700 pb-3">
+                            <span class="text-slate-400 text-sm">Date Submitted</span>
+                            <span id="resDate" class="text-white font-medium"></span>
+                        </div>
+                        <div class="flex justify-between items-center border-b border-slate-700 pb-3">
+                            <span class="text-slate-400 text-sm">Assistance Type</span>
+                            <span id="resType" class="text-white font-medium"></span>
+                        </div>
+                        <div class="flex justify-between items-center pt-2">
+                            <span class="text-slate-400 text-sm">Current Status</span>
+                            <span id="resStatus" class="bg-blue-500/20 text-blue-400 border border-blue-500/30 px-3 py-1 rounded-full text-sm font-bold tracking-wide"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('trackForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // UI Loading State
+            const trackBtn = document.getElementById('trackBtn');
+            const btnText = document.getElementById('btnText');
+            const btnSpinner = document.getElementById('btnSpinner');
+            const resultCard = document.getElementById('resultCard');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            const appId = document.getElementById('appIdInput').value.trim();
+
+            // Reset UI
+            resultCard.classList.add('hidden');
+            errorMessage.classList.add('hidden');
+            btnText.innerText = 'Searching...';
+            btnSpinner.classList.remove('hidden');
+            trackBtn.disabled = true;
+            trackBtn.classList.add('opacity-70');
+
+            // INSERT YOUR WEB APP URL HERE
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbzjW5wALsGshaUSixGzIJf_1Am_lf7riXg66gadGNZWjt1elAq61rPWXdoP6uoy2rozXg/exec';
+            
+            // Append the appId as a query parameter for a GET request
+            const fetchURL = `${scriptURL}?appId=${encodeURIComponent(appId)}`;
+
+            fetch(fetchURL)
+            .then(response => response.json())
+            .then(data => {
+                resetButton();
+
+                if(data.status === 'success') {
+                    // Populate data
+                    document.getElementById('resAppId').innerText = data.data.appId;
+                    document.getElementById('resDate').innerText = data.data.date;
+                    document.getElementById('resType').innerText = data.data.assistanceType;
+                    
+                    const statusPill = document.getElementById('resStatus');
+                    statusPill.innerText = data.data.applicationStatus;
+                    
+                    // Optional: Change color based on status
+                    if (data.data.applicationStatus === 'Approved') {
+                        statusPill.className = 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-3 py-1 rounded-full text-sm font-bold tracking-wide';
+                    } else if (data.data.applicationStatus === 'Declined') {
+                        statusPill.className = 'bg-red-500/20 text-red-400 border border-red-500/30 px-3 py-1 rounded-full text-sm font-bold tracking-wide';
+                    } else {
+                        statusPill.className = 'bg-blue-500/20 text-blue-400 border border-blue-500/30 px-3 py-1 rounded-full text-sm font-bold tracking-wide';
+                    }
+
+                    // Show Card
+                    resultCard.classList.remove('hidden');
+                } else if (data.status === 'not_found') {
+                    errorMessage.classList.remove('hidden');
+                } else {
+                    alert('An error occurred. Please try again.');
+                }
+            })
+            .catch(error => {
+                console.error('Error!', error);
+                alert('Connection error. Please try again.');
+                resetButton();
+            });
+
+            function resetButton() {
+                btnText.innerText = 'Check Status';
+                btnSpinner.classList.add('hidden');
+                trackBtn.disabled = false;
+                trackBtn.classList.remove('opacity-70');
+            }
+        });
+    </script>
+</body>
+</html>
