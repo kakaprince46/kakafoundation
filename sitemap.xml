@@ -1,17 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Root Directory Links -->
     <url>
         <loc>https://kakafoundation.com.ng/</loc>
         <priority>1.00</priority>
     </url>
-
     <url>
         <loc>https://kakafoundation.com.ng/Partner/</loc>
         <priority>0.80</priority>
     </url>
-
     <url>
         <loc>https://kakafoundation.com.ng/Volunteer/</loc>
         <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://kakafoundation.com.ng/Apply/</loc>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://kakafoundation.com.ng/Track/</loc>
+        <priority>0.80</priority>
+    </url>
+
+    <!-- Prince Kaka Global Resources Links (kaka directory) -->
+    <url>
+        <loc>https://kakafoundation.com.ng/kaka/index.html</loc>
+        <priority>0.90</priority>
+    </url>
+    <url>
+        <loc>https://kakafoundation.com.ng/kaka/about.html</loc>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://kakafoundation.com.ng/kaka/services.html</loc>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://kakafoundation.com.ng/kaka/service-details.html</loc>
+        <priority>0.70</priority>
+    </url>
+    <url>
+        <loc>https://kakafoundation.com.ng/kaka/portfolio.html</loc>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://kakafoundation.com.ng/kaka/blog.html</loc>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://kakafoundation.com.ng/kaka/contact.html</loc>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://kakafoundation.com.ng/kaka/faq.html</loc>
+        <priority>0.60</priority>
+    </url>
+    <url>
+        <loc>https://kakafoundation.com.ng/kaka/privacy.html</loc>
+        <priority>0.50</priority>
+    </url>
+    <url>
+        <loc>https://kakafoundation.com.ng/kaka/terms.html</loc>
+        <priority>0.50</priority>
     </url>
 </urlset>
