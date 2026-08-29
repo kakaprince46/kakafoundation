@@ -1,0 +1,2816 @@
+/* ==========================================
+   TABLE OF CONTENTS
+   ==========================================
+   1.  CSS Variables (Design Tokens)
+   2.  Reset & Base Styles
+   3.  Typography
+   4.  Layout Utilities
+   5.  Button Styles
+   6.  Form Elements
+   7.  Global Components
+   8.  Navigation Styles
+   9.  Hero Section
+   10. Company Overview Section
+   11. Services Overview Section
+   12. Industries We Serve Section
+   13. Footer Styles (Placeholder)
+   ========================================== */
+
+/* ==========================================
+   1. CSS VARIABLES (DESIGN TOKENS)
+   ==========================================
+   Why: CSS custom properties (variables) allow us to
+   store our brand colors and values in one place.
+   This makes the code DRY (Don't Repeat Yourself)
+   and incredibly easy to maintain.
+   
+   How to use: var(--primary-color) anywhere in the CSS.
+   If the client wants to change the primary color,
+   we change it here once, and it updates everywhere.
+*/
+
+:root {
+    /* Primary Brand Colors */
+    --primary-color: #1F3FAF;      /* Royal Blue - Our main brand color */
+    --secondary-color: #F7931E;    /* Orange - Accent and call-to-action color */
+    --primary-dark: #162D7A;       /* Darker shade of blue for hover states */
+    --secondary-dark: #D97C14;     /* Darker orange for hover states */
+    
+    /* Neutral Colors */
+    --text-color: #1F2937;         /* Dark Gray - Primary text color */
+    --text-light: #6B7280;         /* Medium Gray - Secondary text */
+    --bg-white: #FFFFFF;           /* White - Main background */
+    --bg-light: #F8FAFC;           /* Light Gray - Section backgrounds */
+    --border-color: #E5E7EB;       /* Light Border - Dividers and outlines */
+    
+    /* Typography */
+    --font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    /* 
+        System font stack: This tells the browser to use the default system font.
+        Why? It's faster (no external font loading), more performant,
+        and looks native on every device. For a professional tech site,
+        this is often preferred over external Google Fonts for speed.
+    */
+    
+    /* Spacing Scale (8px base) */
+    --space-xs: 0.5rem;    /* 8px */
+    --space-sm: 1rem;      /* 16px */
+    --space-md: 2rem;      /* 32px */
+    --space-lg: 4rem;      /* 64px */
+    --space-xl: 6rem;      /* 96px */
+    
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-medium: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    
+    /* Box Shadows */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* ==========================================
+   2. RESET & BASE STYLES
+   ==========================================
+   Why: Different browsers have different default styles.
+   A reset "normalizes" these styles so our site looks
+   consistent across Chrome, Firefox, Safari, Edge, etc.
+   
+   Best Practice: We use a minimal, modern reset
+   that removes default margins/paddings but keeps
+   accessibility features.
+*/
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* 
+        box-sizing: border-box; 
+        This is crucial! It ensures that padding and border
+        are included in the element's total width and height.
+        This makes layout calculations much easier and predictable.
+    */
+}
+
+html {
+    scroll-behavior: smooth;
+    /* Enables smooth scrolling when clicking anchor links */
+    -webkit-text-size-adjust: 100%;
+    /* Prevents text size adjustment on mobile devices */
+}
+
+body {
+    font-family: var(--font-primary);
+    font-size: 16px;
+    line-height: 1.6;
+    /* 
+        line-height: 1.6; 
+        This creates comfortable readability.
+        Industry standard is between 1.5 and 1.8 for body text.
+    */
+    color: var(--text-color);
+    background-color: var(--bg-white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* 
+        These properties improve font rendering on Mac and iOS.
+        They make text appear smoother and more professional.
+    */
+}
+
+/* ==========================================
+   3. TYPOGRAPHY
+   ==========================================
+   Why: Consistent typography is the foundation of
+   professional design. We define clear hierarchy
+   with headings, paragraphs, and other text elements.
+*/
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--space-sm);
+    color: var(--text-color);
+}
+
+h1 {
+    font-size: 3.5rem;    /* 56px */
+    /* 
+        h1 is the most important heading.
+        It should appear once per page.
+        Size: Large and commanding.
+    */
+}
+
+h2 {
+    font-size: 2.5rem;    /* 40px */
+    /*
+        h2 is used for section titles.
+        It should clearly describe the section's content.
+    */
+}
+
+h3 {
+    font-size: 1.75rem;   /* 28px */
+}
+
+h4 {
+    font-size: 1.25rem;   /* 20px */
+}
+
+h5 {
+    font-size: 1rem;      /* 16px */
+}
+
+h6 {
+    font-size: 0.875rem;  /* 14px */
+}
+
+p {
+    margin-bottom: var(--space-sm);
+    max-width: 65ch;
+    /*
+        max-width: 65ch;
+        This is a typography best practice.
+        "ch" is a relative unit based on the width of the "0" character.
+        Limiting line length to about 65 characters improves readability.
+        It prevents lines from becoming too wide on large screens.
+    */
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+    /* 
+        transition: color var(--transition-fast);
+        This creates a smooth color change when hovering.
+        It makes the interaction feel polished and responsive.
+    */
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+/* ==========================================
+   4. LAYOUT UTILITIES
+   ==========================================
+   Why: Utility classes are reusable CSS classes
+   that handle common layout patterns.
+   This keeps our HTML clean and our CSS DRY.
+*/
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+    /*
+        .container:
+        - Centers content horizontally (margin: 0 auto)
+        - Sets a maximum width for readability on large screens
+        - Adds padding on the sides for smaller screens
+        This is the foundation of our responsive layout.
+    */
+}
+
+.section {
+    padding: var(--space-xl) 0;
+    /*
+        .section:
+        Adds consistent vertical spacing between sections.
+        --space-xl (96px) creates generous breathing room.
+    */
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+}
+
+.section-title h2 {
+    color: var(--primary-color);
+    margin-bottom: var(--space-xs);
+}
+
+.section-title p {
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto;
+    /* 
+        text-align: center + margin: 0 auto
+        This centers the text and the paragraph element itself.
+        The max-width keeps it readable and prevents it from stretching too wide.
+    */
+}
+
+/* ==========================================
+   5. BUTTON STYLES
+   ==========================================
+   Why: Buttons are the primary way users interact with our site.
+   We need them to be:
+   - Consistent in appearance
+   - Interactive (hover, active states)
+   - Accessible (proper contrast, focus states)
+   - Clear in their purpose (call-to-action)
+*/
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-medium);
+    /* 
+        transition: all var(--transition-medium);
+        "all" means all animatable properties will transition smoothly.
+        In practice, we want background-color, color, and transform.
+    */
+    text-decoration: none;
+    min-height: 48px;
+    /* 
+        min-height: 48px;
+        This is an accessibility best practice.
+        It ensures buttons are large enough to tap on mobile devices.
+        Apple's Human Interface Guidelines recommend at least 44px.
+    */
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--secondary-color);
+    color: var(--bg-white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    /* 
+        transform: translateY(-2px);
+        Creates a subtle "lift" effect when hovering.
+        This gives feedback to the user that the button is interactive.
+        
+        :focus is for keyboard users (accessibility).
+        We want the same visual treatment as hover.
+    */
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* ==========================================
+   6. FORM ELEMENTS (Placeholder)
+   ==========================================
+   We'll expand this in the contact page section.
+*/
+
+/* ==========================================
+   7. GLOBAL COMPONENTS
+   ==========================================
+   These are reusable patterns that appear across the site.
+*/
+
+/* Card Component */
+.card {
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--space-md);
+    transition: all var(--transition-medium);
+}
+
+.card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+    /* 
+        Lift effect on hover.
+        Combined with shadow, this creates depth.
+        It's a common pattern in modern UI design.
+    */
+}
+
+/* ==========================================
+   8. NAVIGATION STYLES
+   ========================================== */
+
+/* Header Container */
+.header {
+    position: fixed;
+    /* 
+        position: fixed;
+        This makes the header stay at the top even when scrolling.
+        It's what creates the "sticky" effect.
+    */
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    /* 
+        rgba(255, 255, 255, 0.95) 
+        The 0.95 opacity creates a slight transparency.
+        Combined with backdrop-filter below, it creates a "glass" effect.
+    */
+    backdrop-filter: blur(10px);
+    /* 
+        backdrop-filter: blur(10px);
+        Creates the modern "frosted glass" effect seen in iOS and Microsoft designs.
+        It blurs everything behind the header.
+        This is a premium design trend in 2024.
+    */
+    box-shadow: var(--shadow-sm);
+    z-index: 1000;
+    /* 
+        z-index: 1000;
+        Ensures the header stays above all other content.
+        1000 is a high number to guarantee it's on top.
+    */
+    transition: all var(--transition-medium);
+}
+
+/* When scrolling, the header gets a stronger shadow */
+.header.scrolled {
+    box-shadow: var(--shadow-md);
+    /* 
+        .header.scrolled 
+        This class is added by JavaScript when the user scrolls down.
+        It makes the shadow stronger, indicating depth.
+    */
+}
+
+/* Header Container Layout */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* 
+        justify-content: space-between;
+        Pushes the logo to the left and navigation to the right.
+    */
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    min-height: 80px;
+    /* 
+        min-height: 80px;
+        Gives the header consistent height on all devices.
+    */
+}
+
+/* Logo Styles */
+.logo a {
+    display: flex;
+    flex-direction: column;
+    /* 
+        flex-direction: column;
+        Stacks the two lines vertically.
+    */
+    line-height: 1.2;
+    text-decoration: none;
+    transition: none;
+    /* 
+        transition: none;
+        We don't want the logo to change color on hover.
+        It should remain consistent.
+    */
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    /* 
+        Logo text is royal blue.
+        This reinforces our brand color.
+    */
+}
+
+.logo-subtext {
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: var(--text-light);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    /* 
+        letter-spacing: 2px;
+        Creates a more premium, spaced-out look.
+        Common in luxury and tech brands.
+    */
+}
+
+/* Navigation List */
+.nav-list {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    list-style: none;
+    /* 
+        list-style: none;
+        Removes the default bullet points from <ul>
+    */
+}
+
+.nav-item {
+    position: relative;
+    /* 
+        position: relative;
+        This establishes a positioning context for the dropdown menu.
+    */
+}
+
+.nav-link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color var(--transition-fast);
+    position: relative;
+    /* 
+        position: relative;
+        Allows us to position the underline decoration absolutely.
+    */
+}
+
+/* Underline animation effect */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: all var(--transition-medium);
+    transform: translateX(-50%);
+    /* 
+        This creates an underline that grows from the center.
+        It's a classic, clean navigation animation.
+    */
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 80%;
+    /* 
+        On hover or active state, the underline expands to 80% width.
+        This gives a beautiful, smooth animation.
+    */
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+.nav-link.active {
+    color: var(--primary-color);
+    font-weight: 600;
+    /* 
+        Active link has:
+        - Primary color for emphasis
+        - Bold font weight
+        - The underline animation automatically applies
+    */
+}
+
+/* Dropdown Styles */
+.dropdown-icon {
+    font-size: 0.6rem;
+    margin-left: 4px;
+    display: inline-block;
+    transition: transform var(--transition-fast);
+}
+
+.dropdown:hover .dropdown-icon {
+    transform: rotate(180deg);
+    /* 
+        Rotates the dropdown arrow when the parent is hovered.
+        This gives visual feedback.
+    */
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 220px;
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    padding: 0.5rem 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all var(--transition-medium);
+    list-style: none;
+    /* 
+        These properties create a smooth dropdown animation:
+        - opacity: 0 -> 1 (fade in)
+        - visibility: hidden -> visible (prevents interaction when hidden)
+        - transform: translateY(10px) -> 0 (slide up slightly)
+    */
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 0.5rem 1.5rem;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    transition: all var(--transition-fast);
+}
+
+.dropdown-menu li a:hover {
+    background: var(--bg-light);
+    color: var(--primary-color);
+    padding-left: 1.75rem;
+    /* 
+        Indent the text slightly on hover.
+        This is a subtle but common navigation effect.
+    */
+}
+
+/* Navigation CTA Button */
+.btn-nav {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem;
+    min-height: 40px;
+    /* 
+        Slightly smaller than standard buttons.
+        Better proportion for the navigation bar.
+    */
+}
+
+/* Mobile Hamburger Menu */
+.hamburger {
+    display: none;
+    /* 
+        display: none;
+        Hidden by default on desktop.
+        Only appears on mobile screens via media queries.
+    */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: var(--space-sm);
+}
+
+.hamburger-line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--text-color);
+    border-radius: 2px;
+    transition: all var(--transition-medium);
+    transform-origin: center;
+    /* 
+        transform-origin: center;
+        Ensures the lines rotate around their center.
+        This is crucial for the "X" animation.
+    */
+}
+
+/* Hamburger animation to X */
+.hamburger.active .hamburger-line:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+    /* 
+        Top line: Move down and rotate 45 degrees.
+        This becomes the top-right line of the X.
+    */
+}
+
+.hamburger.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+    /* 
+        Middle line: Fade out and shrink.
+        Disappears in the X animation.
+    */
+}
+
+.hamburger.active .hamburger-line:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+    /* 
+        Bottom line: Move up and rotate -45 degrees.
+        This becomes the bottom-left line of the X.
+    */
+}
+
+/* ==========================================
+   RESPONSIVE NAVIGATION
+   ========================================== 
+   We'll put this in responsive.css later,
+   but I'm including it here for completeness.
+*/
+
+@media (max-width: 992px) {
+    /* Show hamburger on tablet and mobile */
+    .hamburger {
+        display: flex;
+    }
+
+    /* Hide nav list by default on mobile */
+    .nav-list {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background: var(--bg-white);
+        flex-direction: column;
+        padding: var(--space-md);
+        gap: 0.5rem;
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-120%);
+        opacity: 0;
+        transition: all var(--transition-medium);
+        /* 
+            transform: translateY(-120%);
+            Moves the menu off-screen initially.
+            Combined with opacity: 0, it creates a smooth slide-down effect.
+        */
+    }
+
+    /* Show nav list when active */
+    .nav-list.active {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .nav-item {
+        width: 100%;
+        /* 
+            Full width items on mobile.
+            Makes them easier to tap.
+        */
+    }
+
+    .nav-link {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        font-size: 1.1rem;
+        /* 
+            Larger touch targets on mobile.
+            Easier to tap with fingers.
+        */
+    }
+
+    .nav-link::after {
+        display: none;
+        /* 
+            Removes the underline animation on mobile.
+            Keeps the interface cleaner.
+        */
+    }
+
+    /* Dropdown on mobile */
+    .dropdown-menu {
+        position: static;
+        /* 
+            position: static;
+            Removes absolute positioning on mobile.
+            The dropdown appears inline.
+        */
+        box-shadow: none;
+        border: none;
+        border-left: 3px solid var(--primary-color);
+        margin-left: 1rem;
+        border-radius: 0;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        display: none;
+        /* 
+            display: none;
+            Hidden by default on mobile.
+        */
+    }
+
+    .dropdown-menu.active {
+        display: block;
+        /* 
+            .dropdown-menu.active
+            Toggled by JavaScript to show/hide on mobile.
+        */
+    }
+
+    .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        /* 
+            Override hover behavior on mobile.
+            We'll use click/tap instead.
+        */
+    }
+
+    .dropdown-menu li a {
+        padding: 0.75rem 1.5rem;
+    }
+
+    .dropdown-icon {
+        font-size: 0.8rem;
+    }
+
+    /* Hide CTA button on mobile (or move it) */
+    .btn-nav {
+        display: none;
+        /* 
+            We hide the CTA on mobile to save space.
+            In a real project, we might move it inside the mobile menu.
+        */
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    .logo-text {
+        font-size: 1.2rem;
+    }
+    
+    .logo-subtext {
+        font-size: 0.6rem;
+    }
+}
+
+/* ==========================================
+   9. HERO SECTION
+   ========================================== */
+
+.hero {
+    position: relative;
+    /* 
+        position: relative;
+        Sets up positioning context for absolute children.
+    */
+    min-height: 100vh;
+    /* 
+        min-height: 100vh;
+        Makes the hero at least 100% of the viewport height.
+        vh = viewport height units.
+    */
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #0a1628 0%, #1a2a5e 50%, #1F3FAF 100%);
+    /* 
+        A dark gradient background:
+        - Starts with deep navy
+        - Transitions through a darker blue
+        - Ends with our brand's royal blue
+        This creates a sophisticated, premium look.
+    */
+    overflow: hidden;
+    /* 
+        overflow: hidden;
+        Prevents floating elements from spilling outside the section.
+    */
+    padding-top: 80px;
+    /* 
+        padding-top: 80px;
+        Accounts for the fixed header height.
+        Prevents the hero content from being hidden behind the navigation.
+    */
+}
+
+/* ==========================================
+   HERO PARTICLES BACKGROUND
+   ========================================== */
+
+.hero-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    /* 
+        z-index: 1;
+        Places particles above the background but below the content.
+    */
+    pointer-events: none;
+    /* 
+        pointer-events: none;
+        Prevents particles from blocking clicks on buttons/links.
+        Very important for usability.
+    */
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: float-particle linear infinite;
+    /* 
+        Each particle will float upward infinitely.
+        The animation is defined in animations.css.
+    */
+}
+
+/* ==========================================
+   HERO CONTAINER
+   ========================================== */
+
+.hero-container {
+    position: relative;
+    z-index: 2;
+    /* 
+        z-index: 2;
+        Ensures content is above the particles.
+    */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* 
+        grid-template-columns: 1fr 1fr;
+        Creates two equal columns:
+        - Left: Content (text, buttons, stats)
+        - Right: Visual (illustration, icons)
+    */
+    gap: var(--space-lg);
+    align-items: center;
+    padding-top: var(--space-md);
+    padding-bottom: var(--space-md);
+}
+
+/* ==========================================
+   HERO CONTENT
+   ========================================== */
+
+.hero-content {
+    max-width: 640px;
+    /* 
+        max-width: 640px;
+        Limits the width of text for better readability.
+    */
+}
+
+/* Hero Badge */
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: var(--space-md);
+    animation: fadeInUp 0.8s ease forwards;
+    /* 
+        Animates in from below with fade.
+        Defined in animations.css.
+    */
+}
+
+.badge-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #4CAF50;
+    border-radius: 50%;
+    animation: pulse-dot 2s ease-in-out infinite;
+    /* 
+        A pulsing green dot that draws attention.
+        Creates urgency and indicates "live" status.
+    */
+}
+
+/* Hero Title */
+.hero-title {
+    font-size: 4rem;
+    line-height: 1.1;
+    color: #FFFFFF;
+    margin-bottom: var(--space-sm);
+    animation: fadeInUp 0.8s ease 0.2s forwards;
+    opacity: 0;
+    /* 
+        opacity: 0 initially, then fades in.
+        The animation-delay (0.2s) creates a staggered effect.
+    */
+}
+
+.hero-title-highlight {
+    background: linear-gradient(135deg, #F7931E, #FFB74D);
+    /* 
+        Orange gradient for emphasis.
+        This makes "Artificial Intelligence" stand out.
+    */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    /* 
+        Creates a gradient text effect.
+        The text is filled with the gradient instead of a solid color.
+        This is a premium design trend.
+    */
+}
+
+/* Hero Subtitle */
+.hero-subtitle {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: var(--space-sm);
+    min-height: 3rem;
+    /* 
+        min-height: 3rem;
+        Prevents layout shift when the typing text changes.
+    */
+    animation: fadeInUp 0.8s ease 0.4s forwards;
+    opacity: 0;
+}
+
+.hero-typing-text {
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+.hero-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.5rem;
+    background: #F7931E;
+    margin-left: 4px;
+    animation: blink-cursor 1s step-end infinite;
+    /* 
+        The cursor blinks continuously.
+        Step-end animation creates a crisp on/off effect.
+    */
+}
+
+/* Hero Description */
+.hero-description {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: var(--space-md);
+    max-width: 540px;
+    line-height: 1.7;
+    animation: fadeInUp 0.8s ease 0.6s forwards;
+    opacity: 0;
+}
+
+/* Hero Buttons */
+.hero-buttons {
+    display: flex;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+    /* 
+        flex-wrap: wrap;
+        Allows buttons to wrap on smaller screens.
+    */
+    margin-bottom: var(--space-lg);
+    animation: fadeInUp 0.8s ease 0.8s forwards;
+    opacity: 0;
+}
+
+.btn-hero {
+    padding: 0.875rem 2.25rem;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    /* 
+        display: inline-flex;
+        Allows the icon and text to align properly.
+    */
+}
+
+.btn-hero .btn-icon {
+    width: 20px;
+    height: 20px;
+    transition: transform var(--transition-fast);
+}
+
+.btn-hero:hover .btn-icon {
+    transform: translateX(4px);
+    /* 
+        Arrow moves right on hover.
+        Subtle interaction feedback.
+    */
+}
+
+/* Hero Stats */
+.hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-sm);
+    padding-top: var(--space-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    /* 
+        Light border on top to separate stats.
+        Creates visual hierarchy.
+    */
+    animation: fadeInUp 0.8s ease 1s forwards;
+    opacity: 0;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 1.2;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 400;
+}
+
+/* ==========================================
+   HERO VISUAL (Right Column)
+   ========================================== */
+
+.hero-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+    animation: fadeInRight 1s ease 0.4s forwards;
+    opacity: 0;
+    /* 
+        Fades in from the right.
+        Creates a dynamic entrance.
+    */
+}
+
+.hero-illustration {
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 1;
+    /* 
+        aspect-ratio: 1;
+        Makes the container square.
+        Keeps proportions consistent.
+    */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-image-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* Geometric Shapes */
+.hero-shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.15;
+    animation: float-shape 6s ease-in-out infinite;
+}
+
+.shape-1 {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, #F7931E, transparent);
+    top: 10%;
+    right: 10%;
+    animation-delay: 0s;
+}
+
+.shape-2 {
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, #1F3FAF, transparent);
+    bottom: 20%;
+    left: 5%;
+    animation-delay: 1s;
+}
+
+.shape-3 {
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
+    top: 5%;
+    left: 30%;
+    animation-delay: 2s;
+}
+
+.shape-4 {
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, #F7931E, transparent);
+    bottom: 10%;
+    right: 25%;
+    animation-delay: 0.5s;
+}
+
+.shape-5 {
+    width: 250px;
+    height: 250px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    background: transparent;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulse-shape 4s ease-in-out infinite;
+    /* 
+        A ring that pulses in and out.
+        Creates a sci-fi/tech feel.
+    */
+}
+
+/* Floating Icons */
+.floating-icon {
+    position: absolute;
+    font-size: 2.5rem;
+    animation: float-icon 4s ease-in-out infinite;
+    filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.3));
+    /* 
+        filter: drop-shadow();
+        Creates a soft shadow behind the emoji.
+        Makes them pop against the background.
+    */
+}
+
+.icon-1 {
+    top: 5%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.icon-2 {
+    top: 15%;
+    right: 10%;
+    animation-delay: 1.2s;
+    font-size: 2rem;
+}
+
+.icon-3 {
+    bottom: 25%;
+    left: 15%;
+    animation-delay: 2.4s;
+    font-size: 2.8rem;
+}
+
+.icon-4 {
+    bottom: 15%;
+    right: 5%;
+    animation-delay: 0.8s;
+}
+
+.icon-5 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-delay: 1.8s;
+    font-size: 4rem;
+    /* 
+        The central icon is larger.
+        Creates a focal point.
+    */
+}
+
+/* Trust Indicators */
+.hero-trust {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+}
+
+.trust-badge svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* ==========================================
+   SCROLL INDICATOR
+   ========================================== */
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: fadeInUp 1s ease 1.5s forwards;
+    opacity: 0;
+    z-index: 2;
+}
+
+.scroll-line {
+    width: 1px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.3);
+    position: relative;
+}
+
+.scroll-dot {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    background: #F7931E;
+    border-radius: 50%;
+    animation: scroll-down 2s ease-in-out infinite;
+    /* 
+        The dot moves down the line continuously.
+        Signals to users that there's more content below.
+    */
+}
+
+/* ==========================================
+   RESPONSIVE HERO
+   ========================================== */
+
+@media (max-width: 992px) {
+    .hero-container {
+        grid-template-columns: 1fr;
+        /* 
+            Single column on tablet.
+            Content appears above visual.
+        */
+        gap: var(--space-md);
+        text-align: center;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero-title {
+        font-size: 2.8rem;
+        /* 
+            Smaller title on tablet.
+            Still prominent but adjusted for screen size.
+        */
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+        justify-content: center;
+    }
+
+    .hero-description {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+        /* 
+            2 columns on tablet.
+            Stats wrap to 2x2 grid.
+        */
+        gap: var(--space-sm);
+    }
+
+    .hero-visual {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .hero-illustration {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .hero-badge {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding-top: 70px;
+        /* 
+            Less padding on mobile.
+            Smaller header height.
+        */
+    }
+
+    .hero-title {
+        font-size: 2rem;
+        /* 
+            Even smaller on mobile.
+            Fits better on small screens.
+        */
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        min-height: 2.5rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+    }
+
+    .btn-hero {
+        width: 100%;
+        justify-content: center;
+        /* 
+            Full-width buttons on mobile.
+            Easier to tap.
+        */
+    }
+
+    .hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+
+    .stat-number {
+        font-size: 1.5rem;
+    }
+
+    .scroll-indicator {
+        display: none;
+        /* 
+            Hide scroll indicator on mobile.
+            Most mobile users already know to scroll.
+        */
+    }
+
+    .floating-icon {
+        display: none;
+        /* 
+            Hide floating icons on mobile.
+            Reduces visual clutter on small screens.
+        */
+    }
+}
+
+/* ==========================================
+   10. COMPANY OVERVIEW SECTION
+   ========================================== */
+
+.company-overview {
+    background: var(--bg-white);
+    position: relative;
+    overflow: hidden;
+}
+
+/* ==========================================
+   SECTION HEADER
+   ========================================== */
+
+.section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--space-lg);
+    /* 
+        Centers the header and limits its width.
+        Creates a nice, readable content block.
+    */
+}
+
+.section-tag {
+    display: inline-block;
+    background: rgba(31, 63, 175, 0.1);
+    color: var(--primary-color);
+    padding: 0.25rem 1rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: var(--space-xs);
+    /* 
+        A small tag/badge above the main title.
+        Adds visual hierarchy and context.
+    */
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    margin-bottom: var(--space-sm);
+}
+
+.section-title .highlight-text {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    /* 
+        Gradient text effect using our brand colors.
+        Creates visual interest and reinforces branding.
+    */
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* ==========================================
+   OVERVIEW GRID
+   ========================================== */
+
+.overview-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* 
+        Two equal columns.
+        Left: Content, Right: Sidebar with mission/vision.
+    */
+    gap: var(--space-lg);
+    margin-bottom: var(--space-lg);
+}
+
+/* Left Column - Overview Content */
+.overview-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.overview-paragraph {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    max-width: 100%;
+}
+
+.overview-paragraph strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Differentiators */
+.differentiators {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+    margin-top: var(--space-sm);
+}
+
+.differentiator-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    padding: var(--space-sm);
+    background: var(--bg-light);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-medium);
+}
+
+.differentiator-item:hover {
+    background: rgba(31, 63, 175, 0.05);
+    transform: translateX(5px);
+    /* 
+        Slight slide on hover.
+        Indicates interactivity and draws attention.
+    */
+}
+
+.differentiator-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    /* 
+        flex-shrink: 0;
+        Prevents the icon from shrinking.
+        Maintains consistent size.
+    */
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(31, 63, 175, 0.1);
+    border-radius: 50%;
+}
+
+.differentiator-item h4 {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+    color: var(--text-color);
+}
+
+.differentiator-item p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 0;
+}
+
+/* Right Column - Mission & Vision */
+.overview-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.mission-card,
+.vision-card {
+    background: var(--bg-light);
+    padding: var(--space-md);
+    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--primary-color);
+    /* 
+        Left border creates a visual accent.
+        Gives a professional, structured look.
+    */
+    transition: all var(--transition-medium);
+}
+
+.vision-card {
+    border-left-color: var(--secondary-color);
+    /* 
+        Vision card uses orange border.
+        Differentiates it from the mission card.
+    */
+}
+
+.mission-card:hover,
+.vision-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    /* 
+        Lift effect on hover.
+        Creates depth and interactivity.
+    */
+}
+
+.card-icon {
+    font-size: 2rem;
+    margin-bottom: var(--space-xs);
+    display: block;
+}
+
+.mission-card h3,
+.vision-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-xs);
+    color: var(--text-color);
+}
+
+.mission-card p,
+.vision-card p {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+
+/* Trust Indicators */
+.trust-indicators {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-sm);
+    background: var(--bg-light);
+    padding: var(--space-md);
+    border-radius: var(--radius-lg);
+    margin-top: var(--space-xs);
+}
+
+.trust-item {
+    text-align: center;
+}
+
+.trust-number {
+    display: block;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    line-height: 1.2;
+}
+
+.trust-label {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+/* ==========================================
+   CORE VALUES
+   ========================================== */
+
+.values-section {
+    margin-top: var(--space-lg);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--border-color);
+    /* 
+        Top border separates values from the grid above.
+        Creates visual structure.
+    */
+}
+
+.values-title {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: var(--space-md);
+    color: var(--text-color);
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    /* 
+        Five equal columns for five values.
+    */
+    gap: var(--space-sm);
+}
+
+.value-item {
+    text-align: center;
+    padding: var(--space-sm);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-medium);
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+}
+
+.value-item:hover {
+    background: var(--bg-light);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    /* 
+        Lift effect on hover.
+        Makes each value feel interactive and important.
+    */
+}
+
+.value-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: var(--space-xs);
+}
+
+.value-item h4 {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+    color: var(--text-color);
+}
+
+.value-item p {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-bottom: 0;
+    max-width: 100%;
+}
+
+/* ==========================================
+   RESPONSIVE COMPANY OVERVIEW
+   ========================================== */
+
+@media (max-width: 992px) {
+    .overview-grid {
+        grid-template-columns: 1fr;
+        /* 
+            Single column on tablet.
+            Content stacks vertically.
+        */
+        gap: var(--space-md);
+    }
+
+    .overview-sidebar {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        /* 
+            Sidebar becomes two columns on tablet.
+            Mission and vision side by side.
+        */
+        gap: var(--space-md);
+    }
+
+    .values-grid {
+        grid-template-columns: repeat(3, 1fr);
+        /* 
+            Three columns on tablet.
+            Values wrap into two rows.
+        */
+        gap: var(--space-sm);
+    }
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+        /* 
+            Smaller title on mobile.
+        */
+    }
+
+    .overview-sidebar {
+        grid-template-columns: 1fr;
+        /* 
+            Single column on mobile.
+            Mission and vision stack vertically.
+        */
+    }
+
+    .trust-indicators {
+        grid-template-columns: 1fr;
+        /* 
+            Single column for trust indicators.
+            Each stat appears on its own line.
+        */
+        gap: var(--space-xs);
+    }
+
+    .trust-number {
+        font-size: 1.5rem;
+    }
+
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 
+            Two columns on mobile.
+            Values wrap into multiple rows.
+        */
+        gap: var(--space-xs);
+    }
+
+    .differentiator-item {
+        padding: var(--space-xs);
+    }
+}
+
+@media (max-width: 480px) {
+    .values-grid {
+        grid-template-columns: 1fr;
+        /* 
+            Single column on very small screens.
+            All values stack vertically.
+        */
+    }
+
+    .value-item {
+        padding: var(--space-xs);
+    }
+}
+
+/* ==========================================
+   11. SERVICES OVERVIEW SECTION
+   ========================================== */
+
+.services-overview {
+    background: var(--bg-light);
+    /* 
+        Light gray background creates contrast from the white sections above.
+        This visually separates different sections of the page.
+    */
+    position: relative;
+}
+
+/* ==========================================
+   SERVICES GRID
+   ========================================== */
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 
+        Three columns on desktop.
+        This creates a balanced layout with 3 cards per row.
+        The 5th card will wrap to the next row.
+    */
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+}
+
+/* ==========================================
+   SERVICE CARD
+   ========================================== */
+
+.service-card {
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
+    padding: var(--space-md);
+    position: relative;
+    overflow: hidden;
+    /* 
+        overflow: hidden;
+        Prevents the service number from spilling out.
+    */
+    transition: all var(--transition-medium);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    /* 
+        flex-direction: column;
+        Stacks card content vertically.
+        Ensures consistent card heights.
+    */
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    /* 
+        Lift effect on hover.
+        Creates depth and interactivity.
+    */
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+    /* 
+        Border changes to primary color on hover.
+        Reinforces brand identity.
+    */
+}
+
+/* Service Number (Background) */
+.service-number {
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    font-size: 5rem;
+    font-weight: 900;
+    color: rgba(31, 63, 175, 0.05);
+    /* 
+        Very light blue, almost invisible.
+        Creates a subtle watermark effect.
+    */
+    line-height: 1;
+    pointer-events: none;
+    /* 
+        pointer-events: none;
+        Prevents the number from interfering with clicks.
+    */
+}
+
+/* Service Icon */
+.service-icon {
+    font-size: 3rem;
+    margin-bottom: var(--space-xs);
+    display: inline-block;
+    transition: transform var(--transition-medium);
+    /* 
+        .service-icon will scale on hover.
+        This creates a playful, interactive feel.
+    */
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.1) rotate(-5deg);
+    /* 
+        Scale and slight rotation on hover.
+        Makes the icon feel alive.
+    */
+}
+
+/* Service Title */
+.service-title {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-xs);
+    color: var(--text-color);
+    font-weight: 700;
+}
+
+/* Service Description */
+.service-description {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: var(--space-sm);
+    flex-grow: 1;
+    /* 
+        flex-grow: 1;
+        Pushes the features and link to the bottom.
+        Ensures consistent card heights.
+    */
+}
+
+/* Service Features */
+.service-features {
+    list-style: none;
+    /* 
+        Removes default bullet points.
+    */
+    margin-bottom: var(--space-md);
+    padding: 0;
+}
+
+.service-features li {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    padding: 0.25rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    /* 
+        padding-left: 1.5rem;
+        Creates space for the custom bullet.
+    */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    /* 
+        Very subtle border between items.
+        Creates visual separation.
+    */
+}
+
+.service-features li:last-child {
+    border-bottom: none;
+    /* 
+        Removes border from last item.
+    */
+}
+
+/* Custom bullet point */
+.service-features li::before {
+    content: '▹';
+    /* 
+        ▹ is a small triangle arrow.
+        Creates a custom bullet point.
+    */
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* Service Link */
+.service-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all var(--transition-fast);
+    margin-top: auto;
+    /* 
+        margin-top: auto;
+        Pushes the link to the bottom of the card.
+        Ensures consistent positioning.
+    */
+}
+
+.service-link:hover {
+    color: var(--secondary-color);
+    gap: 0.75rem;
+    /* 
+        Increases gap on hover.
+        Creates space for the arrow to move.
+    */
+}
+
+.service-arrow {
+    display: inline-block;
+    transition: transform var(--transition-fast);
+}
+
+.service-link:hover .service-arrow {
+    transform: translateX(4px);
+    /* 
+        Arrow moves right on hover.
+        Indicates clickability.
+    */
+}
+
+/* ==========================================
+   SERVICES CTA BANNER
+   ========================================== */
+
+.services-cta {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    /* 
+        Gradient background using our brand colors.
+        Creates a visually striking banner.
+    */
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    text-align: center;
+    margin-top: var(--space-md);
+}
+
+.cta-content h3 {
+    color: #FFFFFF;
+    font-size: 1.75rem;
+    margin-bottom: var(--space-xs);
+}
+
+.cta-content p {
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
+    margin: 0 auto var(--space-md);
+    font-size: 1.05rem;
+}
+
+.btn-cta {
+    background: var(--secondary-color);
+    color: var(--bg-white);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-cta:hover {
+    background: var(--secondary-dark);
+    color: var(--bg-white);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(247, 147, 30, 0.3);
+    /* 
+        Orange shadow on hover.
+        Creates a glow effect.
+    */
+}
+
+.btn-cta .btn-icon {
+    display: inline-block;
+    transition: transform var(--transition-fast);
+}
+
+.btn-cta:hover .btn-icon {
+    transform: translateX(4px);
+}
+
+/* ==========================================
+   RESPONSIVE SERVICES
+   ========================================== */
+
+/* Tablet Layout */
+@media (max-width: 992px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 
+            Two columns on tablet.
+            3 cards will be on first row, 2 on second.
+        */
+        gap: var(--space-sm);
+    }
+
+    .service-card {
+        padding: var(--space-sm);
+    }
+}
+
+/* Mobile Layout */
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+        /* 
+            Single column on mobile.
+            All cards stack vertically.
+        */
+        gap: var(--space-sm);
+    }
+
+    .service-card {
+        padding: var(--space-sm);
+    }
+
+    .service-number {
+        font-size: 3.5rem;
+        /* 
+            Smaller number on mobile.
+        */
+    }
+
+    .service-icon {
+        font-size: 2.5rem;
+    }
+
+    .service-title {
+        font-size: 1.1rem;
+    }
+
+    .services-cta {
+        padding: var(--space-md);
+    }
+
+    .cta-content h3 {
+        font-size: 1.4rem;
+    }
+
+    .btn-cta {
+        width: 100%;
+        justify-content: center;
+        /* 
+            Full-width button on mobile.
+            Easier to tap.
+        */
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .services-cta {
+        padding: var(--space-sm);
+    }
+
+    .cta-content h3 {
+        font-size: 1.2rem;
+    }
+
+    .cta-content p {
+        font-size: 0.95rem;
+    }
+
+    .service-features li {
+        font-size: 0.85rem;
+        padding-left: 1.25rem;
+    }
+}
+
+/* ==========================================
+   ACCESSIBILITY - REDUCED MOTION
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .service-card {
+        transition: none;
+        /* 
+            Removes hover animations for users who prefer reduced motion.
+            Important for accessibility.
+        */
+    }
+
+    .service-card:hover {
+        transform: none;
+        /* 
+            No lift effect when motion is reduced.
+        */
+    }
+
+    .service-card:hover .service-icon {
+        transform: none;
+    }
+
+    .service-link:hover .service-arrow {
+        transform: none;
+    }
+
+    .btn-cta:hover .btn-icon {
+        transform: none;
+    }
+}
+
+/* ==========================================
+   12. INDUSTRIES WE SERVE SECTION
+   ========================================== */
+
+.industries-section {
+    background: var(--bg-white);
+    position: relative;
+    padding: var(--space-xl) 0;
+}
+
+/* ==========================================
+   INDUSTRIES GRID
+   ========================================== */
+
+.industries-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+}
+
+/* ==========================================
+   INDUSTRY CARD
+   ========================================== */
+
+.industry-card {
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--space-md);
+    position: relative;
+    overflow: hidden;
+    transition: all var(--transition-medium);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    min-height: 280px;
+    cursor: pointer;
+}
+
+.industry-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+}
+
+/* Industry Icon */
+.industry-icon {
+    font-size: 2.5rem;
+    display: inline-block;
+    transition: transform var(--transition-medium);
+}
+
+.industry-card:hover .industry-icon {
+    transform: scale(1.1) rotate(-5deg);
+}
+
+/* Industry Content */
+.industry-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.industry-title {
+    font-size: 1.15rem;
+    color: var(--text-color);
+    margin-bottom: 0;
+    font-weight: 700;
+}
+
+.industry-description {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 0;
+    flex: 1;
+}
+
+/* Industry Tags */
+.industry-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: var(--space-xs);
+}
+
+.tag {
+    display: inline-block;
+    background: rgba(31, 63, 175, 0.08);
+    color: var(--primary-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    transition: all var(--transition-fast);
+}
+
+.industry-card:hover .tag {
+    background: rgba(247, 147, 30, 0.15);
+    color: var(--secondary-color);
+}
+
+/* Industry Overlay (Appears on Hover) */
+.industry-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(31, 63, 175, 0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0;
+    transition: all var(--transition-medium);
+    transform: scale(0.95);
+    border-radius: var(--radius-lg);
+}
+
+.industry-card:hover .industry-overlay {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.overlay-text {
+    color: #FFFFFF;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.overlay-arrow {
+    color: #FFFFFF;
+    font-size: 1.5rem;
+    transition: transform var(--transition-fast);
+    display: inline-block;
+}
+
+.industry-card:hover .overlay-arrow {
+    transform: translateX(8px);
+}
+
+/* ==========================================
+   INDUSTRIES CTA
+   ========================================== */
+
+.industries-cta {
+    background: var(--bg-light);
+    border-radius: var(--radius-lg);
+    padding: var(--space-md);
+    border: 1px solid var(--border-color);
+}
+
+.cta-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+}
+
+.cta-text h4 {
+    font-size: 1.25rem;
+    color: var(--text-color);
+    margin-bottom: 0.25rem;
+}
+
+.cta-text p {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-bottom: 0;
+    max-width: 100%;
+}
+
+.btn-industries-cta {
+    flex-shrink: 0;
+}
+
+.btn-industries-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* ==========================================
+   RESPONSIVE INDUSTRIES
+   ========================================== */
+
+/* Tablet Layout */
+@media (max-width: 992px) {
+    .industries-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-sm);
+    }
+
+    .industry-card {
+        min-height: 240px;
+        padding: var(--space-sm);
+    }
+}
+
+/* Mobile Layout */
+@media (max-width: 768px) {
+    .industries-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-sm);
+    }
+
+    .industry-card {
+        min-height: 200px;
+        padding: var(--space-sm);
+    }
+
+    .industry-icon {
+        font-size: 2rem;
+    }
+
+    .industry-title {
+        font-size: 1rem;
+    }
+
+    .industry-description {
+        font-size: 0.85rem;
+    }
+
+    .cta-wrapper {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--space-sm);
+    }
+
+    .btn-industries-cta {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .industry-card {
+        min-height: 180px;
+    }
+
+    .industry-tags {
+        gap: 0.35rem;
+    }
+
+    .tag {
+        font-size: 0.65rem;
+        padding: 0.2rem 0.6rem;
+    }
+
+    .cta-text h4 {
+        font-size: 1.1rem;
+    }
+}
+
+/* ==========================================
+   ACCESSIBILITY - REDUCED MOTION
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .industry-card {
+        transition: none;
+    }
+
+    .industry-card:hover {
+        transform: none;
+    }
+
+    .industry-card:hover .industry-icon {
+        transform: none;
+    }
+
+    .industry-overlay {
+        transition: none;
+        transform: none;
+    }
+
+    .industry-card:hover .industry-overlay {
+        transform: none;
+    }
+
+    .industry-card:hover .overlay-arrow {
+        transform: none;
+    }
+}
+
+/* ==========================================
+   13. FOOTER STYLES (To be built later)
+   ========================================== */
+
+/* ==========================================
+   SCROLLBAR STYLING (Optional Enhancement)
+   ========================================== 
+   This customizes the scrollbar for a more polished look.
+   It's not essential but adds a professional touch.
+*/
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-light);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
+}
+
+/* ==========================================
+   PHASE 1 COMPLETION STYLES (STEPS 8 - 14)
+   ========================================== */
+
+/* Utility */
+.bg-light { background-color: var(--bg-light); }
+.text-center { text-align: center; }
+
+/* Step 8: Portfolio */
+.portfolio-filters { display: flex; justify-content: center; gap: 10px; margin-bottom: 2rem; flex-wrap: wrap; }
+.filter-btn { padding: 8px 20px; border: 1px solid var(--primary-color); background: none; border-radius: 20px; cursor: pointer; font-weight: 600; color: var(--primary-color); transition: all var(--transition-fast); }
+.filter-btn.active, .filter-btn:hover { background: var(--primary-color); color: #fff; }
+.portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+.portfolio-card { background: #fff; border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm); transition: transform var(--transition-medium); border: 1px solid var(--border-color); }
+.portfolio-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+.portfolio-image { height: 200px; background: #e2e8f0; position: relative; }
+.portfolio-overlay { position: absolute; inset: 0; background: rgba(31, 63, 175, 0.85); color: #fff; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity var(--transition-medium); padding: 1rem; text-align: center; font-weight: bold; }
+.portfolio-image:hover .portfolio-overlay { opacity: 1; }
+.portfolio-content { padding: 1.5rem; }
+.portfolio-content h3 { margin-bottom: 0.5rem; }
+
+/* Step 9: Why Choose Us */
+.benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; text-align: center; }
+.benefit-card { padding: 2rem; background: #fff; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
+.benefit-icon { font-size: 3rem; margin-bottom: 1rem; }
+
+/* Step 10 & 11: Process & Testimonials */
+.process-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+.timeline { list-style: none; padding-left: 1rem; border-left: 2px solid var(--primary-color); }
+.timeline li { margin-bottom: 1.5rem; position: relative; padding-left: 1.5rem; }
+.timeline li::before { content: ''; position: absolute; left: -21px; top: 4px; width: 12px; height: 12px; background: var(--secondary-color); border-radius: 50%; border: 4px solid #fff; }
+.testimonial-slider { background: var(--bg-light); padding: 2rem; border-radius: var(--radius-md); font-style: italic; border-left: 4px solid var(--secondary-color); }
+.testimonial-slider .author { display: block; margin-top: 1rem; font-weight: bold; font-style: normal; }
+
+/* Step 12: FAQ Accordion */
+.faq-accordion { max-width: 800px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--border-color); }
+.faq-question { width: 100%; text-align: left; padding: 1.5rem 0; background: none; border: none; font-size: 1.1rem; font-weight: 600; cursor: pointer; color: var(--text-color); display: flex; justify-content: space-between; }
+.faq-question::after { content: '+'; font-size: 1.5rem; color: var(--primary-color); }
+.faq-question.active::after { content: '-'; }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+.faq-answer p { padding-bottom: 1.5rem; color: var(--text-light); }
+
+/* Step 13: Final CTA */
+.final-cta { background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); color: #fff; }
+.final-cta h2, .final-cta p { color: #fff; }
+
+/* Step 14: Footer */
+.footer { background: #0a1628; color: #cbd5e1; padding: 4rem 0 1rem; }
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 3rem; }
+.footer-col h4 { color: #fff; margin-bottom: 1rem; }
+.footer-col a { display: block; color: #cbd5e1; margin-bottom: 0.5rem; }
+.footer-col a:hover { color: var(--secondary-color); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; font-size: 0.9rem; }
+
+/* ==========================================
+   PHASE 2: ABOUT & CEO PAGE STYLES
+   ========================================== */
+
+/* Page Hero Header */
+.page-hero { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%); padding: 120px 0 60px; color: #fff; }
+.page-hero .hero-title { font-size: 3.5rem; margin-bottom: 1rem; color: #fff; }
+.page-hero .hero-description { font-size: 1.2rem; max-width: 700px; color: rgba(255,255,255,0.9); }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.text-left { text-align: left !important; }
+
+/* About Story Grid */
+.about-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 3rem; align-items: center; }
+.about-values { padding: 2.5rem; border-radius: var(--radius-lg); border-left: 4px solid var(--primary-color); }
+.trust-list { list-style: none; padding-left: 0; margin-top: 1.5rem; }
+.trust-list li { margin-bottom: 1rem; padding-left: 1.5rem; position: relative; }
+.trust-list li::before { content: '✓'; position: absolute; left: 0; color: var(--primary-color); font-weight: bold; }
+
+/* CEO Profile Layout */
+.ceo-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: start; margin-top: 2rem; }
+.ceo-image-placeholder { width: 100%; aspect-ratio: 3/4; background: #cbd5e1; border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: #64748b; border: 4px solid var(--bg-white); box-shadow: var(--shadow-lg); }
+.ceo-name { font-size: 2rem; margin-bottom: 0.25rem; color: var(--text-color); }
+.ceo-titles { font-size: 1.1rem; color: var(--primary-color); font-weight: 600; margin-bottom: 1.5rem; }
+.ceo-bio { font-size: 1.05rem; line-height: 1.8; color: var(--text-light); margin-bottom: 2rem; }
+
+/* Credentials Boxes */
+.ceo-credentials { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem; }
+.cred-box { background: var(--bg-white); padding: 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); }
+.cred-box h4 { color: var(--primary-dark); margin-bottom: 1rem; font-size: 1.1rem; border-bottom: 2px solid var(--bg-light); padding-bottom: 0.5rem; }
+.timeline-list { list-style: none; padding-left: 0; }
+.timeline-list li { font-size: 0.9rem; margin-bottom: 0.75rem; color: var(--text-light); }
+.ceo-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+@media (max-width: 992px) {
+    .about-grid, .ceo-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .ceo-image-wrapper { max-width: 400px; margin: 0 auto; }
+}
+/* ==========================================
+   PHASE 2: SERVICES PAGES (STEP 17)
+   ========================================== */
+
+/* Utility Additions */
+.mt-4 { margin-top: 2rem; }
+.bg-white { background-color: #fff; }
+.text-primary { color: var(--primary-color); }
+
+/* Services Hub Grid (services.html) */
+.services-hub-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+.hub-card { background: #fff; padding: 2.5rem; border-radius: var(--radius-lg); text-align: center; box-shadow: var(--shadow-sm); border: 1px solid var(--border-color); transition: transform var(--transition-medium); display: flex; flex-direction: column; justify-content: space-between; }
+.hub-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: var(--primary-color); }
+.hub-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+.hub-card h3 { font-size: 1.4rem; color: var(--text-color); margin-bottom: 1rem; }
+.hub-card p { color: var(--text-light); margin-bottom: 1.5rem; flex-grow: 1; }
+
+/* Service Details Layout (service-details.html) */
+.detail-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; align-items: start; }
+.detail-main h2 { color: var(--primary-dark); font-size: 1.8rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1rem; }
+.detail-sidebar { padding: 2rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); }
+
+/* Problem/Solution Cards */
+.problem-solution-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
+.ps-card { padding: 1.5rem; border-radius: var(--radius-md); font-size: 0.95rem; }
+.ps-card h4 { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; }
+.ps-card.problem { background-color: #fff1f2; border: 1px solid #fecdd3; }
+.ps-card.problem h4 { color: #be123c; }
+.ps-card.solution { background-color: #f0fdf4; border: 1px solid #bbf7d0; }
+.ps-card.solution h4 { color: #15803d; }
+
+/* Checklists & Tags */
+.benefit-checklist { list-style: none; padding-left: 0; }
+.benefit-checklist li { padding: 0.5rem 0 0.5rem 1.5rem; position: relative; color: var(--text-color); border-bottom: 1px solid var(--border-color); }
+.benefit-checklist li::before { content: '✓'; position: absolute; left: 0; color: var(--secondary-color); font-weight: bold; }
+.benefit-checklist li:last-child { border-bottom: none; }
+.tech-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.tech-tags .tag { background: var(--primary-color); color: #fff; }
+
+/* Process Steps */
+.process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+.step-card { background: #fff; padding: 2rem; border-radius: var(--radius-md); text-align: center; box-shadow: var(--shadow-sm); position: relative; border-top: 4px solid var(--primary-color); }
+.step-number { position: absolute; top: -20px; left: 50%; transform: translateX(-50%); background: var(--secondary-color); color: #fff; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: bold; font-size: 1.2rem; border: 4px solid var(--bg-light); }
+.step-card h4 { margin-top: 1rem; color: var(--primary-dark); }
+
+/* Related Grid */
+.related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2rem; align-items: start; }
+
+@media (max-width: 992px) {
+    .detail-grid { grid-template-columns: 1fr; }
+    .related-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+/* ==========================================
+   PHASE 2: PORTFOLIO MODALS (STEP 18)
+   ========================================== */
+
+/* The Modal Overlay */
+.project-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 2000; /* Sit on top of header */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(10, 22, 40, 0.85);
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    transition: opacity var(--transition-medium);
+}
+
+.project-modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+}
+
+/* Modal Content Box */
+.modal-content {
+    background-color: var(--bg-white);
+    margin: auto;
+    padding: 3rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    width: 90%;
+    max-width: 800px;
+    position: relative;
+    transform: translateY(-50px);
+    transition: transform var(--transition-medium);
+    box-shadow: var(--shadow-xl);
+}
+
+.project-modal.show .modal-content {
+    transform: translateY(0);
+}
+
+/* Close Button */
+.close-modal {
+    color: var(--text-light);
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color var(--transition-fast);
+}
+
+.close-modal:hover,
+.close-modal:focus {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.modal-header h2 {
+    color: var(--primary-dark);
+    margin-bottom: 0.5rem;
+}
+
+.modal-body h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        padding: 2rem 1.5rem;
+        width: 95%;
+    }
+}
+
+/* ==========================================
+   PHASE 2: BLOG & CONTACT PAGES
+   ========================================== */
+.text-sm { font-size: 0.85rem; }
+.blog-card { padding: 0; overflow: hidden; }
+.blog-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+
+@media (max-width: 992px) {
+    .contact-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+}
+
+/* CEO Image Desktop Fix */
+.ceo-image-wrapper {
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 100px; /* Keeps the image in place as you scroll down the bio */
+}
+
+.ceo-img {
+    width: 100%;
+    max-width: 350px; /* Prevents it from getting massively oversized on desktop */
+    height: auto; /* Respects the image's natural dimensions */
+    border-radius: var(--radius-lg);
+    border: 4px solid var(--bg-white);
+    box-shadow: var(--shadow-lg);
+    object-fit: cover;
+}

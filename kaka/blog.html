@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Prince Kaka Global Resources</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="logo-text">Prince Kaka</span>
+                    <span class="logo-subtext">Global Resources</span>
+                </a>
+            </div>
+            <nav class="nav" id="nav">
+                <ul class="nav-list" id="navList">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="services.html" class="nav-link">Services <span class="dropdown-icon">▼</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="service-details.html?service=ai">AI Solutions</a></li>
+                            <li><a href="service-details.html?service=software">Software Development</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                    <li class="nav-item"><a href="blog.html" class="nav-link active">Blog</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container text-center">
+                <h1 class="hero-title">Our <span class="highlight-text">Blog</span></h1>
+                <p class="hero-description mx-auto">Latest insights on AI, Tech, and Digital Transformation.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-header text-center" style="margin-bottom: 3rem;">
+                    <h2>Explore the <span class="highlight-text">NaijaLand Blog</span></h2>
+                    <p>Read our latest insights on Real Estate, Technology, and Market Trends.</p>
+                </div>
+
+                <div class="blog-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <!-- Article 1 -->
+                    <article class="blog-card card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+                        <div class="blog-img" style="height: 200px; background: url('images/blog1-placeholder.jpg') center/cover; background-color: #e2e8f0;"></div>
+                        <div class="blog-content" style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column;">
+                            <span class="text-primary text-sm font-bold">Real Estate Tech</span>
+                            <h3 style="margin: 0.5rem 0; font-size: 1.25rem;">The Future of PropTech in Nigeria</h3>
+                            <p class="text-light" style="flex-grow: 1;">Discover how digital platforms are changing the way properties are bought and sold.</p>
+                            <a href="https://naijaland.com.ng/blog" target="_blank" class="btn btn-secondary" style="margin-top: 1rem; text-align: center; padding: 0.5rem;">Read Article →</a>
+                        </div>
+                    </article>
+
+                    <!-- Article 2 -->
+                    <article class="blog-card card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+                        <div class="blog-img" style="height: 200px; background: url('images/blog2-placeholder.jpg') center/cover; background-color: #e2e8f0;"></div>
+                        <div class="blog-content" style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column;">
+                            <span class="text-primary text-sm font-bold">Market Trends</span>
+                            <h3 style="margin: 0.5rem 0; font-size: 1.25rem;">Navigating Property Valuations</h3>
+                            <p class="text-light" style="flex-grow: 1;">How our AI price estimator ensures you get the best value for your land investments.</p>
+                            <a href="https://naijaland.com.ng/blog" target="_blank" class="btn btn-secondary" style="margin-top: 1rem; text-align: center; padding: 0.5rem;">Read Article →</a>
+                        </div>
+                    </article>
+
+                     <!-- Article 3 -->
+                     <article class="blog-card card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+                        <div class="blog-img" style="height: 200px; background: url('images/blog3-placeholder.jpg') center/cover; background-color: #e2e8f0;"></div>
+                        <div class="blog-content" style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column;">
+                            <span class="text-primary text-sm font-bold">Company Updates</span>
+                            <h3 style="margin: 0.5rem 0; font-size: 1.25rem;">New Features on NaijaLand</h3>
+                            <p class="text-light" style="flex-grow: 1;">Explore the latest updates to our dashboard, offline capabilities, and Paystack integrations.</p>
+                            <a href="https://naijaland.com.ng/blog" target="_blank" class="btn btn-secondary" style="margin-top: 1rem; text-align: center; padding: 0.5rem;">Read Article →</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="text-center mt-4" style="margin-top: 3rem;">
+                    <a href="https://naijaland.com.ng/blog" target="_blank" class="btn btn-primary">Visit Full Blog on NaijaLand</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-bottom text-center">
+            <p>&copy; 2026 Prince Kaka Global Resources. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/navigation.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

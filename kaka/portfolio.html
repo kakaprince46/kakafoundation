@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Prince Kaka Global Resources</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="logo-text">Prince Kaka</span>
+                    <span class="logo-subtext">Global Resources</span>
+                </a>
+            </div>
+            <nav class="nav" id="nav">
+                <ul class="nav-list" id="navList">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="services.html" class="nav-link">Services <span class="dropdown-icon">▼</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="service-details.html?service=ai">AI Solutions</a></li>
+                            <li><a href="service-details.html?service=software">Software Development</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="portfolio.html" class="nav-link active">Portfolio</a></li>
+                    <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section class="page-hero">
+            <div class="container text-center">
+                <h1 class="hero-title">Our <span class="highlight-text">Portfolio</span></h1>
+                <p class="hero-description mx-auto">Explore our featured AI models, web platforms, and mobile applications.</p>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO GRID & FILTERS -->
+        <section class="section">
+            <div class="container">
+                <!-- Reusing the filter classes from Step 8 -->
+                <div class="portfolio-filters">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="ai">AI Models</button>
+                    <button class="filter-btn" data-filter="web">Web Platforms</button>
+                    <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
+                </div>
+
+                <div class="portfolio-grid">
+                    <!-- Project 1: NaijaLand -->
+                    <div class="portfolio-card" data-category="web mobile">
+                        <div class="portfolio-image">
+                            <div class="portfolio-overlay">
+                                <span>React Native, Next.js, Firebase</span>
+                            </div>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>NaijaLand - PropTech Platform</h3>
+                            <p>A comprehensive real estate marketplace featuring secure Paystack integrations.</p>
+                            <button class="btn btn-secondary open-modal-btn mt-4" data-target="modal-naijaland">View Details</button>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: Prompt-to-Song -->
+                    <div class="portfolio-card" data-category="ai web">
+                        <div class="portfolio-image">
+                            <div class="portfolio-overlay">
+                                <span>React, TensorFlow.js, Web Audio API</span>
+                            </div>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>Prompt-to-Song Generator</h3>
+                            <p>In-browser AI audio generation tool customized for real-time prompts.</p>
+                            <button class="btn btn-secondary open-modal-btn mt-4" data-target="modal-song">View Details</button>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: AI Estimator -->
+                    <div class="portfolio-card" data-category="ai web">
+                        <div class="portfolio-image">
+                            <div class="portfolio-overlay">
+                                <span>Python, Scikit-learn, Pandas</span>
+                            </div>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>AI Property Price Estimator</h3>
+                            <p>Machine learning regression tool for estimating real estate values.</p>
+                            <button class="btn btn-secondary open-modal-btn mt-4" data-target="modal-estimator">View Details</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 4: BrainBox -->
+                    <div class="portfolio-card" data-category="mobile">
+                        <div class="portfolio-image">
+                            <div class="portfolio-overlay">
+                                <span>Expo, React Native</span>
+                            </div>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>BrainBox</h3>
+                            <p>An interactive mobile application deployed on the Google Play Store.</p>
+                            <button class="btn btn-secondary open-modal-btn mt-4" data-target="modal-brainbox">View Details</button>
+                        </div>
+                    </div>
+
+                    <!-- Project 5: Biometric Attendance -->
+                    <div class="portfolio-card" data-category="web mobile">
+                        <div class="portfolio-image">
+                            <div class="portfolio-overlay">
+                                <span>React.js, QR API, PWA</span>
+                            </div>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>Biometric Attendance System</h3>
+                            <p>Full-stack event attendance system utilizing dynamic QR codes.</p>
+                            <button class="btn btn-secondary open-modal-btn mt-4" data-target="modal-biometric">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==========================================
+    MODALS (Hidden by default)
+    ========================================== -->
+    <div id="modal-naijaland" class="project-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h2>NaijaLand</h2>
+                <div class="tech-tags mt-4">
+                    <span class="tag">Next.js</span>
+                    <span class="tag">Tailwind CSS</span>
+                    <span class="tag">Firebase</span>
+                </div>
+            </div>
+            <div class="modal-body mt-4">
+                <h4>The Challenge</h4>
+                <p>Handling secure property purchases and facilitating offline capabilities for a diverse user base in Nigeria.</p>
+                <h4 class="mt-4">The Solution</h4>
+                <p>Implemented robust Firestore transactions for security. Engineered a Progressive Web App (PWA) ensuring reliable performance even in low-connectivity areas.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- (Other modals follow the same structure - omitted here for brevity, you can duplicate and modify the IDs: modal-song, modal-estimator, modal-brainbox, modal-biometric) -->
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-bottom text-center">
+            <p>&copy; 2026 Prince Kaka Global Resources. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/navigation.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
