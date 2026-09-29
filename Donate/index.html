@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate - KAKA Humanitarian Foundation</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Donate - KAKA Humanitarian Foundation">
+    <meta property="og:description" content="Support KAKA Humanitarian Foundation. 100% of the Foundation's income is applied solely toward achieving our charitable objectives.">
+    <meta property="og:image" content="https://kakafoundation.com.ng/images/pexels-kwakugriffn-14554003.jpg">
+    <meta property="og:url" content="https://kakafoundation.com.ng/Donate/">
+    
+    <!-- Tailwind CSS & FontAwesome -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Paystack Inline JS -->
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        /* Logo styling */
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #FBBF24;
+        }
+        @media (min-width: 640px) {
+            .logo-text {
+                font-size: 1.8rem;
+            }
+        }
+        .preset-btn.active {
+            background-color: #3B82F6; /* blue-500 */
+            border-color: #3B82F6;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-200 min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-slate-800 shadow-lg">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-3">
+                <img src="../images/KAKA_logo.png" alt="KAKA Humanitarian Foundation Logo" 
+                     class="h-10 w-auto md:h-12 object-contain">
+                <span class="logo-text hidden sm:inline">KAKA Humanitarian Foundation</span>
+            </a>
+            <a href="../index.html"
+                class="px-4 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-blue-400 hover:bg-slate-700 transition">
+                Back to Main Site
+            </a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow py-12 md:py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Trust Intro & Certifications -->
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-blue-400 mb-4">Make a Donation</h2>
+                <div class="w-24 h-1 bg-emerald-500 mx-auto mb-6"></div>
+                
+                <p class="text-slate-300 text-sm md:text-base max-w-3xl mx-auto mb-6 leading-relaxed">
+                    Your generosity empowers us to provide food, clean water, healthcare, and education to vulnerable populations across Nigeria. As a transparent, legally recognized non-profit, we ensure every contribution directly impacts the lives of those who need it most.
+                </p>
+                
+                <!-- Trust Badges -->
+                <div class="flex flex-wrap justify-center items-center gap-3 md:gap-4 mb-6">
+                    <div class="flex items-center gap-2 px-4 py-2 bg-slate-800 rounded-full border border-slate-700 shadow-sm">
+                        <i class="fas fa-certificate text-blue-400"></i>
+                        <span class="text-xs md:text-sm text-slate-300 font-medium">CAC Registered (RC: 9533849)</span>
+                    </div>
+                    <div class="flex items-center gap-2 px-4 py-2 bg-slate-800 rounded-full border border-slate-700 shadow-sm">
+                        <i class="fas fa-shield-alt text-emerald-400"></i>
+                        <span class="text-xs md:text-sm text-slate-300 font-medium">SCUML Certified</span>
+                    </div>
+                </div>
+
+                <p class="text-sm md:text-base text-emerald-400 font-medium max-w-3xl mx-auto bg-slate-800/50 p-4 rounded-lg border border-emerald-500/30">
+                    "100% of the Foundation's income and property are applied solely toward achieving our charitable objectives."
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
+                
+                <!-- Option 1: Direct Bank Transfer -->
+                <div class="bg-slate-800 p-6 md:p-8 rounded-lg shadow-lg border-t-4 border-emerald-500">
+                    <div class="text-emerald-400 text-3xl mb-4">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-4 text-white">Direct Bank Transfer</h3>
+                    <p class="text-slate-300 mb-6 text-sm md:text-base">
+                        You can make a direct deposit or wire transfer to our official bank account. Your support helps us provide food, clean water, and education to vulnerable populations.
+                    </p>
+                    
+                    <div class="bg-slate-700 p-6 rounded-lg mb-4">
+                        <p class="text-sm font-medium text-slate-400 mb-1">Account Name:</p>
+                        <p class="text-white font-bold text-lg mb-4">KAKA Humanitarian Foundation</p>
+                        
+                        <p class="text-sm font-medium text-slate-400 mb-1">Account Number:</p>
+                        <div class="flex items-center gap-3 mb-4">
+                            <p class="text-white font-bold text-2xl tracking-wider">2048858759</p>
+                            <button onclick="copyAccountNumber()" class="bg-slate-600 hover:bg-slate-500 text-slate-300 px-3 py-1.5 rounded transition text-sm flex items-center gap-2" title="Copy to clipboard">
+                                <i class="fas fa-copy"></i> Copy
+                            </button>
+                        </div>
+                        
+                        <p class="text-sm font-medium text-slate-400 mb-1">Bank:</p>
+                        <p class="text-white font-bold text-lg">First Bank Of Nigeria</p>
+                    </div>
+                    <p class="text-xs text-slate-400 text-center">
+                        <i class="fas fa-shield-alt text-emerald-400 mr-1"></i> Official Foundation Account
+                    </p>
+                </div>
+
+                <!-- Option 2: Online Payment (Paystack) -->
+                <div class="bg-slate-800 p-6 md:p-8 rounded-lg shadow-lg border-t-4 border-blue-500">
+                    <div class="text-blue-400 text-3xl mb-4">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-4 text-white">Pay Securely Online</h3>
+                    <p class="text-slate-300 mb-6 text-sm md:text-base">
+                        Use your debit card, credit card, or USSD to make an instant, secure donation through Paystack.
+                    </p>
+
+                    <form id="paystack-form" class="space-y-5">
+                        
+                        <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
+                            <div>
+                                <label for="fullName" class="block text-sm font-medium text-slate-300 mb-2">Full Name *</label>
+                                <input type="text" id="fullName" required
+                                    class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                            </div>
+
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-slate-300 mb-2">Email Address *</label>
+                                <input type="email" id="email" required
+                                    class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                            </div>
+                        </div>
+
+                        <!-- Donation Purpose Dropdown -->
+                        <div>
+                            <label for="donationPurpose" class="block text-sm font-medium text-slate-300 mb-2">What should your donation be used for? *</label>
+                            <select id="donationPurpose" required class="w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition mb-3">
+                                <option value="General Support" selected>General Support (Where needed most)</option>
+                                <option value="Food Distribution">Food Distribution (Zero Hunger)</option>
+                                <option value="Education Support">Education Support</option>
+                                <option value="Clean Water Access">Clean Water Access</option>
+                                <option value="Healthcare Initiatives">Healthcare / Medical Initiatives</option>
+                                <option value="Shelter Support">Shelter Support</option>
+                                <option value="Other">Other (Please specify)</option>
+                            </select>
+                            
+                            <!-- Hidden Text Box for 'Other' -->
+                            <input type="text" id="otherPurpose" class="hidden w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="Please specify your donation purpose...">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-slate-300 mb-2">Select Amount (NGN) *</label>
+                            <div class="grid grid-cols-3 gap-2 mb-3">
+                                <button type="button" class="preset-btn py-2 px-2 rounded-lg bg-slate-700 border border-slate-600 hover:border-blue-400 text-sm transition-all" data-amount="5000">₦5,000</button>
+                                <button type="button" class="preset-btn py-2 px-2 rounded-lg bg-slate-700 border border-slate-600 hover:border-blue-400 text-sm transition-all" data-amount="10000">₦10,000</button>
+                                <button type="button" class="preset-btn py-2 px-2 rounded-lg bg-slate-700 border border-slate-600 hover:border-blue-400 text-sm transition-all" data-amount="50000">₦50,000</button>
+                            </div>
+                            
+                            <div class="relative">
+                                <span class="absolute left-4 top-3 text-slate-400 font-bold">₦</span>
+                                <input type="number" id="amount" min="1000" required
+                                    class="w-full pl-10 pr-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                                    placeholder="Or enter custom amount (Min ₦1,000)">
+                            </div>
+                        </div>
+
+                        <!-- Success Message Container -->
+                        <div id="payment-success" class="hidden bg-emerald-500/20 border border-emerald-500/50 p-4 rounded-lg mt-4">
+                            <p class="text-emerald-400 font-medium text-center" id="success-message"></p>
+                        </div>
+
+                        <button type="submit" 
+                            class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105 flex justify-center items-center gap-2 mt-4">
+                            <i class="fas fa-lock"></i> Donate Online Now
+                        </button>
+                    </form>
+                    
+                    <div class="mt-6 text-center">
+                        <p class="text-xs text-slate-500 flex items-center justify-center gap-1">
+                            <i class="fas fa-shield-alt"></i> Secured by Paystack
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 py-6 border-t border-slate-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-slate-500 text-sm">
+            <p>Copyright © <span id="current-year"></span> KAKA Humanitarian Foundation. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Set Current Year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Copy Account Number Logic
+        function copyAccountNumber() {
+            navigator.clipboard.writeText('2048858759').then(function() {
+                const copyBtn = document.querySelector('.fa-copy').parentElement;
+                const originalText = copyBtn.innerHTML;
+                copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                copyBtn.classList.add('text-emerald-400');
+                
+                setTimeout(() => {
+                    copyBtn.innerHTML = originalText;
+                    copyBtn.classList.remove('text-emerald-400');
+                }, 2000);
+            }).catch(function(err) {
+                console.error('Could not copy text: ', err);
+                alert('Failed to copy. Account number is: 2048858759');
+            });
+        }
+
+        // Toggle 'Other' Text Input
+        const purposeSelect = document.getElementById('donationPurpose');
+        const otherPurposeInput = document.getElementById('otherPurpose');
+
+        purposeSelect.addEventListener('change', function() {
+            if (this.value === 'Other') {
+                otherPurposeInput.classList.remove('hidden');
+                otherPurposeInput.setAttribute('required', 'true');
+            } else {
+                otherPurposeInput.classList.add('hidden');
+                otherPurposeInput.removeAttribute('required');
+                otherPurposeInput.value = ''; // Clear value if hidden
+            }
+        });
+
+        // Paystack Preset Buttons Logic
+        const presetButtons = document.querySelectorAll('.preset-btn');
+        const amountInput = document.getElementById('amount');
+
+        presetButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                presetButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                amountInput.value = btn.getAttribute('data-amount');
+            });
+        });
+
+        amountInput.addEventListener('input', () => {
+            presetButtons.forEach(b => b.classList.remove('active'));
+        });
+
+        // Paystack Integration Logic
+        const paystackForm = document.getElementById('paystack-form');
+        
+        paystackForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const fullName = document.getElementById('fullName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const amount = document.getElementById('amount').value;
+            
+            // Get final donation purpose
+            let finalPurpose = purposeSelect.value;
+            if (finalPurpose === 'Other') {
+                finalPurpose = otherPurposeInput.value.trim();
+            }
+
+            if (!amount || amount < 1000) {
+                alert('Please enter a minimum donation of ₦1,000');
+                return;
+            }
+
+            const handler = PaystackPop.setup({
+                key: 'pk_live_e56ba1fd2ea4b1f1f1af1797e7a5285a527e3016', // <-- REPLACE WITH YOUR KAKA FOUNDATION LIVE PUBLIC KEY
+                email: email,
+                amount: Math.round(Number(amount) * 100), // Convert Naira to Kobo
+                currency: 'NGN',
+                ref: 'KAKA_' + Math.floor((Math.random() * 1000000000) + 1),
+                metadata: {
+                    custom_fields: [
+                        {
+                            display_name: "Donor Name",
+                            variable_name: "donor_name",
+                            value: fullName
+                        },
+                        {
+                            display_name: "Donation Purpose",
+                            variable_name: "purpose",
+                            value: finalPurpose
+                        }
+                    ]
+                },
+                callback: function(response) {
+                    // Show success message
+                    const successContainer = document.getElementById('payment-success');
+                    const successText = document.getElementById('success-message');
+                    
+                    successContainer.classList.remove('hidden');
+                    successText.innerHTML = `God bless you, ${fullName}! Your donation was successful.<br>Reference: ${response.reference}`;
+                    
+                    // Reset form
+                    paystackForm.reset();
+                    presetButtons.forEach(b => b.classList.remove('active'));
+                    otherPurposeInput.classList.add('hidden');
+                },
+                onClose: function() {
+                    console.log('Payment window closed.');
+                }
+            });
+
+            handler.openIframe();
+        });
+    </script>
+</body>
+</html>
